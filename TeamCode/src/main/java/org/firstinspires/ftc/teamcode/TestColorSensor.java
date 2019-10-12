@@ -16,4 +16,16 @@ public class TestColorSensor {
     public int Blue() {
         return Color.blue();
     }
+
+    public int RGB() {
+        return Color.argb();
+    }
+
+    public int Alpha() {
+        return Color.alpha();
+    }
+    
+    public void LED(boolean lights) {
+        Color.enableLed(lights);
+    }
 }

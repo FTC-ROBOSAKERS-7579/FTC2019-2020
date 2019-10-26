@@ -1,4 +1,5 @@
-/* Auto for:
+/*
+   Auto for:
    - Blue Team
    - Spawn location is near depot
    - Teammate is going for sky bricks
@@ -16,7 +17,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 @Autonomous
-public class AutoTemplate extends LinearOpMode {
+public class BlueAuto1 extends LinearOpMode {
     ElapsedTime runtime = new ElapsedTime();
     TestAutoDriveTrain driveTrain = new TestAutoDriveTrain();
     TestRangedSensor rangedSensor = new TestRangedSensor();

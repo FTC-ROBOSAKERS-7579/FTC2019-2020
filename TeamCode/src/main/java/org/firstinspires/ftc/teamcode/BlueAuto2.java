@@ -1,7 +1,8 @@
-/* Auto for:
+/*
+   Auto for:
    - Blue Team
    - Spawn location is near depot
-   - Teammate is going for foundation/Teammate is going for nothing/Teammate has no auto
+   - Teammate is not going for sky bricks
 
    Pseudo Code:
    - Move forward until the robot reaches the blocks
@@ -15,7 +16,6 @@
    - Push sky block out of intake
    - Turn left
    - Move forward until robot is under the bridge
-
 */
 package org.firstinspires.ftc.teamcode;
 
@@ -24,7 +24,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 @Autonomous
-public class AutoTemplate extends LinearOpMode {
+public class BlueAuto2 extends LinearOpMode {
     ElapsedTime runtime = new ElapsedTime();
     TestAutoDriveTrain driveTrain = new TestAutoDriveTrain();
     TestRangedSensor rangedSensor = new TestRangedSensor();

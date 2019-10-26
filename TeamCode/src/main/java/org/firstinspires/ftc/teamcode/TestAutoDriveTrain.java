@@ -13,8 +13,8 @@ public class TestAutoDriveTrain {
 
     HardwareMap hardwareMap;
 
-
-    public void init(){
+    // INITIAL
+    public void init(HardwareMap hardwareMap){
         FRONT_LEFT = hardwareMap.dcMotor.get("FL");
         FRONT_RIGHT = hardwareMap.dcMotor.get("FR");
         BACK_LEFT = hardwareMap.dcMotor.get("BL");
@@ -27,7 +27,7 @@ public class TestAutoDriveTrain {
 
     }
 
-
+    // DRIVE
     public void drive(int distance , double power){
 
 

@@ -45,12 +45,17 @@ public class BlueAuto2 extends LinearOpMode {
         waitForStart();
         runtime.reset();
 
+        // AUTONOMOUS PERIOD
         while (opModeIsActive()) {
+            // MOVING THE ROBOT FORWARD UNTIL IT REACHES THE FIRST BLOCK
             driveTrain.drive(34, 0.5);
             sleep(500);
             runtime.reset();
 
+            // TURNING THE COLOR SENSOR ON
             colorSensor.LED(true);
+
+            // SEEING IF THE BLOCK IN FRONT OF THE ROBOT IS YELLOW
             if(colorSensor.Red() > 200 && colorSensor.Green() > 200 && colorSensor.Blue() < 50) {
 
             }

@@ -14,7 +14,7 @@ public class TestAutoDriveTrain {
     HardwareMap hardwareMap;
 
     // INITIAL
-    public void init(HardwareMap hardwareMap){
+    public void init(HardwareMap hardwareMap) {
         FRONT_LEFT = hardwareMap.dcMotor.get("FL");
         FRONT_RIGHT = hardwareMap.dcMotor.get("FR");
         BACK_LEFT = hardwareMap.dcMotor.get("BL");
@@ -28,22 +28,12 @@ public class TestAutoDriveTrain {
     }
 
     // DRIVE
-    public void drive(int distance , double power){
-
-
-        while(position <= distance){
-        FRONT_RIGHT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        FRONT_LEFT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        BACK_RIGHT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        BACK_LEFT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-
-
-
+    public void drive(int distance, double power) {
+        while (position <= distance) {
+            FRONT_RIGHT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            FRONT_LEFT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            BACK_RIGHT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            BACK_LEFT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         }
     }
-
-
-
-
-
 }

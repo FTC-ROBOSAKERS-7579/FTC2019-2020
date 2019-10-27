@@ -46,7 +46,14 @@ public class RedAuto2 extends LinearOpMode {
         runtime.reset();
 
         while (opModeIsActive()) {
+            driveTrain.drive(34, 0.5);
+            sleep(500);
+            runtime.reset();
 
+            colorSensor.LED(true);
+            if(colorSensor.Red() > 200 && colorSensor.Green() > 200 && colorSensor.Blue() < 50) {
+
+            }
         }
     }
 }

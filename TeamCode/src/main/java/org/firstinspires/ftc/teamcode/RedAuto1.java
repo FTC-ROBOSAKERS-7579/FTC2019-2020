@@ -39,18 +39,21 @@ public class RedAuto1 extends LinearOpMode {
         runtime.reset();
 
         while (opModeIsActive()) {
+            // MOVING THE ROBOT FORWARD UNTIL IT CAN TURN RIGHT INTO THE ALLIANCE BRIDGE
+            driveTrain.drive(24, 0.5);
+            sleep(500);
             runtime.reset();
 
-                    driveTrain.drive(34, 0.5);
-                    sleep(500);
+            // TURN RIGHT
+            driveTrain.turn(90, 0.5);
+            sleep(500);
+            runtime.reset();
 
-                    driveTrain.turn(90, 0.5);
-                    sleep(500);
+            // MOVING FORWARD UNTIL WHEEL IS UNDER BRIDGE
+            driveTrain.drive(24, 0.5);
+            sleep(500);
+            runtime.reset();
 
-                    driveTrain.drive(34, 0.5);
-                    sleep(500);
-            }
         }
     }
-
-
+}

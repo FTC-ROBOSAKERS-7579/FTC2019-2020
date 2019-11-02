@@ -38,7 +38,20 @@ public class BlueAuto3 extends LinearOpMode {
         runtime.reset();
 
         while (opModeIsActive()) {
+            // MOVING THE ROBOT FORWARD UNTIL IT CAN TURN RIGHT INTO THE ALLIANCE BRIDGE
+            driveTrain.drive(24, 0.5);
+            sleep(500);
+            runtime.reset();
 
+            // TURNING RIGHT TO FACE THE ALLIANCE BRIDGE
+            driveTrain.turn(90, 0.5);
+            sleep(500);
+            runtime.reset();
+
+            // MOVING FORWARD UNTIL WHEEL IS UNDER BRIDGE
+            driveTrain.drive(24, 0.5);
+            sleep(500);
+            runtime.reset();
         }
     }
 }

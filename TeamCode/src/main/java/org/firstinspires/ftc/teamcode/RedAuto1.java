@@ -1,6 +1,6 @@
 /*
    Auto for:
-   - rED Team
+   - Red Team
    - Spawn location is near depot
    - Teammate is going for sky bricks
 

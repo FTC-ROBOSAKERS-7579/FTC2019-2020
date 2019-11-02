@@ -39,24 +39,18 @@ public class BlueAuto1 extends LinearOpMode {
         runtime.reset();
 
         while (opModeIsActive()) {
+            // MOVING THE ROBOT FORWARD UNTIL IT CAN TURN LEFT INTO THE ALLIANCE BRIDGE
+            driveTrain.drive(34, 0.5);
+            sleep(500);
             runtime.reset();
 
-                // Will drive straight
-                driveTrain.drive(34, 0.5);
-                sleep(500);
+            //TURNING LEFT TO FACE THE ALLIANCE BRIDGE
+            driveTrain.turn(-90, 0.5);
+            sleep(500);
+            runtime.reset();
 
-                // Color Sensor will turn on
-                colorSensor.LED(true);
+            //MOVING FORWARD UNTIL WHEEL IS UNDER BRIDGE
 
-                // Checks if the robot is near the yellow block and will turn left and go straight to park
-                if (colorSensor.Red() > 200 && colorSensor.Green() > 200 && colorSensor.Blue() < 50) {
-
-                    driveTrain.turn(90, 0.5);
-                    sleep(750);
-
-                    driveTrain.drive(30, 0.5);
-                    sleep(500);
-            }
         }
     }
 }

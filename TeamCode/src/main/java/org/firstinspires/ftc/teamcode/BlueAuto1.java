@@ -57,5 +57,6 @@ public class BlueAuto1 extends LinearOpMode {
             sleep(500);
         }
     }
+}
 
 

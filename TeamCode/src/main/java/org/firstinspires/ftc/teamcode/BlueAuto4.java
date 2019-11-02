@@ -51,22 +51,45 @@ public class BlueAuto4 extends LinearOpMode {
 
         while (opModeIsActive()) {
 
-            // Will drive straight
             driveTrain.drive(34, 0.5);
             sleep(500);
 
-            // Color Sensor will turn on
+            driveTrain.turn(90, 0.5);
+            sleep(750);
+
+            driveTrain.drive(34, 0.5);
+            sleep(500);
+
+            driveTrain.turn(-90, 0.5);
+            sleep(500);
+
+            driveTrain.drive(34, 0.5);
+            sleep(500);
+
             colorSensor.LED(true);
 
-            // Checks if the robot is near the yellow block and will turn left and go straight to park
             if (colorSensor.Red() > 200 && colorSensor.Green() > 200 && colorSensor.Blue() < 50) {
 
                 driveTrain.turn(90, 0.5);
-                sleep(750);
-
-                driveTrain.drive(30, 0.5);
                 sleep(500);
             }
+            while (colorSensor.Red() > 200 && colorSensor.Green() > 200 && colorSensor.Blue() < 50) {
+
+                driveTrain.drive(34, 0.5);
+                sleep(500);
+            }
+            driveTrain.turn(-90, 0.5);
+            sleep(500);
+
+
         }
     }
 }
+
+
+
+
+
+
+
+

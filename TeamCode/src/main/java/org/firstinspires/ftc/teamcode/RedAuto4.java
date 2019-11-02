@@ -50,38 +50,305 @@ public class RedAuto4 extends LinearOpMode {
         runtime.reset();
 
         while (opModeIsActive()) {
-
-            driveTrain.drive(34, 0.5);
+            // MOVE FORWARD UNTIL IT HAS ENOUGH SPACE TO TURN LEFT
+            driveTrain.drive(24, 0.5);
             sleep(500);
+            runtime.reset();
 
+            // TURN LEFT
             driveTrain.turn(-90, 0.5);
-            sleep(750);
-
-            driveTrain.drive(34, 0.5);
             sleep(500);
+            runtime.reset();
 
+            // MOVE FORWARD UNTIL IT IS ALIGNED WITH THE FIRST BLOCK
+            driveTrain.drive(56, 0.5);
+            sleep(500);
+            runtime.reset();
+
+            // TURN RIGHT
             driveTrain.turn(90, 0.5);
             sleep(500);
+            runtime.reset();
 
-            driveTrain.drive(34, 0.5);
+            // MOVING THE ROBOT FORWARD UNTIL IT REACHES THE FIRST BLOCK
+            driveTrain.drive(12, 0.5);
             sleep(500);
+            runtime.reset();
 
+            // TURNING THE COLOR SENSOR ON
             colorSensor.LED(true);
 
-            if (colorSensor.Red() > 200 && colorSensor.Green() > 200 && colorSensor.Blue() < 50) {
+            // SEEING IF THE BLOCK IN FRONT OF THE ROBOT IS YELLOW (1)
+            if(colorSensor.Red() > 200 && colorSensor.Green() > 200 && colorSensor.Blue() < 50) {
+                // STRAFING RIGHT UNTIL THE ROBOT IS IN FRONT OF THE NEXT BLOCK
+                driveTrain.strafe(4, 0.5);
+                sleep(500);
+                runtime.reset();
 
+                // SEEING IF THE BLOCK IN FRONT OF THE ROBOT IS YELLOW (2)
+                if (colorSensor.Red() > 200 && colorSensor.Green() > 200 && colorSensor.Blue() < 50) {
+                    // STRAFING RIGHT UNTIL THE ROBOT IS IN FRONT OF THE NEXT BLOCK
+                    driveTrain.strafe(4, 0.5);
+                    sleep(500);
+                    runtime.reset();
+
+
+                    // SEEING IF THE BLOCK IN FRONT OF THE ROBOT IS YELLOW (3)
+                    if (colorSensor.Red() > 200 && colorSensor.Green() > 200 && colorSensor.Blue() < 50) {
+                        // STRAFING RIGHT UNTIL THE ROBOT IS IN FRONT OF THE NEXT BLOCK
+                        driveTrain.strafe(4, 0.5);
+                        sleep(500);
+                        runtime.reset();
+
+                        // SEEING IF THE BLOCK IN FRONT OF THE ROBOT IS YELLOW (4)
+                        if (colorSensor.Red() > 200 && colorSensor.Green() > 200 && colorSensor.Blue() < 50) {
+                            // STRAFING RIGHT UNTIL THE ROBOT IS IN FRONT OF THE NEXT BLOCK
+                            driveTrain.strafe(4, 0.5);
+                            sleep(500);
+                            runtime.reset();
+
+                            // SEEING IF THE BLOCK IN FRONT OF THE ROBOT IS YELLOW (5)
+                            if (colorSensor.Red() > 200 && colorSensor.Green() > 200 && colorSensor.Blue() < 50) {
+                                // STRAFING RIGHT UNTIL THE ROBOT IS IN FRONT OF THE NEXT BLOCK
+                                driveTrain.strafe(4, 0.5);
+                                sleep(500);
+                                runtime.reset();
+
+                                // SEEING IF THE BLOCK IN FRONT OF THE ROBOT IS YELLOW (6)
+                                if (colorSensor.Red() > 200 && colorSensor.Green() > 200 && colorSensor.Blue() < 50) {
+                                    // STRAFING RIGHT UNTIL THE ROBOT IS IN FRONT OF THE NEXT BLOCK
+                                    driveTrain.strafe(4, 0.5);
+                                    sleep(500);
+                                    runtime.reset();
+
+                                }
+                                else {
+                                    // PICK UP BRICK
+
+
+                                    // TURN RIGHT
+                                    driveTrain.turn(90, 0.5);
+                                    sleep(500);
+                                    runtime.reset();
+
+                                    // MOVE FORWARD UNTIL PAST THE BRICKS
+                                    driveTrain.drive(26, 0.5);
+                                    sleep(500);
+                                    runtime.reset();
+
+                                    // TURN LEFT
+                                    driveTrain.turn(-90, 0.5);
+                                    sleep(500);
+                                    runtime.reset();
+
+                                    // MOVE FORWARD UNTIL ALIGNED WITH THE NEUTRAL BRIDGE
+                                    driveTrain.drive(17, 0.5);
+                                    sleep(500);
+                                    runtime.reset();
+
+                                    // TURN RIGHT
+                                    driveTrain.turn(90, 0.5);
+                                    sleep(500);
+                                    runtime.reset();
+
+                                    // MOVE FORWARD UNTIL THE ROBOT IS IN FRONT OF THE FOUNDATION
+                                    driveTrain.drive(2, 0.5);
+                                    sleep(500);
+                                    runtime.reset();
+
+                                    // DROP BRICK
+
+                                }
+                            }
+                            else {
+                                // PICK UP BRICK
+
+
+                                // TURN RIGHT
+                                driveTrain.turn(90, 0.5);
+                                sleep(500);
+                                runtime.reset();
+
+                                // MOVE FORWARD UNTIL PAST THE BRICKS
+                                driveTrain.drive(22, 0.5);
+                                sleep(500);
+                                runtime.reset();
+
+                                // TURN LEFT
+                                driveTrain.turn(-90, 0.5);
+                                sleep(500);
+                                runtime.reset();
+
+                                // MOVE FORWARD UNTIL ALIGNED WITH THE NEUTRAL BRIDGE
+                                driveTrain.drive(17, 0.5);
+                                sleep(500);
+                                runtime.reset();
+
+                                // TURN RIGHT
+                                driveTrain.turn(90, 0.5);
+                                sleep(500);
+                                runtime.reset();
+
+                                // MOVE FORWARD UNTIL THE ROBOT IS IN FRONT OF THE FOUNDATION
+                                driveTrain.drive(2, 0.5);
+                                sleep(500);
+                                runtime.reset();
+
+                                // DROP BRICK
+
+                            }
+                        }
+                        else {
+                            // PICK UP BRICK
+
+
+                            // TURN RIGHT
+                            driveTrain.turn(90, 0.5);
+                            sleep(500);
+                            runtime.reset();
+
+                            // MOVE FORWARD UNTIL PAST THE BRICKS
+                            driveTrain.drive(18, 0.5);
+                            sleep(500);
+                            runtime.reset();
+
+                            // TURN LEFT
+                            driveTrain.turn(-90, 0.5);
+                            sleep(500);
+                            runtime.reset();
+
+                            // MOVE FORWARD UNTIL ALIGNED WITH THE NEUTRAL BRIDGE
+                            driveTrain.drive(17, 0.5);
+                            sleep(500);
+                            runtime.reset();
+
+                            // TURN RIGHT
+                            driveTrain.turn(90, 0.5);
+                            sleep(500);
+                            runtime.reset();
+
+                            // MOVE FORWARD UNTIL THE ROBOT IS IN FRONT OF THE FOUNDATION
+                            driveTrain.drive(2, 0.5);
+                            sleep(500);
+                            runtime.reset();
+
+                            // DROP BRICK
+
+                        }
+                    }
+                    else {
+                        // PICK UP BRICK
+
+
+                        // TURN RIGHT
+                        driveTrain.turn(90, 0.5);
+                        sleep(500);
+                        runtime.reset();
+
+                        // MOVE FORWARD UNTIL PAST THE BRICKS
+                        driveTrain.drive(14, 0.5);
+                        sleep(500);
+                        runtime.reset();
+
+                        // TURN LEFT
+                        driveTrain.turn(-90, 0.5);
+                        sleep(500);
+                        runtime.reset();
+
+                        // MOVE FORWARD UNTIL ALIGNED WITH THE NEUTRAL BRIDGE
+                        driveTrain.drive(17, 0.5);
+                        sleep(500);
+                        runtime.reset();
+
+                        // TURN RIGHT
+                        driveTrain.turn(90, 0.5);
+                        sleep(500);
+                        runtime.reset();
+
+                        // MOVE FORWARD UNTIL THE ROBOT IS IN FRONT OF THE FOUNDATION
+                        driveTrain.drive(2, 0.5);
+                        sleep(500);
+                        runtime.reset();
+
+                        // DROP BRICK
+
+                    }
+                }
+                else {
+                    // PICK UP BRICK
+
+
+                    // TURN RIGHT
+                    driveTrain.turn(90, 0.5);
+                    sleep(500);
+                    runtime.reset();
+
+                    // MOVE FORWARD UNTIL PAST THE BRICKS
+                    driveTrain.drive(10, 0.5);
+                    sleep(500);
+                    runtime.reset();
+
+                    // TURN LEFT
+                    driveTrain.turn(-90, 0.5);
+                    sleep(500);
+                    runtime.reset();
+
+                    // MOVE FORWARD UNTIL ALIGNED WITH THE NEUTRAL BRIDGE
+                    driveTrain.drive(17, 0.5);
+                    sleep(500);
+                    runtime.reset();
+
+                    // TURN RIGHT
+                    driveTrain.turn(90, 0.5);
+                    sleep(500);
+                    runtime.reset();
+
+                    // MOVE FORWARD UNTIL THE ROBOT IS IN FRONT OF THE FOUNDATION
+                    driveTrain.drive(2, 0.5);
+                    sleep(500);
+                    runtime.reset();
+
+                    // DROP BRICK
+
+                }
+            }
+            else {
+                // PICK UP BRICK
+
+
+                // TURN RIGHT
+                driveTrain.turn(90, 0.5);
+                sleep(500);
+                runtime.reset();
+
+                // MOVE FORWARD UNTIL PAST THE BRICKS
+                driveTrain.drive(6, 0.5);
+                sleep(500);
+                runtime.reset();
+
+                // TURN LEFT
                 driveTrain.turn(-90, 0.5);
                 sleep(500);
-            }
-            while (colorSensor.Red() > 200 && colorSensor.Green() > 200 && colorSensor.Blue() < 50) {
+                runtime.reset();
 
-                driveTrain.drive(34, 0.5);
+                // MOVE FORWARD UNTIL ALIGNED WITH THE NEUTRAL BRIDGE
+                driveTrain.drive(17, 0.5);
                 sleep(500);
+                runtime.reset();
+
+                // TURN RIGHT
+                driveTrain.turn(90, 0.5);
+                sleep(500);
+                runtime.reset();
+
+                // MOVE FORWARD UNTIL THE ROBOT IS IN FRONT OF THE FOUNDATION
+                driveTrain.drive(2, 0.5);
+                sleep(500);
+                runtime.reset();
+
+                // DROP BRICK
+
             }
-            driveTrain.turn(90, 0.5);
-            sleep(500);
-
-
         }
     }
 }

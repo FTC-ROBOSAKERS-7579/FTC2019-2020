@@ -109,7 +109,7 @@ public class RedAuto2 extends LinearOpMode {
                                     runtime.reset();
 
                                     // MOVE FORWARD UNTIL PAST THE BRICKS
-                                    driveTrain.drive(6, 0.5);
+                                    driveTrain.drive(26, 0.5);
                                     sleep(500);
                                     runtime.reset();
 
@@ -147,7 +147,7 @@ public class RedAuto2 extends LinearOpMode {
                                 runtime.reset();
 
                                 // MOVE FORWARD UNTIL PAST THE BRICKS
-                                driveTrain.drive(6, 0.5);
+                                driveTrain.drive(22, 0.5);
                                 sleep(500);
                                 runtime.reset();
 
@@ -185,7 +185,7 @@ public class RedAuto2 extends LinearOpMode {
                             runtime.reset();
 
                             // MOVE FORWARD UNTIL PAST THE BRICKS
-                            driveTrain.drive(6, 0.5);
+                            driveTrain.drive(18, 0.5);
                             sleep(500);
                             runtime.reset();
 
@@ -223,7 +223,7 @@ public class RedAuto2 extends LinearOpMode {
                         runtime.reset();
 
                         // MOVE FORWARD UNTIL PAST THE BRICKS
-                        driveTrain.drive(6, 0.5);
+                        driveTrain.drive(14, 0.5);
                         sleep(500);
                         runtime.reset();
 
@@ -261,7 +261,7 @@ public class RedAuto2 extends LinearOpMode {
                     runtime.reset();
 
                     // MOVE FORWARD UNTIL PAST THE BRICKS
-                    driveTrain.drive(6, 0.5);
+                    driveTrain.drive(10, 0.5);
                     sleep(500);
                     runtime.reset();
 

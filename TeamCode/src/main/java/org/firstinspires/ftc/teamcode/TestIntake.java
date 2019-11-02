@@ -21,6 +21,7 @@ public class TestIntake {
         Intake1.setDirection(Servo.Direction.FORWARD);
         Intake2.setDirection(Servo.Direction.REVERSE);
     }
+
     public void Arm(double power) {
         Arm1.setPower(power);
         Arm2.setPower(-power);

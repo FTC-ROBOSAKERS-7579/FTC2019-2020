@@ -41,23 +41,16 @@ public class RedAuto1 extends LinearOpMode {
         while (opModeIsActive()) {
             runtime.reset();
 
-                // Will drive straight
-                driveTrain.drive(34, 0.5);
-                sleep(500);
-
-                // Color Sensor will turn on
-                colorSensor.LED(true);
-
-                // Checks if the robot is near the yellow block and will turn right and go straight to park
-                if (colorSensor.Red() > 200 && colorSensor.Green() > 200 && colorSensor.Blue() < 50) {
+                    driveTrain.drive(34, 0.5);
+                    sleep(500);
 
                     driveTrain.turn(90, 0.5);
                     sleep(500);
 
-                    driveTrain.drive(30, 0.5);
+                    driveTrain.drive(34, 0.5);
                     sleep(500);
             }
         }
     }
-}
+
 

@@ -44,18 +44,17 @@ public class BlueAuto1 extends LinearOpMode {
             sleep(500);
             runtime.reset();
 
-            //TURNING LEFT TO FACE THE ALLIANCE BRIDGE
+            // TURNING LEFT TO FACE THE ALLIANCE BRIDGE
             driveTrain.turn(-90, 0.5);
             sleep(500);
             runtime.reset();
 
-            //MOVING FORWARD UNTIL WHEEL IS UNDER BRIDGE
+            // MOVING FORWARD UNTIL WHEEL IS UNDER BRIDGE
             driveTrain.turn(-90, 0.5);
             sleep(500);
 
             driveTrain.drive(34, 0.5);
             sleep(500);
-            }
         }
     }
 

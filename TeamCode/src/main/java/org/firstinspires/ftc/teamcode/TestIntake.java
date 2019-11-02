@@ -21,20 +21,14 @@ public class TestIntake {
         Intake1.setDirection(Servo.Direction.FORWARD);
         Intake2.setDirection(Servo.Direction.REVERSE);
     }
-    public void setArm1(double power1) {
-        Arm1.setPower(power1);
+    public void Arm(double power) {
+        Arm1.setPower(power);
+        Arm2.setPower(-power);
     }
 
-    public void setArm2(double power2) {
-        Arm2.setPower(power2);
-    }
-
-    public void setIntake1(double power1) {
-        Intake1.setPosition(power1);
-    }
-    
-    public void setIntake2(double power2) {
-        Intake2.setPosition(power2);
+    public void Intake(double power) {
+        Intake1.setPosition(power);
+        Intake2.setPosition(-power);
     }
 
 }

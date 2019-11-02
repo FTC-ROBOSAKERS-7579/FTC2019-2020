@@ -29,6 +29,7 @@ public class BlueAuto2 extends LinearOpMode {
     TestAutoDriveTrain driveTrain = new TestAutoDriveTrain();
     TestRangedSensor rangedSensor = new TestRangedSensor();
     TestColorSensor  colorSensor = new TestColorSensor();
+    TestIntake intake = new TestIntake();
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -291,7 +292,6 @@ public class BlueAuto2 extends LinearOpMode {
             }
             else {
                 // PICK UP BRICK
-
 
                 // TURN LEFT
                 driveTrain.turn(-90, 0.5);

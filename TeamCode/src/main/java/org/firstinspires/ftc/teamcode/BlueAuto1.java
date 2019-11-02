@@ -22,6 +22,7 @@ public class BlueAuto1 extends LinearOpMode {
     TestAutoDriveTrain driveTrain = new TestAutoDriveTrain();
     TestRangedSensor rangedSensor = new TestRangedSensor();
     TestColorSensor colorSensor = new TestColorSensor();
+    TestIntake intake = new TestIntake();
 
     @Override
     public void runOpMode() throws InterruptedException {

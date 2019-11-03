@@ -2,29 +2,60 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
 @TeleOp
 public class TestTeleOp extends LinearOpMode {
     ElapsedTime runtime = new ElapsedTime();
-
-    public DcMotor FRONT_RIGHT;
-    public DcMotor FRONT_LEFT;
-    public DcMotor BACK_RIGHT;
-    public DcMotor BACK_LEFT;
+    TestDriveTrain Dtrain = new TestDriveTrain();
+    TestCascade cascade = new TestCascade();
+    TestIntake Intake = new TestIntake();
 
 
-    public void runOpMode() throws InterruptedException{
-        if(gamepad1.a){
-            FRONT_RIGHT.setPower(0.5);
+
+
+
+    @Override
+    public void runOpMode() throws InterruptedException {
+
+        Dtrain.init(hardwareMap);
+        cascade.init(hardwareMap);
+        Intake.init(hardwareMap);
+
+        telemetry.addData("Status", "Initialized");
+        telemetry.update();
+
+        waitForStart();
+        runtime.reset();
+
+        while (opModeIsActive()) {
+            // DRIVE TRAIN
+            Dtrain.arcadeDrive(gamepad1.left_stick_x, gamepad1.left_stick_y, gamepad1.right_stick_x);
+
+
+
+
+            // INTAKE
+            if(gamepad1.x)
+                Intake.ARMIN(0.4, 0.4);
+
+            else if(gamepad1.y)
+                Intake.ARMOUT(0.4, 0.4);
+
+            else
+                Intake.ARMSTOP(0);
+
+            // CASCADE
+            if (gamepad1.dpad_up)
+                cascade.CasPow(0.4, -0.4);
+            else if (gamepad1.dpad_down)
+                cascade.CasPow(-0.4, 0.4);
+            else
+                cascade.CasPow(0, 0);
         }
-        else if(gamepad1.)
+
     }
-
-
-
 
 
 }

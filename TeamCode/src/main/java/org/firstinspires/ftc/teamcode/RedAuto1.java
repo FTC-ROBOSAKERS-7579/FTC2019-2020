@@ -20,16 +20,16 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 public class RedAuto1 extends LinearOpMode {
     ElapsedTime runtime = new ElapsedTime();
     TestAutoDriveTrain driveTrain = new TestAutoDriveTrain();
-    TestRangedSensor rangedSensor = new TestRangedSensor();
-    TestColorSensor colorSensor = new TestColorSensor();
+//    TestRangedSensor rangedSensor = new TestRangedSensor();
+//    TestColorSensor colorSensor = new TestColorSensor();
     TestIntake intake = new TestIntake();
 
     @Override
     public void runOpMode() throws InterruptedException {
         // INITIAL
         driveTrain.init(hardwareMap);
-        rangedSensor.init(hardwareMap);
-        colorSensor.init(hardwareMap);
+//        rangedSensor.init(hardwareMap);
+//        colorSensor.init(hardwareMap);
 
         // STATUS
         telemetry.addData("Status", "Initialized");
@@ -39,21 +39,37 @@ public class RedAuto1 extends LinearOpMode {
         waitForStart();
         runtime.reset();
 
+
+        runtime.startTime();
+
         while (opModeIsActive()) {
-            // MOVING THE ROBOT FORWARD UNTIL IT CAN TURN RIGHT INTO THE ALLIANCE BRIDGE
-            driveTrain.drive(24, 0.5);
-            sleep(500);
-            runtime.reset();
+            if(runtime.seconds() >= 3){
+                driveTrain.FRONT_RIGHT.setPower(0);
+                driveTrain.FRONT_LEFT.setPower(0);
+                driveTrain.BACK_RIGHT.setPower(0);
+                driveTrain.BACK_LEFT.setPower(0);
+            }
 
-            // TURN RIGHT
-            driveTrain.turn(90, 0.5);
-            sleep(500);
-            runtime.reset();
-
-            // MOVING FORWARD UNTIL WHEEL IS UNDER BRIDGE
-            driveTrain.drive(24, 0.5);
-            sleep(500);
-            runtime.reset();
+            else{
+                driveTrain.FRONT_RIGHT.setPower(0.025);
+                driveTrain.FRONT_LEFT.setPower(-0.025);
+                driveTrain.BACK_RIGHT.setPower(0.025);
+                driveTrain.BACK_LEFT.setPower(0.025);
+            }
+//            // MOVING THE ROBOT FORWARD UNTIL IT CAN TURN RIGHT INTO THE ALLIANCE BRIDGE
+//            driveTrain.drive(24, 0.5);
+//            sleep(500);
+//            runtime.reset();
+//
+//            // TURN RIGHT
+//            driveTrain.turn(90, 0.5);
+//            sleep(500);
+//            runtime.reset();
+//
+//            // MOVING FORWARD UNTIL WHEEL IS UNDER BRIDGE
+//            driveTrain.drive(24, 0.5);
+//            sleep(500);
+//            runtime.reset();
 
         }
     }

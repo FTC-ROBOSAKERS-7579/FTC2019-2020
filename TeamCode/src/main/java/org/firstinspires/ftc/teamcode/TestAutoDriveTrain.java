@@ -19,8 +19,8 @@ public class TestAutoDriveTrain {
     DcMotor BACK_LEFT;
     DcMotor BACK_RIGHT;
 
-    int POSITON_RIGHT= FRONT_LEFT.getCurrentPosition();
-    int POSITION_LEFT= FRONT_RIGHT.getCurrentPosition();
+    int POSITON_RIGHT= 0;
+    int POSITION_LEFT= 0;
 
     double MOTOR_COUNT = 1440.0;
     int GEAR_REDUCTION = 2;

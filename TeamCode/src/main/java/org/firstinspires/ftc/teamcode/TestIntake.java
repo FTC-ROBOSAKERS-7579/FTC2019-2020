@@ -26,7 +26,7 @@ public class TestIntake {
         Arm2.setPower(Arm_2);
     }
 
-    public void ARMSTOP(double Arm_1){
+    public void ARMSTOP(){
         Arm1.setPower(0);
         Arm2.setPower(0);
     }

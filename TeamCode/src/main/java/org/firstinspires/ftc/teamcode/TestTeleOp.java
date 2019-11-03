@@ -33,18 +33,15 @@ public class TestTeleOp extends LinearOpMode {
             // DRIVE TRAIN
             Dtrain.arcadeDrive(gamepad1.left_stick_x, gamepad1.left_stick_y, gamepad1.right_stick_x);
 
-
-
-
             // INTAKE
             if(gamepad1.x)
-                Intake.ARMIN(0.4, 0.4);
+                Intake.ARMIN(0.4, 0.2);
 
             else if(gamepad1.y)
-                Intake.ARMOUT(0.4, 0.4);
+                Intake.ARMOUT(0.4, 0.2);
 
             else
-                Intake.ARMSTOP(0);
+                Intake.ARMSTOP();
 
             // CASCADE
             if (gamepad1.dpad_up)
@@ -53,6 +50,16 @@ public class TestTeleOp extends LinearOpMode {
                 cascade.CasPow(-0.4, 0.4);
             else
                 cascade.CasPow(0, 0);
+
+            cascade.DIRECTION();
+            cascade.RUNWITHENCODER();
+            cascade.RUN();
+            cascade.HARDSTOP(0.3);
+
+            telemetry.addData("MOTOR TICKS:: ", cascade.GETTICKS());
+            telemetry.update();
+
+            cascade.RESET();
         }
 
     }

@@ -51,15 +51,6 @@ public class TestTeleOp extends LinearOpMode {
             else
                 cascade.CasPow(0, 0);
 
-            cascade.DIRECTION();
-            cascade.RUNWITHENCODER();
-            cascade.RUN();
-            cascade.HARDSTOP(0.3);
-
-            telemetry.addData("MOTOR TICKS:: ", cascade.GETTICKS());
-            telemetry.update();
-
-            cascade.RESET();
         }
 
     }

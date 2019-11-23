@@ -109,28 +109,13 @@ public class BlueAuto2 extends LinearOpMode {
                                     sleep(500);
                                     runtime.reset();
 
-                                    // MOVE FORWARD UNTIL PAST THE BRICKS
+                                    // MOVE FORWARD UNTIL NEXT TO FOUNDATION
                                     driveTrain.drive(26, 0.5);
                                     sleep(500);
                                     runtime.reset();
 
                                     // TURN RIGHT
                                     driveTrain.turn(90, 0.5);
-                                    sleep(500);
-                                    runtime.reset();
-
-                                    // MOVE FORWARD UNTIL ALIGNED WITH THE NEUTRAL BRIDGE
-                                    driveTrain.drive(17, 0.5);
-                                    sleep(500);
-                                    runtime.reset();
-
-                                    // TURN LEFT
-                                    driveTrain.turn(-90, 0.5);
-                                    sleep(500);
-                                    runtime.reset();
-
-                                    // MOVE FORWARD UNTIL THE ROBOT IS IN FRONT OF THE FOUNDATION
-                                    driveTrain.drive(2, 0.5);
                                     sleep(500);
                                     runtime.reset();
 

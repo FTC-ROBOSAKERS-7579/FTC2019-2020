@@ -15,7 +15,8 @@
    - Push sky block out of intake
    - Turn right
    - Move forward until robot is under the bridge
- */
+*/
+
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
@@ -58,7 +59,7 @@ public class BlueBuilding extends LinearOpMode {
             driveTrain.strafe(48, 0.5);
 
             // MOVING THE ROBOT FORWARD UNTIL IT REACHES THE FIRST BLOCK
-            driveTrain.drive(34, 0.5);
+            driveTrain.drive(29, 0.5);
             sleep(500);
             runtime.reset();
 
@@ -72,10 +73,11 @@ public class BlueBuilding extends LinearOpMode {
                     brickscan = false;
 
                     // PICK UP BRICK
-                    while
-                    intake.Intake(0.5);
-                    sleep(500);
-                    runtime.reset();
+                    while(runtime.seconds() < 1) {
+                        intake.Intake(0.5);
+                        sleep(500);
+                        runtime.reset();
+                    }
 
                     // GO BACKWARDS
                     driveTrain.drive(5, -0.5);
@@ -93,9 +95,11 @@ public class BlueBuilding extends LinearOpMode {
                     runtime.reset();
 
                     // DROP BRICK
-                    intake.Intake(-0.5);
-                    sleep(500);
-                    runtime.reset();
+                    while(runtime.seconds() < 1) {
+                        intake.Intake(-0.5);
+                        sleep(500);
+                        runtime.reset();
+                    }
 
                 } else {
 

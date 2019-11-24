@@ -21,7 +21,7 @@ public class BlueDepot extends LinearOpMode {
     ElapsedTime runtime = new ElapsedTime();
     TestAutoDriveTrain driveTrain = new TestAutoDriveTrain();
     TestRangedSensor rangedSensor = new TestRangedSensor();
-    TestColorSensor  colorSensor = new TestColorSensor();
+    TestColorSensor colorSensor = new TestColorSensor();
     TestIntake intake = new TestIntake();
     boolean brickscan = true;
     int brickdistance = 0;
@@ -52,23 +52,25 @@ public class BlueDepot extends LinearOpMode {
             colorSensor.LED(true);
 
             // SEEING IF THE BLOCK IN FRONT OF THE ROBOT IS YELLOW
-            for(int i = 1; i <= 5 && brickscan == true; i++) {
-                if(!(colorSensor.Red() > 200 && colorSensor.Green() > 200 && colorSensor.Blue() < 50)) {
+            for (int i = 1; i <= 5 && brickscan == true; i++) {
+                if (!(colorSensor.Red() > 200 && colorSensor.Green() > 200 && colorSensor.Blue() < 50)) {
 
                     brickscan = false;
 
                     // PICK UP BRICK
-                    intake.Intake(0.5);
-                    sleep(500);
-                    runtime.reset();
+                    while(runtime.seconds() < 1) {
+                        intake.Intake(0.5);
+                        sleep(500);
+                        runtime.reset();
+                    }
 
                     // GO BACKWARDS
-                    driveTrain.drive(-5, 0.5);
+                    driveTrain.drive(5, -0.5);
                     sleep(500);
                     runtime.reset();
 
                     // STRAFE LEFT
-                    driveTrain.strafe(-34 - brickdistance , 0.5);
+                    driveTrain.strafe(34 + brickdistance, -0.5);
                     sleep(500);
                     runtime.reset();
 
@@ -78,9 +80,11 @@ public class BlueDepot extends LinearOpMode {
                     runtime.reset();
 
                     // DROP BRICK
-                    intake.Intake(-0.5);
-                    sleep(500);
-                    runtime.reset();
+                    while(runtime.seconds() < 1) {
+                        intake.Intake(-0.5);
+                        sleep(500);
+                        runtime.reset();
+                    }
 
                 } else {
 

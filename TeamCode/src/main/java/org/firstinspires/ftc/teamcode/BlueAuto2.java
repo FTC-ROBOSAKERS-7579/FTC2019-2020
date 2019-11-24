@@ -25,7 +25,6 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 public class BlueAuto2 extends LinearOpMode {
     ElapsedTime runtime = new ElapsedTime();
     TestAutoDriveTrain driveTrain = new TestAutoDriveTrain();
-    TestRangedSensor rangedSensor = new TestRangedSensor();
     TestColorSensor  colorSensor = new TestColorSensor();
     TestIntake intake = new TestIntake();
     boolean brickscan = true;
@@ -36,7 +35,6 @@ public class BlueAuto2 extends LinearOpMode {
     public void runOpMode() throws InterruptedException {
         // INITIAL
         driveTrain.init(hardwareMap);
-        rangedSensor.init(hardwareMap);
         colorSensor.init(hardwareMap);
 
         // STATUS

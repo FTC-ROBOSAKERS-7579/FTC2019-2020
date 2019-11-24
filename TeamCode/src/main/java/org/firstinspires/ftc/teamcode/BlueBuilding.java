@@ -1,20 +1,26 @@
 /*
    Pseudo Code:
-   - Move forward until lined up with the blue bridge
-   - Turn right
-   - Move forward until the robot is next to the first block
-   - Turn left
-   - Move forward if needed to get closer to brick
-   - Check if the brick in front of the robot is a sky block if not, move right until robot is in
-     front of next block and repeat process until robot is in front of sky block
-   - Move forward while intake is on until sky block is in the intake
-   - Back up until robot is a little past original spot
-   - Turn left
-   - Move forward until robot is next to foundation
-   - Turn right
-   - Push sky block out of intake
-   - Turn right
-   - Move forward until robot is under the bridge
+   1) Move forward a little
+   2) Strafe right until aligned with first brick
+   3) Move forward until close to first brick
+   4) Scan if block is yellow
+   5) If so, strafe right until robot is aligned with next block
+   6) Loop steps 2 and 3 until the aligned block is not yellow
+   7) Grab block
+   8) Back up a little
+   9) Strafe left until aligned with middle of foundation
+   10) Move forward a little
+   11) Drop block
+   12) Back up a little
+   X 13) Strafe right until robot is aligned with the brick that is three bricks past the first sky brick
+   X 14) Move forward a little
+   X 15) Grab block
+   X 16) Back up a little
+   X 17) Strafe left until aligned with middle of foundation
+   X 18) Move forward a little
+   X 19) Drop block
+   X 20) Back up a little
+   21) Strafe right until robot is under bridge
 */
 
 package org.firstinspires.ftc.teamcode;

@@ -1,13 +1,24 @@
 /*
    Pseudo Code:
-   - Move forward until close to first brick
-   - Check if the brick in front of the robot is a sky block if not, move right until robot is in
-     front of next block and repeat process until robot is in front of sky block
-   - Move forward while intake is on until sky block is in the intake
-   - Back up until robot is a little past original spot
-   - Strafe left until next to foundation
-   - Push sky block out of intake
-   - Strafe right until robot is under the bridge
+   1) Move forward until close to first brick
+   2) Scan if block is yellow
+   3) If so, strafe right until robot is aligned with next block
+   4) Loop steps 2 and 3 until the aligned block is not yellow
+   5) Grab block
+   6) Back up a little
+   7) Strafe left until aligned with middle of foundation
+   8) Move forward a little
+   9) Drop block
+   10) Back up a little
+   X 11) Strafe right until robot is aligned with the brick that is three bricks past the first sky brick
+   X 12) Move forward a little
+   X 13) Grab block
+   X 14) Back up a little
+   X 15) Strafe left until aligned with middle of foundation
+   X 16) Move forward a little
+   X 17) Drop block
+   X 18) Back up a little
+   19) Strafe right until robot is under bridge
 */
 
 package org.firstinspires.ftc.teamcode;
@@ -50,7 +61,7 @@ public class BlueDepot extends LinearOpMode {
             colorSensor.LED(true);
 
             // SEEING IF THE BLOCK IN FRONT OF THE ROBOT IS YELLOW
-            for (int i = 1; i <= 5 && brickscan == true; i++) {
+            for (int i = 1; i <= 5 && brickscan; i++) {
                 if (!(colorSensor.Red() > 200 && colorSensor.Green() > 200 && colorSensor.Blue() < 50)) {
 
                     brickscan = false;

@@ -1,4 +1,4 @@
 package org.firstinspires.ftc.teamcode;
 
-public class DepotRedAuto3 {
+public class RedBuilding {
 }

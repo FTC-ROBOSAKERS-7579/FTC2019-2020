@@ -1,11 +1,6 @@
 /*
-   Auto for:
-   - Blue Team
-   - Spawn location is near depot
-   - Teammate is not going for sky bricks
-
    Pseudo Code:
-   - Move forward until the robot reaches the blocks
+   - Move forward until close to first brick
    - Check if the brick in front of the robot is a sky block if not, move right until robot is in
      front of next block and repeat process until robot is in front of sky block
    - Move forward while intake is on until sky block is in the intake
@@ -22,7 +17,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 @Autonomous
-public class BlueAuto2 extends LinearOpMode {
+public class BlueDepot extends LinearOpMode {
     ElapsedTime runtime = new ElapsedTime();
     TestAutoDriveTrain driveTrain = new TestAutoDriveTrain();
     TestRangedSensor rangedSensor = new TestRangedSensor();
@@ -30,7 +25,6 @@ public class BlueAuto2 extends LinearOpMode {
     TestIntake intake = new TestIntake();
     boolean brickscan = true;
     int brickdistance = 0;
-    int i = 1;
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -58,7 +52,7 @@ public class BlueAuto2 extends LinearOpMode {
             colorSensor.LED(true);
 
             // SEEING IF THE BLOCK IN FRONT OF THE ROBOT IS YELLOW
-            for(int i = 1; i <= 5, brickscan = true; i++) {
+            for(int i = 1; i <= 5 && brickscan == true; i++) {
                 if(!(colorSensor.Red() > 200 && colorSensor.Green() > 200 && colorSensor.Blue() < 50)) {
 
                     brickscan = false;

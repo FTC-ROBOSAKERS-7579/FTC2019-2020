@@ -56,7 +56,7 @@ public class BlueAuto2 extends LinearOpMode {
             colorSensor.LED(true);
 
             // SEEING IF THE BLOCK IN FRONT OF THE ROBOT IS YELLOW
-            for(int i = 1; i <= 5, brickscan = true; i++) {
+            for(int i = 1; i <= 5 && brickscan == true; i++) {
                 if(!(colorSensor.Red() > 200 && colorSensor.Green() > 200 && colorSensor.Blue() < 50)) {
 
                     brickscan = false;

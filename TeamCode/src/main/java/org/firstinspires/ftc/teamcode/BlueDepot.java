@@ -29,6 +29,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 @Autonomous
 public class BlueDepot extends LinearOpMode {
+
     ElapsedTime runtime = new ElapsedTime();
     TestAutoDriveTrain driveTrain = new TestAutoDriveTrain();
     TestColorSensor colorSensor = new TestColorSensor();
@@ -38,6 +39,7 @@ public class BlueDepot extends LinearOpMode {
 
     @Override
     public void runOpMode() throws InterruptedException {
+
         // INITIAL
         driveTrain.init(hardwareMap);
         colorSensor.init(hardwareMap);
@@ -49,16 +51,14 @@ public class BlueDepot extends LinearOpMode {
         // START
         waitForStart();
         runtime.reset();
+        colorSensor.LED(true);
 
-        // AUTONOMOUS PERIOD
         while (opModeIsActive()) {
+
             // MOVING THE ROBOT FORWARD UNTIL IT REACHES THE FIRST BLOCK
             driveTrain.drive(34, 0.5);
             sleep(500);
             runtime.reset();
-
-            // TURNING THE COLOR SENSOR ON
-            colorSensor.LED(true);
 
             // SEEING IF THE BLOCK IN FRONT OF THE ROBOT IS YELLOW
             for (int i = 1; i <= 5 && brickscan; i++) {
@@ -68,9 +68,11 @@ public class BlueDepot extends LinearOpMode {
 
                     // PICK UP BRICK
                     while(runtime.seconds() < 1) {
+
                         intake.Intake(0.5);
                         sleep(500);
                         runtime.reset();
+
                     }
 
                     // GO BACKWARDS
@@ -90,9 +92,11 @@ public class BlueDepot extends LinearOpMode {
 
                     // DROP BRICK
                     while(runtime.seconds() < 1) {
+
                         intake.Intake(-0.5);
                         sleep(500);
                         runtime.reset();
+
                     }
 
                 } else {
@@ -103,6 +107,7 @@ public class BlueDepot extends LinearOpMode {
                     runtime.reset();
 
                     brickdistance += 8;
+
                 }
             }
         }

@@ -7,9 +7,21 @@ public class TestCascade {
 
     DcMotor Cascade1;
     DcMotor Cascade2;
-    HardwareMap hardwareMap;
 
-    public void init (HardwareMap hardwareMap) {
+    public void init(HardwareMap hardwareMap) {
+
+        Cascade1 = hardwareMap.dcMotor.get("Cascade_1");
+        Cascade2 = hardwareMap.dcMotor.get("Cascade_2");
+    
+    }
+
+    public void CasPow(double power){
+
+        Cascade1.setPower(power);
+        Cascade2.setPower(-power);
 
     }
+
 }
+
+

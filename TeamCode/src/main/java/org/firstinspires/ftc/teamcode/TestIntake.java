@@ -11,7 +11,7 @@ public class TestIntake {
     }
 
     public void Intake(double power) {
-        Intake.setPower(power)
+        Intake.setPower(power);
     }
 
 }

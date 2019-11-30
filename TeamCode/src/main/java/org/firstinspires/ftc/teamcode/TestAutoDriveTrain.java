@@ -25,10 +25,10 @@ public class TestAutoDriveTrain {
     int POSITON_RIGHT= 0;
     int POSITION_LEFT= 0;
 
-    double MOTOR_COUNT = 1440.0;
-    int GEAR_REDUCTION = 2;
-    double DIAMETER = 3.76;
-    double COUNT_PER_INCH = MOTOR_COUNT / (DIAMETER * GEAR_REDUCTION);
+    double MOTOR_COUNT = 1120.0;
+    int GEAR_REDUCTION = 4;
+    double DIAMETER = Math.PI *4;
+    double COUNT_PER_INCH = MOTOR_COUNT / DIAMETER ;
 
 
 
@@ -72,33 +72,38 @@ public class TestAutoDriveTrain {
 
     // DRIVE
     public void drive(int distance, double power) {
-
             FRONT_RIGHT.setTargetPosition(POSITON_RIGHT + (int) (distance * COUNT_PER_INCH));
             FRONT_LEFT.setTargetPosition(POSITION_LEFT + (int) (distance * COUNT_PER_INCH));
             BACK_RIGHT.setTargetPosition(POSITON_RIGHT + (int) (distance * COUNT_PER_INCH));
             BACK_LEFT.setTargetPosition(POSITION_LEFT + (int) (distance * COUNT_PER_INCH));
 
-
             FRONT_RIGHT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             FRONT_LEFT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             BACK_RIGHT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             BACK_LEFT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-
-            FRONT_RIGHT.setPower(power);
-            FRONT_LEFT.setPower(power);
-            BACK_RIGHT.setPower(power);
-            BACK_LEFT.setPower(power);
+            if(FRONT_RIGHT.getCurrentPosition() <= distance) {
+                FRONT_RIGHT.setPower(power);
+                FRONT_LEFT.setPower(power);
+                BACK_RIGHT.setPower(power);
+                BACK_LEFT.setPower(power);
+            }
         while (FRONT_RIGHT.isBusy() && FRONT_LEFT.isBusy() && BACK_RIGHT.isBusy() && BACK_LEFT.isBusy()) {
-            FRONT_RIGHT.setPower(0);
-            FRONT_LEFT.setPower(0);
-            BACK_RIGHT.setPower(0);
-            BACK_LEFT.setPower(0);
+
         }
+        FRONT_RIGHT.setPower(0);
+        FRONT_LEFT.setPower(0);
+        BACK_RIGHT.setPower(0);
+        BACK_LEFT.setPower(0);
 
             FRONT_RIGHT.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             FRONT_LEFT.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             BACK_RIGHT.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             BACK_LEFT.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+    }
+
+
+    public int getPosition(){
+        return FRONT_RIGHT.getTargetPosition();
     }
 
     public void turn(int angle, double power) {

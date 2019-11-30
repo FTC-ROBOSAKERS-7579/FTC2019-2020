@@ -87,6 +87,12 @@ public class TestAutoDriveTrain {
                 BACK_RIGHT.setPower(power);
                 BACK_LEFT.setPower(power);
             }
+            if(distance < 0){
+                FRONT_RIGHT.setPower(-power);
+                FRONT_LEFT.setPower(-power);
+                BACK_RIGHT.setPower(-power);
+                BACK_LEFT.setPower(-power);
+            }
         while (FRONT_RIGHT.isBusy() && FRONT_LEFT.isBusy() && BACK_RIGHT.isBusy() && BACK_LEFT.isBusy()) {
 
         }
@@ -163,44 +169,33 @@ public class TestAutoDriveTrain {
                     BACK_LEFT.setTargetPosition(POSITION_LEFT + (int) (distance * COUNT_PER_INCH));
 
 
-                if(distance < 0){
-                    FRONT_RIGHT.setTargetPosition(POSITON_RIGHT + (int) (distance * COUNT_PER_INCH));
-                    FRONT_LEFT.setTargetPosition(POSITON_RIGHT + (int) (-distance * COUNT_PER_INCH));
-                    BACK_RIGHT.setTargetPosition(POSITON_RIGHT + (int) (-distance * COUNT_PER_INCH));
-                    BACK_LEFT.setTargetPosition(POSITON_RIGHT + (int) (distance * COUNT_PER_INCH));
-
-                    FRONT_RIGHT.setPower(power);
-                    FRONT_LEFT.setPower(-power);
-                    BACK_RIGHT.setPower(-power);
-                    BACK_LEFT.setPower(power);
-                }
-                else if(distance > 0){
-                    FRONT_RIGHT.setTargetPosition(POSITON_RIGHT + (int) (-distance * COUNT_PER_INCH));
-                    FRONT_LEFT.setTargetPosition(POSITON_RIGHT + (int) (distance * COUNT_PER_INCH));
-                    BACK_RIGHT.setTargetPosition(POSITON_RIGHT + (int) (distance * COUNT_PER_INCH));
-                    BACK_LEFT.setTargetPosition(POSITON_RIGHT + (int) (-distance * COUNT_PER_INCH));
-
-                    FRONT_RIGHT.setPower(-power);
-                    FRONT_LEFT.setPower(power);
-                    BACK_RIGHT.setPower(power);
-                    BACK_LEFT.setPower(-power);
-                }
-
-
                     FRONT_RIGHT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                     FRONT_LEFT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                     BACK_RIGHT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                     BACK_LEFT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
+            if(FRONT_RIGHT.getCurrentPosition() <= distance) {
+                FRONT_RIGHT.setPower(-power);
+                FRONT_LEFT.setPower(power);
+                BACK_RIGHT.setPower(power);
+                BACK_LEFT.setPower(-power);
+            }
+
+            if(distance < 0){
+                FRONT_RIGHT.setPower(power);
+                FRONT_LEFT.setPower(-power);
+                BACK_RIGHT.setPower(-power);
+                BACK_LEFT.setPower(power);
+            }
+
                 while(FRONT_RIGHT.isBusy() && BACK_RIGHT.isBusy() && FRONT_LEFT.isBusy() && BACK_LEFT.isBusy()){
+
+                }
                     FRONT_RIGHT.setPower(0);
                     FRONT_LEFT.setPower(0);
                     BACK_RIGHT.setPower(0);
                     BACK_LEFT.setPower(0);
-                    if(POSITON_RIGHT >= distance && POSITION_LEFT >= distance){
-                        break;
-                    }
-                }
+
                     FRONT_RIGHT.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
                     FRONT_LEFT.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
                     BACK_RIGHT.setMode(DcMotor.RunMode.RUN_USING_ENCODER);

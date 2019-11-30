@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 @TeleOp
 public class TeleOp extends LinearOpMode {
     ElapsedTime runtime = new ElapsedTime();
-    TestDriveTrain driveTrain = new TestDriveTrain();
+    Drivetrain driveTrain = new Drivetrain();
     TestCascade cascade = new TestCascade();
     TestIntake Intake = new TestIntake();
     //    TestColorSensor colorSensor = new TestColorSensor();

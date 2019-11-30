@@ -29,7 +29,7 @@ public class TestAuto extends LinearOpMode {
         runtime.reset();
 
         while(opModeIsActive()){
-            driveTrain.drive(12,0.2);
+            driveTrain.strafe(12,0.2);
             sleep(100);
             runtime.reset();
 

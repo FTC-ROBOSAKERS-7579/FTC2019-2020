@@ -8,6 +8,9 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.navigation.Acceleration;
+import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 public class TestAutoDriveTrain {
@@ -32,6 +35,7 @@ public class TestAutoDriveTrain {
     BNO055IMU imu;
     Orientation angles;
     Acceleration gravity;
+    float currAngle = 0;
 
 
 
@@ -89,9 +93,6 @@ public class TestAutoDriveTrain {
             FRONT_LEFT.setPower(0);
             BACK_RIGHT.setPower(0);
             BACK_LEFT.setPower(0);
-            if(POSITON_RIGHT >= distance){
-                break;
-            }
         }
 
             FRONT_RIGHT.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
@@ -100,7 +101,12 @@ public class TestAutoDriveTrain {
             BACK_LEFT.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
 
-    public void turn(int angle, double power){
+    public void turn(int angle, double power) {
+
+        angles = this.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
+        this.imu.getPosition();
+        currAngle = angles.firstAngle;
+
 
         parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
         parameters.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
@@ -109,23 +115,39 @@ public class TestAutoDriveTrain {
         parameters.loggingTag = "IMU";
         parameters.accelerationIntegrationAlgorithm = new JustLoggingAccelerationIntegrator();
 
-
-            if (angles.firstAngle > 0) {
-                FRONT_LEFT.setPower(-power);
-                BACK_LEFT.setPower(-power);
+        while (angle < currAngle) {
+            if (angle < 0) {
                 FRONT_RIGHT.setPower(power);
+                FRONT_LEFT.setPower(-power);
                 BACK_RIGHT.setPower(power);
-            } else if (angles.firstAngle < 0) {
+                BACK_LEFT.setPower(-power);
+            } else if (angle > 0) {
                 FRONT_RIGHT.setPower(-power);
-                BACK_RIGHT.setPower(-power);
                 FRONT_LEFT.setPower(power);
+                BACK_RIGHT.setPower(-power);
                 BACK_LEFT.setPower(power);
-            } else {
+            }
+        }
                 FRONT_RIGHT.setPower(0);
                 FRONT_LEFT.setPower(0);
                 BACK_RIGHT.setPower(0);
                 BACK_LEFT.setPower(0);
+
+                angle = (int)currAngle;
+    }
+
+
+        public void resetAngle(){
+            if(getAngle() > 0 || getAngle() < 0){
+                turn(0,0);
             }
+        }
+
+        public int getAngle(){
+            angles = this.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
+            this.imu.getPosition();
+            currAngle = angles.firstAngle;
+            return (int)currAngle;
         }
 
 

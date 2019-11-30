@@ -85,7 +85,7 @@ public class BlueDepot extends LinearOpMode {
                     sleep(500);
                     runtime.reset();
 
-                    // GO FRONT A LITTLE
+                    // GO FORWARD A LITTLE
                     driveTrain.drive(5, 0.5);
                     sleep(500);
                     runtime.reset();
@@ -98,6 +98,16 @@ public class BlueDepot extends LinearOpMode {
                         runtime.reset();
 
                     }
+
+                    // BACK UP A LITTLE
+                    driveTrain.drive(5, -0.5);
+                    sleep(500);
+                    runtime.reset();
+
+                    // STRAFE RIGHT
+                    driveTrain.strafe(24, 0.5);
+                    sleep(500);
+                    runtime.reset();
 
                 } else {
 

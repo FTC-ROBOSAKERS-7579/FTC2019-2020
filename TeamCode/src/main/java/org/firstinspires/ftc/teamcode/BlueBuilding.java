@@ -35,6 +35,8 @@ public class BlueBuilding extends LinearOpMode {
     TestAutoDriveTrain driveTrain = new TestAutoDriveTrain();
     TestColorSensor colorSensor = new TestColorSensor();
     TestIntake intake = new TestIntake();
+    boolean brickscan = true;
+    int brickdistance = 0;
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -53,7 +55,81 @@ public class BlueBuilding extends LinearOpMode {
 
         // AUTONOMOUS PERIOD
         while (opModeIsActive()) {
+            // MOVE FORWARD A LITTLE
+            driveTrain.drive(5, 0.5);
+            sleep(500);
+            runtime.reset();
 
+            // STRAFE RIGHT
+            driveTrain.strafe(24, 0.5);
+            sleep(500);
+            runtime.reset();
+
+            // MOVING THE ROBOT FORWARD UNTIL IT REACHES THE FIRST BLOCK
+            driveTrain.drive(29, 0.5);
+            sleep(500);
+            runtime.reset();
+
+            // SEEING IF THE BLOCK IN FRONT OF THE ROBOT IS YELLOW
+            for (int i = 1; i <= 5 && brickscan; i++) {
+                if (!(colorSensor.Red() > 200 && colorSensor.Green() > 200 && colorSensor.Blue() < 50)) {
+
+                    brickscan = false;
+
+                    // PICK UP BRICK
+                    while(runtime.seconds() < 1) {
+
+                        intake.Intake(0.5);
+                        sleep(500);
+                        runtime.reset();
+
+                    }
+
+                    // GO BACKWARDS
+                    driveTrain.drive(5, -0.5);
+                    sleep(500);
+                    runtime.reset();
+
+                    // STRAFE LEFT
+                    driveTrain.strafe(34 + brickdistance, -0.5);
+                    sleep(500);
+                    runtime.reset();
+
+                    // GO FORWARD A LITTLE
+                    driveTrain.drive(5, 0.5);
+                    sleep(500);
+                    runtime.reset();
+
+                    // DROP BRICK
+                    while(runtime.seconds() < 1) {
+
+                        intake.Intake(-0.5);
+                        sleep(500);
+                        runtime.reset();
+
+                    }
+
+                    // BACK UP A LITTLE
+                    driveTrain.drive(5, -0.5);
+                    sleep(500);
+                    runtime.reset();
+
+                    // STRAFE RIGHT
+                    driveTrain.strafe(24, 0.5);
+                    sleep(500);
+                    runtime.reset();
+
+                } else {
+
+                    // STRAFING RIGHT UNTIL THE ROBOT IS IN FRONT OF THE NEXT BLOCK
+                    driveTrain.strafe(8, 0.5);
+                    sleep(500);
+                    runtime.reset();
+
+                    brickdistance += 8;
+
+                }
+            }
         }
     }
 }

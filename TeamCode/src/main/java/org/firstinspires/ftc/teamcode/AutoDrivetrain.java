@@ -123,59 +123,59 @@ public class AutoDrivetrain {
         return BACK_RIGHT.getTargetPosition();
     }
 
-    public void turn(int angle, double power) {
+//    public void turn(int angle, double power) {
+//
+//        angles = this.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
+//        this.imu.getPosition();
+//        currAngle = angles.firstAngle;
+//
+//
+//        parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
+//        parameters.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
+//        parameters.calibrationDataFile = "BNO055IMUCalibration.json";
+//        parameters.loggingEnabled = true;
+//        parameters.loggingTag = "IMU";
+//        parameters.accelerationIntegrationAlgorithm = new JustLoggingAccelerationIntegrator();
+//
+//        if (angle < currAngle) {
+//            if (angle < 0) {
+//                FRONT_RIGHT.setPower(power);
+//                FRONT_LEFT.setPower(-power);
+//                BACK_RIGHT.setPower(power);
+//                BACK_LEFT.setPower(-power);
+//            } else if (angle > 0) {
+//                FRONT_RIGHT.setPower(-power);
+//                FRONT_LEFT.setPower(power);
+//                BACK_RIGHT.setPower(-power);
+//                BACK_LEFT.setPower(power);
+//            }
+//        }
+//
+//        angle = (int)currAngle;
+//    }
 
-        angles = this.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
-        this.imu.getPosition();
-        currAngle = angles.firstAngle;
 
+//    public void resetAngle(){
+//        if(getAngle() > 0 || getAngle() < 0){
+//            turn(0,0);
+//        }
+//    }
 
-        parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
-        parameters.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
-        parameters.calibrationDataFile = "BNO055IMUCalibration.json";
-        parameters.loggingEnabled = true;
-        parameters.loggingTag = "IMU";
-        parameters.accelerationIntegrationAlgorithm = new JustLoggingAccelerationIntegrator();
-
-        if (angle < currAngle) {
-            if (angle < 0) {
-                FRONT_RIGHT.setPower(power);
-                FRONT_LEFT.setPower(-power);
-                BACK_RIGHT.setPower(power);
-                BACK_LEFT.setPower(-power);
-            } else if (angle > 0) {
-                FRONT_RIGHT.setPower(-power);
-                FRONT_LEFT.setPower(power);
-                BACK_RIGHT.setPower(-power);
-                BACK_LEFT.setPower(power);
-            }
-        }
-
-        angle = (int)currAngle;
-    }
-
-
-    public void resetAngle(){
-        if(getAngle() > 0 || getAngle() < 0){
-            turn(0,0);
-        }
-    }
-
-    public int getAngle(){
-        angles = this.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
-        this.imu.getPosition();
-        currAngle = angles.firstAngle;
-        return (int)currAngle;
-    }
+//    public int getAngle(){
+//        angles = this.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
+//        this.imu.getPosition();
+//        currAngle = angles.firstAngle;
+//        return (int)currAngle;
+//    }
 
 
     public void strafe(int distance, double power){
         int POSITION_LEFT2 = 0;
         int POSITION_RIGHT2 = 0;
-        FRONT_RIGHT.setTargetPosition(POSITON_RIGHT + (int) -(distance * COUNT_PER_INCH) - 130);
-        FRONT_LEFT.setTargetPosition(POSITION_LEFT + (int) (distance * COUNT_PER_INCH) + 130);
-        BACK_RIGHT.setTargetPosition(POSITION_RIGHT2 + (int) (distance * COUNT_PER_INCH) + 130);
-        BACK_LEFT.setTargetPosition(POSITION_LEFT2 + (int) -(distance * COUNT_PER_INCH) - 130);
+        FRONT_RIGHT.setTargetPosition(POSITON_RIGHT + (int) -(distance * COUNT_PER_INCH) - 60);
+        FRONT_LEFT.setTargetPosition(POSITION_LEFT + (int) (distance * COUNT_PER_INCH) + 60);
+        BACK_RIGHT.setTargetPosition(POSITION_RIGHT2 + (int) (distance * COUNT_PER_INCH) + 60);
+        BACK_LEFT.setTargetPosition(POSITION_LEFT2 + (int) -(distance * COUNT_PER_INCH) - 60);
 
 
         FRONT_RIGHT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -184,10 +184,10 @@ public class AutoDrivetrain {
         BACK_LEFT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
         if(FRONT_RIGHT.getCurrentPosition() <= distance && FRONT_LEFT.getCurrentPosition() <= distance && BACK_LEFT.getCurrentPosition() <= distance && BACK_RIGHT.getCurrentPosition() <= distance)  {
-            FRONT_RIGHT.setPower((-power) + 0.015);
+            FRONT_RIGHT.setPower((-power) + 0.0115);
             FRONT_LEFT.setPower((power));
             BACK_RIGHT.setPower((power));
-            BACK_LEFT.setPower((-power) + 0.015);
+            BACK_LEFT.setPower((-power) + 0.0115);
         }
 
 //            if(distance < 0){

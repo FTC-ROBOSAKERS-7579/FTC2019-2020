@@ -81,12 +81,14 @@ public class AutoDrivetrain {
         FRONT_LEFT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         BACK_RIGHT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         BACK_LEFT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
         if(FRONT_RIGHT.getCurrentPosition() <= distance) {
             FRONT_RIGHT.setPower(power);
             FRONT_LEFT.setPower(power);
             BACK_RIGHT.setPower(power);
             BACK_LEFT.setPower(power);
         }
+
         if(distance < 0){
             FRONT_RIGHT.setPower(-power);
             FRONT_LEFT.setPower(-power);
@@ -108,8 +110,17 @@ public class AutoDrivetrain {
     }
 
 
-    public int getPosition(){
+    public int getPosition1(){
+        return FRONT_LEFT.getTargetPosition();
+    }
+    public int getPosition2(){
         return FRONT_RIGHT.getTargetPosition();
+    }
+    public int getPosition3(){
+        return BACK_LEFT.getTargetPosition();
+    }
+    public int getPosition4(){
+        return BACK_RIGHT.getTargetPosition();
     }
 
     public void turn(int angle, double power) {
@@ -163,10 +174,10 @@ public class AutoDrivetrain {
 
 
     public void strafe(int distance, double power){
-        FRONT_RIGHT.setTargetPosition(POSITON_RIGHT + (int) (distance * COUNT_PER_INCH));
+        FRONT_RIGHT.setTargetPosition(POSITON_RIGHT + (int) -(distance * COUNT_PER_INCH));
         FRONT_LEFT.setTargetPosition(POSITION_LEFT + (int) (distance * COUNT_PER_INCH));
         BACK_RIGHT.setTargetPosition(POSITON_RIGHT + (int) (distance * COUNT_PER_INCH));
-        BACK_LEFT.setTargetPosition(POSITION_LEFT + (int) (distance * COUNT_PER_INCH));
+        BACK_LEFT.setTargetPosition(POSITION_LEFT + (int) -(distance * COUNT_PER_INCH));
 
 
         FRONT_RIGHT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -181,12 +192,12 @@ public class AutoDrivetrain {
             BACK_LEFT.setPower(-power);
         }
 
-        if(distance < 0){
-            FRONT_RIGHT.setPower(power);
-            FRONT_LEFT.setPower(-power);
-            BACK_RIGHT.setPower(-power);
-            BACK_LEFT.setPower(power);
-        }
+//            if(distance < 0){
+//                FRONT_RIGHT.setPower(power);
+//                FRONT_LEFT.setPower(-power);
+//                BACK_RIGHT.setPower(-power);
+//                BACK_LEFT.setPower(power);
+//            }
 
         while(FRONT_RIGHT.isBusy() && BACK_RIGHT.isBusy() && FRONT_LEFT.isBusy() && BACK_LEFT.isBusy()){
 

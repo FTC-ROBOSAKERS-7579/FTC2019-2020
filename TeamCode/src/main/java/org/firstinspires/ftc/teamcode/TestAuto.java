@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 @Autonomous
 public class TestAuto extends LinearOpMode {
     AutoDrivetrain driveTrain = new AutoDrivetrain();
-    //    TestCascade cascade = new TestCascade();
+        Cascade cascade = new Cascade();
 //    TestColorSensor colorSensor = new TestColorSensor();
     ElapsedTime runtime = new ElapsedTime();
 
@@ -29,23 +29,23 @@ public class TestAuto extends LinearOpMode {
         runtime.reset();
 
         while(opModeIsActive()) {
-            driveTrain.drive(5, 0.5);
-            sleep(500);
-            runtime.reset();
+//            driveTrain.drive(5, 0.5);
+//            sleep(500);
+//            runtime.reset();
+//
+//            driveTrain.strafe(5,0.2);
+//            sleep(500);
+//            runtime.reset();
+//
+//            driveTrain.drive(-5, 0.5);
+//            sleep(500);
+//            runtime.reset();
+//
+//            driveTrain.strafe(-5,0.2);
+//            sleep(500);
+//            runtime.reset();
 
-            driveTrain.strafe(5,0.2);
-            sleep(500);
-            runtime.reset();
-
-            driveTrain.drive(-5, 0.5);
-            sleep(500);
-            runtime.reset();
-
-            driveTrain.strafe(-5,0.2);
-            sleep(500);
-            runtime.reset();
-
-            telemetry.update();
+            cascade.autoCascade(5, 0.5);
         }
     }
 

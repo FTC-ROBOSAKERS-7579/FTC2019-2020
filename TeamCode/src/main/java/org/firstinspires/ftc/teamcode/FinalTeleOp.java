@@ -57,13 +57,13 @@ public class FinalTeleOp extends LinearOpMode {
 
             // CASCADE
             if(gamepad2.dpad_up) {
-                cascade.Cascade(speed2);
+                cascade.teleOpCascade(speed2);
             }
             else if(gamepad2.dpad_down) {
-                cascade.Cascade(-speed2);
+                cascade.teleOpCascade(-speed2);
             }
             else {
-                cascade.Cascade(0);
+                cascade.teleOpCascade(0);
             }
             if(gamepad2.left_bumper) {
                 speed2 = 0.3;

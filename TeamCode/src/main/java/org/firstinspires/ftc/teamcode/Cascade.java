@@ -36,12 +36,12 @@ public class Cascade {
             Cascade2.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         }
 
-        public void Cascade(double power){
+        public void teleOpCascade(double power){
             Cascade1.setPower(power);
             Cascade2.setPower(power);
         }
 
-        public void functionCascade(int distance, double power){
+        public void autoCascade(int distance, double power){
             Cascade1.setTargetPosition(CPOSTION + (int) (distance * COUNT_PER_INCH));
             Cascade2.setTargetPosition(CPOSTION2 + (int) (distance * COUNT_PER_INCH));
 

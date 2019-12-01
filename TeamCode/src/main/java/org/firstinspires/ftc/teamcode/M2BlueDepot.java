@@ -40,7 +40,7 @@ public class M2BlueDepot extends LinearOpMode {
 
 
             // BACK UP A LITTLE
-            driveTrain.drive(-5, 0.5);
+            driveTrain.drive(-10, 0.5);
             sleep(500);
             runtime.reset();
 
@@ -50,7 +50,7 @@ public class M2BlueDepot extends LinearOpMode {
             runtime.reset();
 
             // MOVE FORWARD A LITTLE
-            driveTrain.drive(5, 0.5);
+            driveTrain.drive(10, 0.5);
             sleep(500);
             runtime.reset();
 
@@ -58,7 +58,7 @@ public class M2BlueDepot extends LinearOpMode {
 
 
             // BACK UP A LITTLE
-            driveTrain.drive(5, 0.5);
+            driveTrain.drive(-10, 0.5);
             sleep(500);
             runtime.reset();
 
@@ -68,7 +68,7 @@ public class M2BlueDepot extends LinearOpMode {
             runtime.reset();
 
             // MOVE FORWARD A LITTLE
-            driveTrain.drive(5, 0.5);
+            driveTrain.drive(10, 0.5);
             sleep(500);
             runtime.reset();
 
@@ -76,7 +76,7 @@ public class M2BlueDepot extends LinearOpMode {
 
 
             // BACK UP A LITTLE
-            driveTrain.drive(5, 0.5);
+            driveTrain.drive(-10, 0.5);
             sleep(500);
             runtime.reset();
 
@@ -86,7 +86,7 @@ public class M2BlueDepot extends LinearOpMode {
             runtime.reset();
 
             // MOVE FORWARD A LITTLE
-            driveTrain.drive(5, 0.5);
+            driveTrain.drive(10, 0.5);
             sleep(500);
             runtime.reset();
 
@@ -94,7 +94,7 @@ public class M2BlueDepot extends LinearOpMode {
 
 
             // BACK UP A LITTLE
-            driveTrain.drive(-5, 0.5);
+            driveTrain.drive(-10, 0.5);
             sleep(500);
             runtime.reset();
 

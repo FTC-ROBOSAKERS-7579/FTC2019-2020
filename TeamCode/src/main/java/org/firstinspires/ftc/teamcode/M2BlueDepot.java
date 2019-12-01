@@ -30,78 +30,77 @@ public class M2BlueDepot extends LinearOpMode {
         waitForStart();
         runtime.reset();
 
-        while (opModeIsActive()) {
 
             // MOVING THE ROBOT FORWARD UNTIL IT REACHES THE FIRST BLOCK
-            driveTrain.drive(34, 0.5);
+            driveTrain.drive(34, 0.75);
+            runtime.reset();
             sleep(500);
 
             // GRAB BLOCK
 
 
             // BACK UP A LITTLE
-            driveTrain.drive(-10, 0.5);
-            sleep(500);
+            driveTrain.drive(-10, 0.75);
             runtime.reset();
+            sleep(500);
 
-            // STRAFE LEFT UNTIL ALIGNED WITH MIDDLE OF FOUNDATION
-            driveTrain.strafe(-76, 0.5);
-            sleep(500);
+            // STRAFE RIGHT UNTIL ALIGNED WITH MIDDLE OF FOUNDATION
+            driveTrain.strafe(-76, 0.75);
             runtime.reset();
+            sleep(500);
 
             // MOVE FORWARD A LITTLE
-            driveTrain.drive(10, 0.5);
-            sleep(500);
+            driveTrain.drive(10, 0.75);
             runtime.reset();
+            sleep(500);
 
             // DROP BLOCK
 
 
             // BACK UP A LITTLE
-            driveTrain.drive(-10, 0.5);
-            sleep(500);
+            driveTrain.drive(-10, 0.75);
             runtime.reset();
+            sleep(500);
 
             // STRAFE RIGHT UNTIL ALIGNED WITH THIRD BLOCK
-            driveTrain.strafe(92, 0.5);
-            sleep(500);
+            driveTrain.strafe(92, 0.75);
             runtime.reset();
+            sleep(500);
 
             // MOVE FORWARD A LITTLE
-            driveTrain.drive(10, 0.5);
-            sleep(500);
+            driveTrain.drive(10, 0.75);
             runtime.reset();
+            sleep(500);
 
             // GRAB BLOCK
 
 
             // BACK UP A LITTLE
-            driveTrain.drive(-10, 0.5);
-            sleep(500);
+            driveTrain.drive(-10, 0.75);
             runtime.reset();
+            sleep(500);
 
             // STRAFE LEFT UNTIL ALIGNED WITH MIDDLE OF FOUNDATION
-            driveTrain.strafe(-92, 0.5);
-            sleep(500);
+            driveTrain.strafe(-92, 0.75);
             runtime.reset();
+            sleep(500);
 
             // MOVE FORWARD A LITTLE
-            driveTrain.drive(10, 0.5);
-            sleep(500);
+            driveTrain.drive(10, 0.75);
             runtime.reset();
+            sleep(500);
 
             // DROP BLOCK
 
 
             // BACK UP A LITTLE
-            driveTrain.drive(-10, 0.5);
+            driveTrain.drive(-10, 0.75);
             sleep(500);
             runtime.reset();
 
             // STRAFE RIGHT UNTIL UNDER THE ALLIANCE BRIDGE
-            driveTrain.strafe(48, 0.5);
+            driveTrain.strafe(40, 0.75);
             sleep(500);
             runtime.reset();
-        }
     }
 }

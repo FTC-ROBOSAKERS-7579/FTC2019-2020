@@ -13,7 +13,6 @@ public class Intake {
     public void autoinit(HardwareMap hardwareMap){
         Intake = hardwareMap.dcMotor.get("INTAKE_1");
 
-        Intake.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
 
     public void Intake(double power) {
@@ -24,11 +23,15 @@ public class Intake {
 
         Intake.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
+        Intake.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
         if (Intake.getCurrentPosition() <= ticks) {
+
         }
 
 
+        Intake.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
+
 
 }

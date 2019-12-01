@@ -193,10 +193,10 @@ public class AutoDrivetrain {
                     BACK_RIGHT.setTargetPosition(POSITION_RIGHT2 + (int) (distance * COUNT_PER_INCH) + 130);
                     BACK_LEFT.setTargetPosition(POSITION_LEFT2 + (int) -(distance * COUNT_PER_INCH) - 130);
 
-                    FRONT_RIGHT.setPower((-power) + 0.015);
+                    FRONT_RIGHT.setPower((-power) + 0.017);
                     FRONT_LEFT.setPower((power));
                     BACK_RIGHT.setPower((power));
-                    BACK_LEFT.setPower((-power) + 0.015);
+                    BACK_LEFT.setPower((-power) + 0.017);
                 }
                 if (distance < 0 && FRONT_RIGHT.getCurrentPosition() >= distance && FRONT_LEFT.getCurrentPosition() >= distance && BACK_LEFT.getCurrentPosition() >= distance && BACK_RIGHT.getCurrentPosition() >= distance) {
                     FRONT_RIGHT.setTargetPosition(POSITON_RIGHT + (int) -(distance * COUNT_PER_INCH) + 90);
@@ -217,6 +217,13 @@ public class AutoDrivetrain {
                 FRONT_LEFT.setPower(0);
                 BACK_RIGHT.setPower(0);
                 BACK_LEFT.setPower(0);
+
+
+
+            FRONT_RIGHT.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            FRONT_LEFT.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            BACK_RIGHT.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            BACK_LEFT.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             }
         }
 

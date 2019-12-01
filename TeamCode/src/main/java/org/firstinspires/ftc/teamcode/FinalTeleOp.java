@@ -10,11 +10,11 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 public class FinalTeleOp extends LinearOpMode {
     ElapsedTime runtime = new ElapsedTime();
     Drivetrain driveTrain = new Drivetrain();
-    Cascade cascade = new Cascade();
+    TestCascade cascade = new TestCascade();
     Intake Intake = new Intake();
-    //    TestColorSensor colorSensor = new TestColorSensor();
     double speed1 = 1;
     double speed2 = 0.3;
+    int motorTicks = 0;
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -22,7 +22,6 @@ public class FinalTeleOp extends LinearOpMode {
         driveTrain.init(hardwareMap);
         cascade.init(hardwareMap);
         Intake.init(hardwareMap);
-//        colorSensor.init(hardwareMap);
 
         telemetry.addData("Status", "Initialized");
         telemetry.update();
@@ -57,13 +56,13 @@ public class FinalTeleOp extends LinearOpMode {
 
             // CASCADE
             if(gamepad2.dpad_up) {
-                cascade.teleOpCascade(speed2);
+                cascade.casPow(speed2);
             }
             else if(gamepad2.dpad_down) {
-                cascade.teleOpCascade(-speed2);
+                cascade.casPow(-speed2);
             }
             else {
-                cascade.teleOpCascade(0);
+                cascade.casPow(0);
             }
             if(gamepad2.left_bumper) {
                 speed2 = 0.3;
@@ -71,6 +70,7 @@ public class FinalTeleOp extends LinearOpMode {
             else if(gamepad2.right_bumper) {
                 speed2 = 0.5;
             }
+
         }
     }
 }

@@ -9,26 +9,30 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 @Autonomous
 public class TestAuto extends LinearOpMode {
     AutoDrivetrain driveTrain = new AutoDrivetrain();
-        Cascade cascade = new Cascade();
-//    TestColorSensor colorSensor = new TestColorSensor();
+    TestCascade cascade = new TestCascade();
+    //    TestColorSensor colorSensor = new TestColorSensor();
+    Intake intake = new Intake();
     ElapsedTime runtime = new ElapsedTime();
+    Cascade enCas = new Cascade();
 
+    int cas1 = 0;
+    int cas2 = 0;
 
 
     @Override
-    public void runOpMode() throws InterruptedException{
+    public void runOpMode() throws InterruptedException {
         driveTrain.init(hardwareMap);
         cascade.init(hardwareMap);
 //        colorSensor.init(hardwareMap);
+        enCas.autoinit(hardwareMap);
 
 
-        telemetry.addData("Status","Initialized");
+        telemetry.addData("Status", "Initialized");
         telemetry.update();
 
         waitForStart();
         runtime.reset();
 
-        while(opModeIsActive()) {
 //            driveTrain.drive(5, 0.5);
 //            sleep(500);
 //            runtime.reset();
@@ -45,8 +49,28 @@ public class TestAuto extends LinearOpMode {
 //            sleep(500);
 //            runtime.reset();
 
-            cascade.autoCascade(5, 0.5);
-        }
-    }
 
+
+//                if(runtime.seconds() >= 3){
+//                    cascade.casPow(0);
+//               }
+//                cascade.casPow(0.1);
+
+//            enCas.autoCascade(5,0.2);
+//            runtime.reset();
+//            sleep(100);
+
+            if(getRuntime() <= 3){
+                intake.Intake(0.2);
+            }
+            runtime.reset();
+            sleep(100);
+
+            telemetry.addData("CAS1: " , cas1 += enCas.getCPOSTION());
+            telemetry.addData("CAS2: " , cas2 += enCas.getCPOSTION2());
+              telemetry.update();
+
+    }
 }
+
+

@@ -137,7 +137,7 @@ public class AutoDrivetrain {
         parameters.loggingTag = "IMU";
         parameters.accelerationIntegrationAlgorithm = new JustLoggingAccelerationIntegrator();
 
-        while (angle < currAngle) {
+        if (angle < currAngle) {
             if (angle < 0) {
                 FRONT_RIGHT.setPower(power);
                 FRONT_LEFT.setPower(-power);
@@ -150,10 +150,6 @@ public class AutoDrivetrain {
                 BACK_LEFT.setPower(power);
             }
         }
-        FRONT_RIGHT.setPower(0);
-        FRONT_LEFT.setPower(0);
-        BACK_RIGHT.setPower(0);
-        BACK_LEFT.setPower(0);
 
         angle = (int)currAngle;
     }

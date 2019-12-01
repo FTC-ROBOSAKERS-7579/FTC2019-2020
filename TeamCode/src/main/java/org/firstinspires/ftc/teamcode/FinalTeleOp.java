@@ -45,12 +45,12 @@ public class FinalTeleOp extends LinearOpMode {
 
             // INTAKE
             if(gamepad2.a) {
-                Intake.testIntake(-0.4);
+                Intake.Intake(-0.4);
             }
             else if (gamepad2.y) {
-                Intake.testIntake(0.4);
+                Intake.Intake(0.4);
             }else{
-                Intake.testIntake(0);
+                Intake.Intake(0);
             }
 
 

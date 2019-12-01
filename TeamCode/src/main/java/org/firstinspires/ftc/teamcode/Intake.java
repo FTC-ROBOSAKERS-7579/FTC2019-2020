@@ -10,6 +10,10 @@ public class Intake {
         Intake = hardwareMap.dcMotor.get("INTAKE_1");
     }
 
+    public void autoinit(HardwareMap hardwareMap){
+        
+    }
+
     public void Intake(double power) {
         Intake.setPower(power);
     }

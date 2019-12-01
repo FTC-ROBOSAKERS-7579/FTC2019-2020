@@ -37,11 +37,11 @@ public class TestAuto extends LinearOpMode {
             sleep(500);
             runtime.reset();
 
-            driveTrain.drive(5, -0.5);
+            driveTrain.drive(-5, 0.5);
             sleep(500);
             runtime.reset();
 
-            driveTrain.strafe(5,-0.2);
+            driveTrain.strafe(-5,0.2);
             sleep(500);
             runtime.reset();
 

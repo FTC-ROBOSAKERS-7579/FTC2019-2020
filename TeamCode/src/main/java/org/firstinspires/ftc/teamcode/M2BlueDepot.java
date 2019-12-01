@@ -40,12 +40,12 @@ public class M2BlueDepot extends LinearOpMode {
 
 
             // BACK UP A LITTLE
-            driveTrain.drive(5, -0.5);
+            driveTrain.drive(-5, 0.5);
             sleep(500);
             runtime.reset();
 
             // STRAFE LEFT UNTIL ALIGNED WITH MIDDLE OF FOUNDATION
-            driveTrain.strafe(76, -0.5);
+            driveTrain.strafe(-76, 0.5);
             sleep(500);
             runtime.reset();
 
@@ -81,7 +81,7 @@ public class M2BlueDepot extends LinearOpMode {
             runtime.reset();
 
             // STRAFE LEFT UNTIL ALIGNED WITH MIDDLE OF FOUNDATION
-            driveTrain.strafe(92, -0.5);
+            driveTrain.strafe(-92, 0.5);
             sleep(500);
             runtime.reset();
 
@@ -94,7 +94,7 @@ public class M2BlueDepot extends LinearOpMode {
 
 
             // BACK UP A LITTLE
-            driveTrain.drive(5, -0.5);
+            driveTrain.drive(-5, 0.5);
             sleep(500);
             runtime.reset();
 

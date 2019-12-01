@@ -81,12 +81,14 @@ public class AutoDrivetrain {
         FRONT_LEFT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         BACK_RIGHT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         BACK_LEFT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
         if(FRONT_RIGHT.getCurrentPosition() <= distance) {
             FRONT_RIGHT.setPower(power);
             FRONT_LEFT.setPower(power);
             BACK_RIGHT.setPower(power);
             BACK_LEFT.setPower(power);
         }
+
         if(distance < 0){
             FRONT_RIGHT.setPower(-power);
             FRONT_LEFT.setPower(-power);
@@ -108,8 +110,17 @@ public class AutoDrivetrain {
     }
 
 
-    public int getPosition(){
+    public int getPosition1(){
+        return FRONT_LEFT.getTargetPosition();
+    }
+    public int getPosition2(){
         return FRONT_RIGHT.getTargetPosition();
+    }
+    public int getPosition3(){
+        return BACK_LEFT.getTargetPosition();
+    }
+    public int getPosition4(){
+        return BACK_RIGHT.getTargetPosition();
     }
 
     public void turn(int angle, double power) {
@@ -126,7 +137,7 @@ public class AutoDrivetrain {
         parameters.loggingTag = "IMU";
         parameters.accelerationIntegrationAlgorithm = new JustLoggingAccelerationIntegrator();
 
-        while (angle < currAngle) {
+        if (angle < currAngle) {
             if (angle < 0) {
                 FRONT_RIGHT.setPower(power);
                 FRONT_LEFT.setPower(-power);
@@ -139,10 +150,6 @@ public class AutoDrivetrain {
                 BACK_LEFT.setPower(power);
             }
         }
-        FRONT_RIGHT.setPower(0);
-        FRONT_LEFT.setPower(0);
-        BACK_RIGHT.setPower(0);
-        BACK_LEFT.setPower(0);
 
         angle = (int)currAngle;
     }
@@ -163,10 +170,12 @@ public class AutoDrivetrain {
 
 
     public void strafe(int distance, double power){
-        FRONT_RIGHT.setTargetPosition(POSITON_RIGHT + (int) (distance * COUNT_PER_INCH));
-        FRONT_LEFT.setTargetPosition(POSITION_LEFT + (int) (distance * COUNT_PER_INCH));
-        BACK_RIGHT.setTargetPosition(POSITON_RIGHT + (int) (distance * COUNT_PER_INCH));
-        BACK_LEFT.setTargetPosition(POSITION_LEFT + (int) (distance * COUNT_PER_INCH));
+        int POSITION_LEFT2 = 0;
+        int POSITION_RIGHT2 = 0;
+        FRONT_RIGHT.setTargetPosition(POSITON_RIGHT + (int) -(distance * COUNT_PER_INCH) - 130);
+        FRONT_LEFT.setTargetPosition(POSITION_LEFT + (int) (distance * COUNT_PER_INCH) + 130);
+        BACK_RIGHT.setTargetPosition(POSITION_RIGHT2 + (int) (distance * COUNT_PER_INCH) + 130);
+        BACK_LEFT.setTargetPosition(POSITION_LEFT2 + (int) -(distance * COUNT_PER_INCH) - 130);
 
 
         FRONT_RIGHT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -174,19 +183,19 @@ public class AutoDrivetrain {
         BACK_RIGHT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         BACK_LEFT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        if(FRONT_RIGHT.getCurrentPosition() <= distance) {
-            FRONT_RIGHT.setPower(-power);
-            FRONT_LEFT.setPower(power);
-            BACK_RIGHT.setPower(power);
-            BACK_LEFT.setPower(-power);
+        if(FRONT_RIGHT.getCurrentPosition() <= distance && FRONT_LEFT.getCurrentPosition() <= distance && BACK_LEFT.getCurrentPosition() <= distance && BACK_RIGHT.getCurrentPosition() <= distance)  {
+            FRONT_RIGHT.setPower((-power) + 0.015);
+            FRONT_LEFT.setPower((power));
+            BACK_RIGHT.setPower((power));
+            BACK_LEFT.setPower((-power) + 0.015);
         }
 
-        if(distance < 0){
-            FRONT_RIGHT.setPower(power);
-            FRONT_LEFT.setPower(-power);
-            BACK_RIGHT.setPower(-power);
-            BACK_LEFT.setPower(power);
-        }
+//            if(distance < 0){
+//                FRONT_RIGHT.setPower(power);
+//                FRONT_LEFT.setPower(-power);
+//                BACK_RIGHT.setPower(-power);
+//                BACK_LEFT.setPower(power);
+//            }
 
         while(FRONT_RIGHT.isBusy() && BACK_RIGHT.isBusy() && FRONT_LEFT.isBusy() && BACK_LEFT.isBusy()){
 

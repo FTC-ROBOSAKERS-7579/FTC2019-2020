@@ -18,7 +18,7 @@ public class TestAuto extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException{
         driveTrain.init(hardwareMap);
-//        cascade.init(hardwareMap);
+        cascade.init(hardwareMap);
 //        colorSensor.init(hardwareMap);
 
 

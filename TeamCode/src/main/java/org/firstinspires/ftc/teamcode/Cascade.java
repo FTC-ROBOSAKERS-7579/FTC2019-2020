@@ -29,9 +29,6 @@ public class Cascade {
             Cascade1.setDirection(DcMotorSimple.Direction.FORWARD);
             Cascade2.setDirection(DcMotorSimple.Direction.REVERSE);
 
-            Cascade1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-            Cascade2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
             Cascade1.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             Cascade2.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         }
@@ -42,13 +39,17 @@ public class Cascade {
         }
 
         public void autoCascade(int distance, double power){
+
+            Cascade1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+            Cascade2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
             Cascade1.setTargetPosition(CPOSTION + (int) (distance * COUNT_PER_INCH));
             Cascade2.setTargetPosition(CPOSTION2 + (int) (distance * COUNT_PER_INCH));
 
             Cascade1.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             Cascade2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-            if(Cascade1.getCurrentPosition() <= distance){
+            if(Cascade1.getCurrentPosition() <= distance && Cascade2.getCurrentPosition() <= distance){
                 Cascade1.setPower(power);
                 Cascade2.setPower(power);
             }

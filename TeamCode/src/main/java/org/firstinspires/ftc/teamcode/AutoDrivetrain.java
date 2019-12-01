@@ -179,11 +179,7 @@ public class AutoDrivetrain {
             FRONT_LEFT.setTargetPosition(POSITION_LEFT + (int) (distance * COUNT_PER_INCH) + 130);
             BACK_RIGHT.setTargetPosition(POSITION_RIGHT2 + (int) (distance * COUNT_PER_INCH) + 130);
             BACK_LEFT.setTargetPosition(POSITION_LEFT2 + (int) -(distance * COUNT_PER_INCH) - 130);
-
-            FRONT_RIGHT.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-            FRONT_LEFT.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-            BACK_LEFT.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-            BACK_RIGHT.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+            
 
             FRONT_RIGHT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             FRONT_LEFT.setMode(DcMotor.RunMode.RUN_TO_POSITION);

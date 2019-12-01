@@ -1,4 +1,6 @@
 package org.firstinspires.ftc.teamcode;
+import com.qualcomm.robotcore.hardware.DcMotor;
+
 import android.graphics.drawable.GradientDrawable;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
@@ -8,9 +10,6 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.navigation.Acceleration;
-import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
-import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
-import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 public class AutoDrivetrain {
@@ -22,14 +21,13 @@ public class AutoDrivetrain {
     DcMotor BACK_LEFT;
     DcMotor BACK_RIGHT;
 
-    int POSITON_RIGHT= 0;
-    int POSITION_LEFT= 0;
+    int POSITON_RIGHT = 0;
+    int POSITION_LEFT = 0;
 
     double MOTOR_COUNT = 1120.0;
     int GEAR_REDUCTION = 4;
-    double DIAMETER = Math.PI *4;
-    double COUNT_PER_INCH = MOTOR_COUNT / DIAMETER ;
-
+    double DIAMETER = Math.PI * 4;
+    double COUNT_PER_INCH = MOTOR_COUNT / DIAMETER;
 
 
     BNO055IMU imu;
@@ -38,10 +36,9 @@ public class AutoDrivetrain {
     float currAngle = 0;
 
 
-
     HardwareMap hardwareMap;
 
-    // INITIAL
+
     public void init(HardwareMap hardwareMap) {
         imu = hardwareMap.get(BNO055IMU.class, "imu");
         imu.initialize(parameters);
@@ -58,20 +55,14 @@ public class AutoDrivetrain {
         BACK_LEFT.setDirection(DcMotor.Direction.REVERSE);
 
 
+    }
+
+    public void drive(int distance, double power) {
         FRONT_RIGHT.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         FRONT_LEFT.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         BACK_LEFT.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         BACK_RIGHT.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-        FRONT_RIGHT.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        FRONT_LEFT.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        BACK_RIGHT.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        BACK_LEFT.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-
-    }
-
-    // DRIVE
-    public void drive(int distance, double power) {
         FRONT_RIGHT.setTargetPosition(POSITON_RIGHT + (int) (distance * COUNT_PER_INCH));
         FRONT_LEFT.setTargetPosition(POSITION_LEFT + (int) (distance * COUNT_PER_INCH));
         BACK_RIGHT.setTargetPosition(POSITON_RIGHT + (int) (distance * COUNT_PER_INCH));
@@ -81,14 +72,12 @@ public class AutoDrivetrain {
         FRONT_LEFT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         BACK_RIGHT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         BACK_LEFT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-
         if(FRONT_RIGHT.getCurrentPosition() <= distance) {
             FRONT_RIGHT.setPower(power);
             FRONT_LEFT.setPower(power);
             BACK_RIGHT.setPower(power);
             BACK_LEFT.setPower(power);
         }
-
         if(distance < 0){
             FRONT_RIGHT.setPower(-power);
             FRONT_LEFT.setPower(-power);
@@ -110,105 +99,81 @@ public class AutoDrivetrain {
     }
 
 
-    public int getPosition1(){
-        return FRONT_LEFT.getTargetPosition();
-    }
-    public int getPosition2(){
-        return FRONT_RIGHT.getTargetPosition();
-    }
-    public int getPosition3(){
-        return BACK_LEFT.getTargetPosition();
-    }
-    public int getPosition4(){
-        return BACK_RIGHT.getTargetPosition();
-    }
 
-//    public void turn(int angle, double power) {
-//
-//        angles = this.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
-//        this.imu.getPosition();
-//        currAngle = angles.firstAngle;
-//
-//
-//        parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
-//        parameters.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
-//        parameters.calibrationDataFile = "BNO055IMUCalibration.json";
-//        parameters.loggingEnabled = true;
-//        parameters.loggingTag = "IMU";
-//        parameters.accelerationIntegrationAlgorithm = new JustLoggingAccelerationIntegrator();
-//
-//        if (angle < currAngle) {
-//            if (angle < 0) {
-//                FRONT_RIGHT.setPower(power);
-//                FRONT_LEFT.setPower(-power);
-//                BACK_RIGHT.setPower(power);
-//                BACK_LEFT.setPower(-power);
-//            } else if (angle > 0) {
-//                FRONT_RIGHT.setPower(-power);
-//                FRONT_LEFT.setPower(power);
-//                BACK_RIGHT.setPower(-power);
-//                BACK_LEFT.setPower(power);
-//            }
-//        }
-//
-//        angle = (int)currAngle;
-//    }
+        public int getPosition1(){
+            return FRONT_LEFT.getTargetPosition();
+        }
+        public int getPosition2(){
+            return FRONT_RIGHT.getTargetPosition();
+        }
+        public int getPosition3(){
+            return BACK_LEFT.getTargetPosition();
+        }
+        public int getPosition4(){
+            return BACK_RIGHT.getTargetPosition();
+        }
 
 
-//    public void resetAngle(){
-//        if(getAngle() > 0 || getAngle() < 0){
-//            turn(0,0);
-//        }
-//    }
-
-//    public int getAngle(){
-//        angles = this.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
-//        this.imu.getPosition();
-//        currAngle = angles.firstAngle;
-//        return (int)currAngle;
-//    }
 
 
-    public void strafe(int distance, double power){
+
+
+        public void strafe(int distance, double power) {
+
+            FRONT_RIGHT.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+            FRONT_LEFT.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+            BACK_LEFT.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+            BACK_RIGHT.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+            
         int POSITION_LEFT2 = 0;
         int POSITION_RIGHT2 = 0;
-        FRONT_RIGHT.setTargetPosition(POSITON_RIGHT + (int) -(distance * COUNT_PER_INCH) - 60);
-        FRONT_LEFT.setTargetPosition(POSITION_LEFT + (int) (distance * COUNT_PER_INCH) + 60);
-        BACK_RIGHT.setTargetPosition(POSITION_RIGHT2 + (int) (distance * COUNT_PER_INCH) + 60);
-        BACK_LEFT.setTargetPosition(POSITION_LEFT2 + (int) -(distance * COUNT_PER_INCH) - 60);
+        FRONT_RIGHT.setTargetPosition(POSITON_RIGHT + (int) -(distance * COUNT_PER_INCH) - 130);
+        FRONT_LEFT.setTargetPosition(POSITION_LEFT + (int) (distance * COUNT_PER_INCH) + 130);
+        BACK_RIGHT.setTargetPosition(POSITION_RIGHT2 + (int) (distance * COUNT_PER_INCH) + 130);
+        BACK_LEFT.setTargetPosition(POSITION_LEFT2 + (int) -(distance * COUNT_PER_INCH) - 130);
 
+        FRONT_RIGHT.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        FRONT_LEFT.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        BACK_LEFT.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        BACK_RIGHT.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         FRONT_RIGHT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         FRONT_LEFT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         BACK_RIGHT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         BACK_LEFT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        if(FRONT_RIGHT.getCurrentPosition() <= distance && FRONT_LEFT.getCurrentPosition() <= distance && BACK_LEFT.getCurrentPosition() <= distance && BACK_RIGHT.getCurrentPosition() <= distance)  {
-            FRONT_RIGHT.setPower((-power) + 0.0115);
-            FRONT_LEFT.setPower((power));
-            BACK_RIGHT.setPower((power));
-            BACK_LEFT.setPower((-power) + 0.0115);
+        if (FRONT_RIGHT.getCurrentPosition() <= distance && FRONT_LEFT.getCurrentPosition() <= distance && BACK_LEFT.getCurrentPosition() <= distance && BACK_RIGHT.getCurrentPosition() <= distance) {
+            if (distance > 0 && FRONT_RIGHT.getCurrentPosition() <= distance && FRONT_LEFT.getCurrentPosition() <= distance && BACK_LEFT.getCurrentPosition() <= distance && BACK_RIGHT.getCurrentPosition() <= distance) {
+                FRONT_RIGHT.setTargetPosition(POSITON_RIGHT + (int) -(distance * COUNT_PER_INCH) - 130);
+                FRONT_LEFT.setTargetPosition(POSITION_LEFT + (int) (distance * COUNT_PER_INCH) + 130);
+                BACK_RIGHT.setTargetPosition(POSITION_RIGHT2 + (int) (distance * COUNT_PER_INCH) + 130);
+                BACK_LEFT.setTargetPosition(POSITION_LEFT2 + (int) -(distance * COUNT_PER_INCH) - 130);
+
+                FRONT_RIGHT.setPower((-power) + 0.015);
+                FRONT_LEFT.setPower((power));
+                BACK_RIGHT.setPower((power));
+                BACK_LEFT.setPower((-power) + 0.015);
+            }
+            if (distance < 0 && FRONT_RIGHT.getCurrentPosition() >= distance && FRONT_LEFT.getCurrentPosition() >= distance && BACK_LEFT.getCurrentPosition() >= distance && BACK_RIGHT.getCurrentPosition() >= distance) {
+                FRONT_RIGHT.setTargetPosition(POSITON_RIGHT + (int) -(distance * COUNT_PER_INCH) + 90);
+                FRONT_LEFT.setTargetPosition(POSITION_LEFT + (int) (distance * COUNT_PER_INCH) - 90);
+                BACK_RIGHT.setTargetPosition(POSITION_RIGHT2 + (int) (distance * COUNT_PER_INCH) - 90);
+                BACK_LEFT.setTargetPosition(POSITION_LEFT2 + (int) -(distance * COUNT_PER_INCH) + 90);
+
+                FRONT_RIGHT.setPower(power);
+                FRONT_LEFT.setPower((-power) + 0.0145);
+                BACK_RIGHT.setPower((-power) + 0.0145);
+                BACK_LEFT.setPower(power);
+            }
+
+
+
+            while (FRONT_RIGHT.isBusy() && BACK_RIGHT.isBusy() && FRONT_LEFT.isBusy() && BACK_LEFT.isBusy()) {
+            }
+            FRONT_RIGHT.setPower(0);
+            FRONT_LEFT.setPower(0);
+            BACK_RIGHT.setPower(0);
+            BACK_LEFT.setPower(0);
         }
-
-//            if(distance < 0){
-//                FRONT_RIGHT.setPower(power);
-//                FRONT_LEFT.setPower(-power);
-//                BACK_RIGHT.setPower(-power);
-//                BACK_LEFT.setPower(power);
-//            }
-
-        while(FRONT_RIGHT.isBusy() && BACK_RIGHT.isBusy() && FRONT_LEFT.isBusy() && BACK_LEFT.isBusy()){
-
-        }
-        FRONT_RIGHT.setPower(0);
-        FRONT_LEFT.setPower(0);
-        BACK_RIGHT.setPower(0);
-        BACK_LEFT.setPower(0);
-
-        FRONT_RIGHT.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        FRONT_LEFT.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        BACK_RIGHT.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        BACK_LEFT.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
 }
-

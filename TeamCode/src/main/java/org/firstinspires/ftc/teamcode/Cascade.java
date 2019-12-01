@@ -13,7 +13,7 @@ public class Cascade {
 
 
     double MOTOR_COUNT = 1120.0;
-    int HEIGHT = 7;
+    int HEIGHT = 8;
     double COUNT_PER_INCH = MOTOR_COUNT / HEIGHT;
 
     public void init(HardwareMap hardwareMap) {
@@ -49,7 +49,7 @@ public class Cascade {
             Cascade1.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             Cascade2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-            if(Cascade1.getCurrentPosition() <= distance && Cascade2.getCurrentPosition() <= distance){
+            if((Cascade1.getCurrentPosition() <= distance && Cascade1.getCurrentPosition() >= distance) && (Cascade2.getCurrentPosition() <= distance && Cascade2.getCurrentPosition() >= distance)){
                 Cascade1.setPower(power);
                 Cascade2.setPower(power);
             }

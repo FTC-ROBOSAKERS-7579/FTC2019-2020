@@ -174,10 +174,10 @@ public class TestAutoDriveTrain {
 
 
         public void strafe(int distance, double power){
-                    FRONT_RIGHT.setTargetPosition(POSITON_RIGHT + (int) (distance * COUNT_PER_INCH));
+                    FRONT_RIGHT.setTargetPosition(POSITON_RIGHT + (int) -(distance * COUNT_PER_INCH));
                     FRONT_LEFT.setTargetPosition(POSITION_LEFT + (int) (distance * COUNT_PER_INCH));
                     BACK_RIGHT.setTargetPosition(POSITON_RIGHT + (int) (distance * COUNT_PER_INCH));
-                    BACK_LEFT.setTargetPosition(POSITION_LEFT + (int) (distance * COUNT_PER_INCH));
+                    BACK_LEFT.setTargetPosition(POSITION_LEFT + (int) -(distance * COUNT_PER_INCH));
 
 
                     FRONT_RIGHT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -186,8 +186,8 @@ public class TestAutoDriveTrain {
                     BACK_LEFT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
             if(FRONT_RIGHT.getCurrentPosition() <= distance) {
-                FRONT_RIGHT.setPower(power);
-                FRONT_LEFT.setPower(-power/3);
+                FRONT_RIGHT.setPower(-power);
+                FRONT_LEFT.setPower(power);
                 BACK_RIGHT.setPower(power);
                 BACK_LEFT.setPower(-power);
             }

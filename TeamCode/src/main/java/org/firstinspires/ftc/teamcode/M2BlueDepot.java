@@ -38,7 +38,7 @@ public class M2BlueDepot extends LinearOpMode {
             runtime.reset();
 
             // SEEING IF THE BLOCK IN FRONT OF THE ROBOT IS YELLOW
-            
+
         }
     }
 }

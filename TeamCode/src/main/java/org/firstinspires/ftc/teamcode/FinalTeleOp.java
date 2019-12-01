@@ -35,7 +35,7 @@ public class FinalTeleOp extends LinearOpMode {
 //            colorSensor.LED(true);
 
             // DRIVE TRAIN
-            driveTrain.arcadeDrive(gamepad1.left_stick_x, gamepad1.left_stick_y, -gamepad1.right_stick_x, speed1);
+            driveTrain.arcadeDrive(gamepad1.left_stick_x, gamepad1.left_stick_y, gamepad1.right_stick_x, speed1);
             if(gamepad1.left_bumper){
                 speed1 = 0.3;
             }
@@ -45,10 +45,10 @@ public class FinalTeleOp extends LinearOpMode {
 
             // INTAKE
             if(gamepad2.a) {
-                Intake.Intake(-0.4);
+                Intake.Intake(0.4);
             }
             else if (gamepad2.y) {
-                Intake.Intake(0.4);
+                Intake.Intake(-0.4);
             }else{
                 Intake.Intake(0);
             }

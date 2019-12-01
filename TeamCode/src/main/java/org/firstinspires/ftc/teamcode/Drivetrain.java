@@ -50,14 +50,10 @@ public class Drivetrain {
         backRight.setPower((-linear - rotation + strafe) * speed);
     }
 
-    public void testMotor(double power){
-        backLeft.setPower(power);
-        backRight.setPower(power);
-        frontRight.setPower(power);
-    }
     public double currentCount(){
         return count += frontLeft.getCurrentPosition();
     }
+
     public void reset(){
         backLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         backRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);

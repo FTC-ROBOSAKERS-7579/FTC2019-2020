@@ -36,7 +36,11 @@ public class TestAuto extends LinearOpMode {
 
 
 
-            telemetry.addData("Target", driveTrain.getPosition());
+            telemetry.addData("FL ", driveTrain.getPosition1());
+            telemetry.addData("FR ", driveTrain.getPosition2());
+            telemetry.addData("BL ", driveTrain.getPosition3());
+            telemetry.addData("BR ", driveTrain.getPosition4());
+
             telemetry.update();
         }
     }

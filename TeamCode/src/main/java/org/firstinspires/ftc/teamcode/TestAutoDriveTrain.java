@@ -81,12 +81,14 @@ public class TestAutoDriveTrain {
             FRONT_LEFT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             BACK_RIGHT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             BACK_LEFT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
             if(FRONT_RIGHT.getCurrentPosition() <= distance) {
                 FRONT_RIGHT.setPower(power);
                 FRONT_LEFT.setPower(power);
                 BACK_RIGHT.setPower(power);
                 BACK_LEFT.setPower(power);
             }
+
             if(distance < 0){
                 FRONT_RIGHT.setPower(-power);
                 FRONT_LEFT.setPower(-power);
@@ -108,8 +110,17 @@ public class TestAutoDriveTrain {
     }
 
 
-    public int getPosition(){
+    public int getPosition1(){
+        return FRONT_LEFT.getTargetPosition();
+    }
+    public int getPosition2(){
         return FRONT_RIGHT.getTargetPosition();
+    }
+    public int getPosition3(){
+        return BACK_LEFT.getTargetPosition();
+    }
+    public int getPosition4(){
+        return BACK_RIGHT.getTargetPosition();
     }
 
     public void turn(int angle, double power) {
@@ -175,18 +186,18 @@ public class TestAutoDriveTrain {
                     BACK_LEFT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
             if(FRONT_RIGHT.getCurrentPosition() <= distance) {
-                FRONT_RIGHT.setPower(-power);
-                FRONT_LEFT.setPower(power);
+                FRONT_RIGHT.setPower(power);
+                FRONT_LEFT.setPower(-power/3);
                 BACK_RIGHT.setPower(power);
                 BACK_LEFT.setPower(-power);
             }
 
-            if(distance < 0){
-                FRONT_RIGHT.setPower(power);
-                FRONT_LEFT.setPower(-power);
-                BACK_RIGHT.setPower(-power);
-                BACK_LEFT.setPower(power);
-            }
+//            if(distance < 0){
+//                FRONT_RIGHT.setPower(power);
+//                FRONT_LEFT.setPower(-power);
+//                BACK_RIGHT.setPower(-power);
+//                BACK_LEFT.setPower(power);
+//            }
 
                 while(FRONT_RIGHT.isBusy() && BACK_RIGHT.isBusy() && FRONT_LEFT.isBusy() && BACK_LEFT.isBusy()){
 

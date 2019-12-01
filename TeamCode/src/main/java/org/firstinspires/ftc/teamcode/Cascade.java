@@ -13,7 +13,7 @@ public class Cascade {
 
 
     double MOTOR_COUNT = 1120.0;
-    int HEIGHT = 8;
+    double HEIGHT = 20.75;
     double COUNT_PER_INCH = MOTOR_COUNT / HEIGHT;
 
     public void init(HardwareMap hardwareMap) {

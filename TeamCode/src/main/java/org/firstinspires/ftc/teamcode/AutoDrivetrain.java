@@ -72,13 +72,13 @@ public class AutoDrivetrain {
         FRONT_LEFT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         BACK_RIGHT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         BACK_LEFT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        if (FRONT_RIGHT.getCurrentPosition() <= distance) {
+        if (distance > 0 && FRONT_RIGHT.getCurrentPosition() <= distance && FRONT_LEFT.getCurrentPosition() <= distance && BACK_LEFT.getCurrentPosition() <= distance && BACK_RIGHT.getCurrentPosition() <= distance) {
             FRONT_RIGHT.setPower(power);
             FRONT_LEFT.setPower(power);
             BACK_RIGHT.setPower(power);
             BACK_LEFT.setPower(power);
         }
-        if (distance < 0) {
+        if (distance < 0 && FRONT_RIGHT.getCurrentPosition() >= distance && FRONT_LEFT.getCurrentPosition() >= distance && BACK_LEFT.getCurrentPosition() >= distance && BACK_RIGHT.getCurrentPosition() >= distance) {
             FRONT_RIGHT.setPower(-power);
             FRONT_LEFT.setPower(-power);
             BACK_RIGHT.setPower(-power);

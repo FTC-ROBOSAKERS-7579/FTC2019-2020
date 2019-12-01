@@ -37,8 +37,72 @@ public class M2BlueDepot extends LinearOpMode {
             sleep(500);
             runtime.reset();
 
-            // SEEING IF THE BLOCK IN FRONT OF THE ROBOT IS YELLOW
+            // GRAB BLOCK
 
+
+            // BACK UP A LITTLE
+            driveTrain.drive(5, -0.5);
+            sleep(500);
+            runtime.reset();
+
+            // STRAFE LEFT UNTIL ALIGNED WITH MIDDLE OF FOUNDATION
+            driveTrain.strafe(76, -0.5);
+            sleep(500);
+            runtime.reset();
+
+            // MOVE FORWARD A LITTLE
+            driveTrain.drive(5, 0.5);
+            sleep(500);
+            runtime.reset();
+
+            // DROP BLOCK
+
+
+            // BACK UP A LITTLE
+            driveTrain.drive(5, 0.5);
+            sleep(500);
+            runtime.reset();
+
+            // STRAFE RIGHT UNTIL ALIGNED WITH THIRD BLOCK
+            driveTrain.strafe(92, 0.5);
+            sleep(500);
+            runtime.reset();
+
+            // MOVE FORWARD A LITTLE
+            driveTrain.drive(5, 0.5);
+            sleep(500);
+            runtime.reset();
+
+            // GRAB BLOCK
+
+
+            // BACK UP A LITTLE
+            driveTrain.drive(5, 0.5);
+            sleep(500);
+            runtime.reset();
+
+            // STRAFE LEFT UNTIL ALIGNED WITH MIDDLE OF FOUNDATION
+            driveTrain.strafe(92, -0.5);
+            sleep(500);
+            runtime.reset();
+
+            // MOVE FORWARD A LITTLE
+            driveTrain.drive(5, 0.5);
+            sleep(500);
+            runtime.reset();
+
+            // DROP BLOCK
+
+
+            // BACK UP A LITTLE
+            driveTrain.drive(5, -0.5);
+            sleep(500);
+            runtime.reset();
+
+            // STRAFE RIGHT UNTIL UNDER THE ALLIANCE BRIDGE
+            driveTrain.strafe(48, 0.5);
+            sleep(500);
+            runtime.reset();
         }
     }
 }

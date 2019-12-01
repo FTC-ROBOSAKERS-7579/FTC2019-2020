@@ -50,8 +50,8 @@ public class Cascade {
             Cascade2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
             if(Cascade1.getCurrentPosition() <= distance && Cascade2.getCurrentPosition() <= distance){
-                Cascade1.setPower(power);
-                Cascade2.setPower(power);
+                Cascade1.setPower(power - 0.015);
+                Cascade2.setPower(power - 0.015);
             }
 
 

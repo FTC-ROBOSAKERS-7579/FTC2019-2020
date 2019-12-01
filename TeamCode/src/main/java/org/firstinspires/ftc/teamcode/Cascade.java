@@ -50,15 +50,15 @@ public class Cascade {
             Cascade2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
             if(Cascade1.getCurrentPosition() <= distance && Cascade2.getCurrentPosition() <= distance){
-                Cascade1.setPower(power - 0.015);
-                Cascade2.setPower(power - 0.015);
+                Cascade1.setPower(power * 0.015 / 20.75);
+                Cascade2.setPower(power * 0.015 / 20.75);
             }
 
 
             while(Cascade1.isBusy() && Cascade2.isBusy()){
             }
-            Cascade1.getZeroPowerBehavior();
-            Cascade2.getZeroPowerBehavior();
+            Cascade1.setPower(0);
+            Cascade2.setPower(0);
 
 
             Cascade1.setMode(DcMotor.RunMode.RUN_USING_ENCODER);

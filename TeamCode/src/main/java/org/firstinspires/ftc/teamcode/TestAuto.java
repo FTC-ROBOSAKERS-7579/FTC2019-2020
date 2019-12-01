@@ -28,18 +28,22 @@ public class TestAuto extends LinearOpMode {
         waitForStart();
         runtime.reset();
 
-        while(opModeIsActive()){
-            driveTrain.strafe(12,0.2);
-            sleep(100);
+        while(opModeIsActive()) {
+            driveTrain.drive(5, 0.5);
+            sleep(500);
             runtime.reset();
 
+            driveTrain.strafe(5,0.2);
+            sleep(500);
+            runtime.reset();
 
+            driveTrain.drive(5, -0.5);
+            sleep(500);
+            runtime.reset();
 
-
-            telemetry.addData("FL ", driveTrain.getPosition1());
-            telemetry.addData("FR ", driveTrain.getPosition2());
-            telemetry.addData("BL ", driveTrain.getPosition3());
-            telemetry.addData("BR ", driveTrain.getPosition4());
+            driveTrain.strafe(5,-0.2);
+            sleep(500);
+            runtime.reset();
 
             telemetry.update();
         }

@@ -35,7 +35,6 @@ public class M2BlueDepot extends LinearOpMode {
             // MOVING THE ROBOT FORWARD UNTIL IT REACHES THE FIRST BLOCK
             driveTrain.drive(34, 0.5);
             sleep(500);
-            runtime.reset();
 
             // GRAB BLOCK
 

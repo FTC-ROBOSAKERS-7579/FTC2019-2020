@@ -109,20 +109,6 @@ public class AutoDrivetrain {
         BACK_LEFT.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
 
-
-    public int getPosition1(){
-        return FRONT_LEFT.getTargetPosition();
-    }
-    public int getPosition2(){
-        return FRONT_RIGHT.getTargetPosition();
-    }
-    public int getPosition3(){
-        return BACK_LEFT.getTargetPosition();
-    }
-    public int getPosition4(){
-        return BACK_RIGHT.getTargetPosition();
-    }
-
 //    public void turn(int angle, double power) {
 //
 //        angles = this.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);

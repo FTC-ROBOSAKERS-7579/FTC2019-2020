@@ -33,8 +33,8 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 public class BlueBuilding extends LinearOpMode {
     ElapsedTime runtime = new ElapsedTime();
     AutoDrivetrain driveTrain = new AutoDrivetrain();
-    TestColorSensor colorSensor = new TestColorSensor();
-    TestIntake intake = new TestIntake();
+    ColorSensor colorSensor = new ColorSensor();
+    Intake intake = new Intake();
     boolean brickscan = true;
     int brickdistance = 0;
 

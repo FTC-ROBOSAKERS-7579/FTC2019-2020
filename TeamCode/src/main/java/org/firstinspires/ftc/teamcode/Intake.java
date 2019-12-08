@@ -6,8 +6,16 @@ public class Intake {
 
     DcMotor Intake;
 
+    int INTAKE_POSTION = 0;
+
+
+    public enum POSTION{
+        UP,DOWN
+    }
+
     public void init(HardwareMap hardwareMap) {
         Intake = hardwareMap.dcMotor.get("INTAKE_1");
+
     }
 
     public void autoinit(HardwareMap hardwareMap){
@@ -20,15 +28,20 @@ public class Intake {
         Intake.setPower(power);
     }
 
-    public void autoIntake(int ticks, double power){
-
+    public void grab(double power, POSTION postion){
         Intake.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-
-        if (Intake.getCurrentPosition() <= ticks) {
-        }
-
-
+     switch (POSTION.UP){
+         case UP:
+             Intake.setTargetPosition(5500);
+             Intake.setPower(power);
+             break;
+         case DOWN:
+             Intake.setTargetPosition(0);
+             Intake.setPower(-power);
+             break;
+         default:
+             Intake.setPower(0);
+             break;
+     }
     }
-
 }

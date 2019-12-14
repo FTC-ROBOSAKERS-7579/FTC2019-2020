@@ -28,7 +28,7 @@ public class Intake {
         Intake.setPower(power);
     }
 
-    public void grab(double power, POSTION postion){
+    public void functionIntake(double power, POSTION postion){
         Intake.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
      switch (POSTION.UP){
          case UP:

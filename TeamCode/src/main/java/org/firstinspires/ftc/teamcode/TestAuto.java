@@ -41,6 +41,11 @@ public class TestAuto extends LinearOpMode {
             sleep(500);
             runtime.reset();
 
+
+            enCas.autoCascade(5,0.2);
+            sleep(500);
+            runtime.reset();
+
 //            driveTrain.drive(-5, 0.5);
 //            sleep(500);
 //            runtime.reset();

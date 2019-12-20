@@ -33,43 +33,9 @@ public class TestAuto extends LinearOpMode {
         waitForStart();
         runtime.reset();
 
-//            driveTrain.drive(5, 0.5);
-//            sleep(500);
-//            runtime.reset();
-//
             driveTrain.strafe(24,0.5);
             sleep(500);
             runtime.reset();
-
-
-            enCas.autoCascade(5,0.2);
-            sleep(500);
-            runtime.reset();
-
-//            driveTrain.drive(-5, 0.5);
-//            sleep(500);
-//            runtime.reset();
-//
-//            driveTrain.strafe(-5,0.2);
-//            sleep(500);
-//            runtime.reset();
-
-
-
-//                if(runtime.seconds() >= 3){
-//                    cascade.casPow(0);
-//               }
-//                cascade.casPow(0.1);
-
-//            enCas.autoCascade(5,0.2);
-//            runtime.reset();
-//            sleep(100);
-
-
-
-        telemetry.addData("CAS1: " , cas1 += enCas.getCPOSTION());
-        telemetry.addData("CAS2: " , cas2 += enCas.getCPOSTION2());
-        telemetry.update();
 
     }
 }

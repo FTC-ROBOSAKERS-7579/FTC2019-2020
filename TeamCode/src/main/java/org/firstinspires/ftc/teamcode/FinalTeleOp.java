@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -12,7 +13,7 @@ public class FinalTeleOp extends LinearOpMode {
     Drivetrain driveTrain = new Drivetrain();
     Cascade cascade = new Cascade();
     Intake Intake = new Intake();
-    //    TestColorSensor colorSensor = new TestColorSensor();
+
     double speed1 = 1;
     double speed2 = 0.3;
 

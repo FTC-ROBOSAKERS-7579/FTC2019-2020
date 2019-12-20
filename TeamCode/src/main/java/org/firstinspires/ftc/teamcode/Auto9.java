@@ -1,3 +1,30 @@
+/*
+Auto for:
+ - Red side
+ - Depot side
+ - Parking near the wall
+ - Teammate has not moved the foundation
+Pseudo Code:
+ - Move forward until close to first block
+ - Strafe left until aligned with the first skyblock
+ - Grab block
+ - Back up a little
+ - Strafe right until aligned with middle of foundation
+ - Move forward a little
+ - Drop block
+ - Back up a little
+ - If the first skyblock was the third block, strafe left until aligned with first block
+ - If not, strafe left until aligned with the block, 3 blocks past the first skyblock
+ - Move forward a little
+ - Grab block
+ - Back up a little
+ - Strafe right until aligned with middle of foundation
+ - Move forward a little
+ - Drop block
+ - Back up until close to wall
+ - Strafe left until parked under alliance bridge
+*/
+
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
@@ -9,7 +36,7 @@ import org.firstinspires.ftc.teamcode.AutoDrivetrain;
 import org.firstinspires.ftc.teamcode.Cascade;
 import org.firstinspires.ftc.teamcode.Intake;
 
-@Autonomous(name = "Red side, No Team, No Turn")
+@Autonomous(name = "Red_Depot_Wall_No")
 public class Auto9 extends LinearOpMode {
     AutoDrivetrain driveTrain = new AutoDrivetrain();
     Cascade cascade = new Cascade();

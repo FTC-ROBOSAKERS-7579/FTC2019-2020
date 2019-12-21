@@ -10,5 +10,8 @@ Pseudo Code:
 
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+
+@Autonomous(name = "Parking_Bridge_Left")
 public class Auto17 {
 }

@@ -10,5 +10,8 @@ Pseudo Code:
 
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+
+@Autonomous(name = "Parking_Wall_Left")
 public class Auto18 {
 }

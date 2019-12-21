@@ -27,5 +27,8 @@ Pseudo Code:
 
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+
+@Autonomous(name = "Red_Depot_Bridge_NF")
 public class Auto11 {
 }

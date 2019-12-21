@@ -36,11 +36,11 @@ import org.firstinspires.ftc.teamcode.AutoDrivetrain;
 import org.firstinspires.ftc.teamcode.Cascade;
 import org.firstinspires.ftc.teamcode.Intake;
 
-@Autonomous(name = "Red_Depot_Wall_No")
+@Autonomous(name = "Red_Depot_Wall_NF")
 public class Auto9 extends LinearOpMode {
+
     AutoDrivetrain driveTrain = new AutoDrivetrain();
     Cascade cascade = new Cascade();
-    //    TestColorSensor colorSensor = new TestColorSensor();
     Intake intake = new Intake();
     ElapsedTime runtime = new ElapsedTime();
     Cascade enCas = new Cascade();
@@ -48,14 +48,12 @@ public class Auto9 extends LinearOpMode {
     int cas1 = 0;
     int cas2 = 0;
 
-
     @Override
     public void runOpMode() throws InterruptedException {
+
         driveTrain.init(hardwareMap);
         cascade.autoinit(hardwareMap);
-//      colorSensor.init(hardwareMap);
         enCas.autoinit(hardwareMap);
-
 
         telemetry.addData("Status", "Initialized");
         telemetry.update();
@@ -154,6 +152,7 @@ public class Auto9 extends LinearOpMode {
         sleep(500);
 
     }
+
 }
 
 

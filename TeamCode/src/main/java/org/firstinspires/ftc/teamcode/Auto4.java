@@ -32,7 +32,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-@Autonomous(name = "Blue_Depot_Bridge_Yes")
+@Autonomous(name = "Blue_Depot_Bridge_F")
 public class Auto4 extends LinearOpMode {
     AutoDrivetrain drivetrain = new AutoDrivetrain();
     Intake intake = new Intake();
@@ -68,8 +68,6 @@ public class Auto4 extends LinearOpMode {
         sleep(100);
         runtime.reset();
 
-//
-
-
     }
+
 }

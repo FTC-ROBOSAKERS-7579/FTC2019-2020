@@ -31,7 +31,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-@Autonomous(name = "Blue_Depot_Wall_No")
+@Autonomous(name = "Blue_Depot_Wall_NF")
 public class Auto1 extends LinearOpMode {
     AutoDrivetrain drivetrain = new AutoDrivetrain();
     Intake intake = new Intake();
@@ -51,6 +51,8 @@ public class Auto1 extends LinearOpMode {
         runtime.reset();
 
         drivetrain.drive(34, 0.5);
+        runtime.reset();
+        sleep(500);
 // FIRST BLOCK
         // Missing color sensor code
 
@@ -139,5 +141,6 @@ public class Auto1 extends LinearOpMode {
         sleep(100);
 
     }
+
 }
 

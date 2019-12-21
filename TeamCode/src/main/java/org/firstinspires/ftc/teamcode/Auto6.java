@@ -35,11 +35,11 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-@Autonomous (name = "Blue_Building_Wall_Yes")
+@Autonomous (name = "Blue_Building_Wall_F")
 public class Auto6 extends LinearOpMode {
+
     AutoDrivetrain driveTrain = new AutoDrivetrain();
     Cascade cascade = new Cascade();
-    // TestColorSensor colorSensor = new TestColorSensor();
     Intake intake = new Intake();
     ElapsedTime runtime = new ElapsedTime();
     Cascade enCas = new Cascade();
@@ -50,11 +50,10 @@ public class Auto6 extends LinearOpMode {
 
     @Override
     public void runOpMode() throws InterruptedException {
+
         driveTrain.init(hardwareMap);
         cascade.autoinit(hardwareMap);
-//      colorSensor.init(hardwareMap);
         enCas.autoinit(hardwareMap);
-
 
         telemetry.addData("Status", "Initialized");
         telemetry.update();
@@ -132,6 +131,7 @@ public class Auto6 extends LinearOpMode {
         sleep(500);
 
     }
+
 }
 
 

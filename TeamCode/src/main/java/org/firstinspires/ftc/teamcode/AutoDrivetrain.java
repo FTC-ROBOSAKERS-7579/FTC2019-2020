@@ -10,6 +10,9 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.navigation.Acceleration;
+import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 public class AutoDrivetrain {
@@ -34,6 +37,8 @@ public class AutoDrivetrain {
     Orientation angles;
     Acceleration gravity;
     float currAngle = 0;
+    float offset = 0;
+    double finalAngle = 0;
 
 
     HardwareMap hardwareMap;
@@ -116,54 +121,65 @@ public class AutoDrivetrain {
     }
 
 
+    public double getAngle() {
+        parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
+        parameters.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
+        parameters.calibrationDataFile = "BNO055IMUCalibration.json";
+        parameters.loggingEnabled = true;
+        parameters.loggingTag = "IMU";
+        parameters.accelerationIntegrationAlgorithm = new JustLoggingAccelerationIntegrator();
+
+        angles = this.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
+        this.imu.getPosition();
+        currAngle = angles.firstAngle;
+        offset = angles.firstAngle;
+
+        double deltaAngle = currAngle - offset;
+
+        if (deltaAngle < -180) {
+            deltaAngle += 360;
+        } else if (deltaAngle > 180) {
+            deltaAngle -= 360;
+        }
+
+        finalAngle += deltaAngle;
+
+        offset = angles.firstAngle;
+
+        return finalAngle;
+
+    }
 
 
 
 
-//    public void turn(int angle, double power) {
-//
-//        angles = this.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
-//        this.imu.getPosition();
-//        currAngle = angles.firstAngle;
-//
-//
-//        parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
-//        parameters.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
-//        parameters.calibrationDataFile = "BNO055IMUCalibration.json";
-//        parameters.loggingEnabled = true;
-//        parameters.loggingTag = "IMU";
-//        parameters.accelerationIntegrationAlgorithm = new JustLoggingAccelerationIntegrator();
-//
-//        if (angle < currAngle) {
-//            if (angle < 0) {
-//                FRONT_RIGHT.setPower(power);
-//                FRONT_LEFT.setPower(-power);
-//                BACK_RIGHT.setPower(power);
-//                BACK_LEFT.setPower(-power);
-//            } else if (angle > 0) {
-//                FRONT_RIGHT.setPower(-power);
-//                FRONT_LEFT.setPower(power);
-//                BACK_RIGHT.setPower(-power);
-//                BACK_LEFT.setPower(power);
-//            }
-//        }
-//
-//        angle = (int)currAngle;
-//    }
 
 
-//    public void resetAngle(){
-//        if(getAngle() > 0 || getAngle() < 0){
-//            turn(0,0);
-//        }
-//    }
 
-//    public int getAngle(){
-//        angles = this.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
-//        this.imu.getPosition();
-//        currAngle = angles.firstAngle;
-//        return (int)currAngle;
-//    }
+
+
+
+
+    public void turn(int angle, double power) {
+            if (angle < 0) {
+                FRONT_RIGHT.setPower(power);
+                FRONT_LEFT.setPower(-power);
+                BACK_RIGHT.setPower(power);
+                BACK_LEFT.setPower(-power);
+            } else if (angle > 0) {
+                FRONT_RIGHT.setPower(-power);
+                FRONT_LEFT.setPower(power);
+                BACK_RIGHT.setPower(-power);
+                BACK_LEFT.setPower(power);
+            }
+        }
+
+
+
+    public void resetAngle(){
+
+    }
+
 
 
         public void strafe (int distance, double power){
@@ -219,4 +235,3 @@ public class AutoDrivetrain {
                 BACK_LEFT.setPower(0);
             }
         }
-

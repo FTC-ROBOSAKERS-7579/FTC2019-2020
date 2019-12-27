@@ -6,7 +6,6 @@ Auto for:
  - Teammate has not moved the foundation
 Pseudo Code:
  - Move forward until close to first block
- - Strafe left until aligned with the first skyblock
  - Grab block
  - Back up a little
  - Strafe right until aligned with middle of foundation
@@ -28,7 +27,112 @@ Pseudo Code:
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
 @Autonomous(name = "Red_Depot_Bridge_NF")
-public class Auto11 {
+public class Auto11 extends LinearOpMode {
+    AutoDrivetrain drivetrain = new AutoDrivetrain();
+    Intake intake = new Intake();
+    Cascade cascade = new Cascade();
+    ElapsedTime runtime = new ElapsedTime();
+
+    @Override
+    public void runOpMode() throws InterruptedException {
+        drivetrain.init(hardwareMap);
+        intake.autoinit(hardwareMap);
+        cascade.init(hardwareMap);
+
+        telemetry.addData("Status", "Initialized");
+        telemetry.update();
+
+        waitForStart();
+        runtime.reset();
+
+        // Move forward
+        drivetrain.drive(34, 0.5);
+        runtime.reset();
+        sleep(500);
+
+        // Grab block
+        intake.functionIntake(0.2, Intake.POSTION.DOWN);
+        runtime.reset();
+        sleep(100);
+
+        // Back up a little
+        drivetrain.drive(-10, 0.5);
+        runtime.reset();
+        sleep(100);
+
+        // Strafe left until aligned with middle of foundation
+        drivetrain.strafe(-20, 0.5);
+        runtime.reset();
+        sleep(100);
+
+        // Move forward a little
+        drivetrain.drive(5, 0.2);
+        runtime.reset();
+        sleep(100);
+
+        // Drop block
+        intake.functionIntake(0.1, Intake.POSTION.UP);
+        runtime.reset();
+        sleep(100);
+
+        // Back up a little
+        drivetrain.drive(-5, 0.2);
+        runtime.reset();
+        sleep(100);
+
+// SECOND BLOCK
+        // If the first skyblock was the third block, strafe right until aligned with first block *Color Sensor code is not working*
+        drivetrain.strafe(28, 0.2);
+        runtime.reset();
+        sleep(100);
+
+        // If not, strafe right until aligned with the block, 3 blocks past the first skyblock *Color Sensor code is not working*
+
+
+        // Move forward a little
+        drivetrain.drive(5, 0.2);
+        runtime.reset();
+        sleep(100);
+
+
+        // Grab block
+        intake.functionIntake(0.2, Intake.POSTION.DOWN);
+        runtime.reset();
+        sleep(100);
+
+        // Back up a little
+        drivetrain.drive(-5, 0.2);
+        runtime.reset();
+        sleep(100);
+
+        // Strafe left until aligned with middle of foundation *Color Sensor is not working*
+        drivetrain.strafe(-28, 0.2);
+        runtime.reset();
+        sleep(100);
+
+        // Move forward a little
+        drivetrain.drive(5, 0.2);
+        runtime.reset();
+        sleep(100);
+
+        // Drop block
+        intake.functionIntake(0.2, Intake.POSTION.UP);
+        runtime.reset();
+        sleep(100);
+
+        // Back up until close to wall
+        drivetrain.strafe(12, 0.2);
+        runtime.reset();
+        sleep(100);
+
+        // Strafe right until parked under alliance bridge
+        runtime.reset();
+        sleep(100);
+
+    }
+
 }

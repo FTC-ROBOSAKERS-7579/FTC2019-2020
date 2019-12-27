@@ -12,6 +12,6 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
-@Autonomous(name = "Parking_Bridge_Right")
+//@Autonomous(name = "Parking_Bridge_Right")
 public class Auto19 {
 }

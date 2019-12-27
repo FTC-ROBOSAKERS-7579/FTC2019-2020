@@ -32,6 +32,6 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
-@Autonomous(name = "Red_Building_Bridge_F")
+//@Autonomous(name = "Red_Building_Bridge_F")
 public class Auto16 {
 }

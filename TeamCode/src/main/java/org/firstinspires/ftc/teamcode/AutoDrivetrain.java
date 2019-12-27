@@ -152,15 +152,9 @@ public class AutoDrivetrain {
 
 
 
-
-
-
-
-
-
-
-
     public void turn(int angle, double power) {
+        resetAngle();
+
             if (angle < 0) {
                 FRONT_RIGHT.setPower(power);
                 FRONT_LEFT.setPower(-power);
@@ -172,12 +166,20 @@ public class AutoDrivetrain {
                 BACK_RIGHT.setPower(-power);
                 BACK_LEFT.setPower(power);
             }
+                FRONT_RIGHT.setPower(0);
+                FRONT_LEFT.setPower(0);
+                BACK_RIGHT.setPower(0);
+                BACK_LEFT.setPower(0);
+
+            resetAngle();
         }
 
 
 
     public void resetAngle(){
+    angles = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
 
+    finalAngle = 0;
     }
 
 

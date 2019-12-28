@@ -59,12 +59,12 @@ public class Auto7 extends LinearOpMode {
         waitForStart();
         runtime.reset();
 
-        //go forward to the foundation
+        // Go forward to the foundation
         driveTrain.drive(45, 0.2);
         runtime.reset();
         sleep(500);
 
-        //put intake down to pull the foundation
+        // Put intake down to pull the foundation
         intake.functionIntake(0.3, Intake.POSTION.DOWN);
         runtime.reset();
         sleep(500);

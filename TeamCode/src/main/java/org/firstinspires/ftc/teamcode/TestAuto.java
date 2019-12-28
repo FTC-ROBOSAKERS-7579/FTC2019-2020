@@ -50,90 +50,10 @@ public class TestAuto extends LinearOpMode {
         waitForStart();
         runtime.reset();
 
-        drivetrain.drive(34, 0.5);
-        runtime.reset();
-        sleep(100);
-// FIRST BLOCK
-        // Missing color sensor code
-
-        // Grab block
-//        intake.functionIntake(0.2, Intake.POSTION.DOWN);
-//        runtime.reset();
-//        sleep(100);
-
-        // Back up a little
-        drivetrain.drive(-10, 0.5);
-        runtime.reset();
-        sleep(100);
-
-        // Strafe left until aligned with middle of foundation
-        drivetrain.strafe(-22, 0.5);
-        sleep(100);
-
-        drivetrain.drive(10, 0.5);
-        sleep(100);
-        // Move forward a little
-        drivetrain.drive(5, 0.5);
-        sleep(100);
-
-        // Drop block
-//        intake.functionIntake(0.1, Intake.POSTION.UP);
-//        runtime.reset();
-//        sleep(100);
-
-        // Back up a little
-        drivetrain.drive(-5, 0.2);
-        sleep(100);
-
-// SECOND BLOCK
-        // If the first skyblock was the third block, strafe right until aligned with first block *Color Sensor code is not working*
-        drivetrain.strafe(28, 0.2);
-        runtime.reset();
-        sleep(100);
-
-        // If not, strafe right until aligned with the block, 3 blocks past the first skyblock *Color Sensor code is not working*
-
-
-        // Move forward a little
-        drivetrain.drive(5, 0.2);
-        runtime.reset();
-        sleep(100);
-
-
-        // Grab block
-        intake.functionIntake(0.2, Intake.POSTION.DOWN);
-        runtime.reset();
-        sleep(100);
-
-        // Back up a little
-        drivetrain.drive(-5, 0.2);
-        runtime.reset();
-        sleep(100);
-
-        // Strafe left until aligned with middle of foundation *Color Sensor is not working*
-        drivetrain.strafe(-28, 0.2);
-        runtime.reset();
-        sleep(100);
-
-        // Move forward a little
-        drivetrain.drive(5, 0.2);
-        runtime.reset();
-        sleep(100);
-
-        // Drop block
-        intake.functionIntake(0.2, Intake.POSTION.UP);
-        runtime.reset();
-        sleep(100);
-
-        // Back up until close to wall
-        drivetrain.strafe(12, 0.2);
-        runtime.reset();
-        sleep(100);
-
-        // Strafe right until parked under alliance bridge
-        runtime.reset();
-        sleep(100);
+        while(runtime.seconds() < 5)
+            intake.Intake(0.1);
 
     }
+
 }
 

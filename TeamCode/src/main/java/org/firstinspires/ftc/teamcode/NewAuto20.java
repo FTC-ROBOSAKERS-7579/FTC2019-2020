@@ -41,3 +41,5 @@ public class NewAuto20 extends LinearOpMode {
         driveTrain.strafe(24, 0.5);
         runtime.reset();
         sleep(500);
+    }
+}

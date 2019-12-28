@@ -41,3 +41,5 @@ public class NewAuto17 extends LinearOpMode {
         driveTrain.strafe(-24, 0.5);
         runtime.reset();
         sleep(500);
+    }
+}

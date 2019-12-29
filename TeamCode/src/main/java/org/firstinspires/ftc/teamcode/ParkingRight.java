@@ -35,7 +35,7 @@ public class ParkingRight extends LinearOpMode {
         waitForStart();
         runtime.reset();
 
-        // Move forward a little
+        // Move forward a l ittle
         driveTrain.drive(12, 0.5);
         runtime.reset();
         sleep(500);

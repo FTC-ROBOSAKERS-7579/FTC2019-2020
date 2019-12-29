@@ -50,8 +50,8 @@ public class TestAuto extends LinearOpMode {
         waitForStart();
         runtime.reset();
 
-        while(runtime.seconds() < 5)
-            intake.Intake(0.1);
+        while(runtime.seconds() < 1)
+            intake.Intake(0.2);
 
     }
 

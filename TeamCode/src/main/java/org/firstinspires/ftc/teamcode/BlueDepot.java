@@ -52,8 +52,11 @@ public class BlueDepot extends LinearOpMode {
         sleep(100);
 
         // Grab block
-        intake.functionIntake(0.2, Intake.POSTION.DOWN);
         runtime.reset();
+        while(runtime.seconds() < 1)
+            intake.Intake(0.2);
+        runtime.reset();
+        intake.Intake(0);
         sleep(100);
 
         // Back up a little
@@ -67,8 +70,11 @@ public class BlueDepot extends LinearOpMode {
         sleep(100);
 
         // Drop block
-        intake.functionIntake(0.2,Intake.POSTION.UP);
         runtime.reset();
+        while(runtime.seconds() < 1)
+            intake.Intake(-0.2);
+        runtime.reset();
+        intake.Intake(0);
         sleep(100);
 
         // Strafe right until aligned with third block
@@ -82,8 +88,11 @@ public class BlueDepot extends LinearOpMode {
         sleep(100);
 
         // Grab block
-        intake.functionIntake(0.2,Intake.POSTION.DOWN);
         runtime.reset();
+        while(runtime.seconds() < 1)
+            intake.Intake(0.2);
+        runtime.reset();
+        intake.Intake(0);
         sleep(100);
 
         // Back up a little
@@ -102,8 +111,11 @@ public class BlueDepot extends LinearOpMode {
         sleep(100);
 
         // Drop block
-        intake.functionIntake(0.2,Intake.POSTION.DOWN);
         runtime.reset();
+        while(runtime.seconds() < 1)
+            intake.Intake(-0.2);
+        runtime.reset();
+        intake.Intake(0);
         sleep(100);
 
         // Back up a little

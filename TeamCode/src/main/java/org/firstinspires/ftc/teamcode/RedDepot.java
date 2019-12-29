@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 @Autonomous (name = "Red Depot, Parking out")
 public class RedDepot extends LinearOpMode {
     ElapsedTime runtime = new ElapsedTime();
-    AutoDrivetrain driveTrain = new AutoDrivetrain();
+    AutoDrivetrain drivetrain = new AutoDrivetrain();
     Intake intake = new Intake();
     Cascade cascade = new Cascade();
     boolean brickscan = true;
@@ -18,7 +18,7 @@ public class RedDepot extends LinearOpMode {
     public void runOpMode() throws InterruptedException {
 
         // INITIAL CODE
-        driveTrain.init(hardwareMap);
+        drivetrain.init(hardwareMap);
         intake.init(hardwareMap);
         cascade.init(hardwareMap);
 
@@ -31,70 +31,41 @@ public class RedDepot extends LinearOpMode {
         runtime.reset();
 
 
-        // Keep intake up for first block
-        intake.functionIntake(0.2, Intake.POSTION.UP);
+        // Move forward until close to first block
+        drivetrain.drive(32, 0.5);
         runtime.reset();
-        sleep(500);
+        sleep(100);
 
-        // Drive toward the block
-        driveTrain.drive(47, 0.2);
+        // Grab block
         runtime.reset();
-        sleep(500);
+        while (runtime.seconds() < 1)
+            intake.Intake(0.2);
+        runtime.reset();
+        intake.Intake(0);
+        sleep(100);
 
-        // Put intake down to hold the block
-        intake.functionIntake(0.2, Intake.POSTION.DOWN);
+        // Back up a little
+        drivetrain.drive(-24, 0.5);
         runtime.reset();
-        sleep(500);
+        sleep(100);
 
-        // Drive Back
-        driveTrain.drive(-23, 0.2);
+        // Strafe right until on building side
+        drivetrain.strafe(32, 0.5);
         runtime.reset();
-        sleep(500);
+        sleep(100);
 
-        // Strafe to the right till the robot goes to the building site
-        driveTrain.strafe(96, 0.2);
+        // Drop block
         runtime.reset();
-        sleep(500);
+        while (runtime.seconds() < 1)
+            intake.Intake(-0.2);
+        runtime.reset();
+        intake.Intake(0);
+        sleep(100);
 
-        // Intake is up to release the block
-        intake.functionIntake(0.2, Intake.POSTION.UP);
+        // Strafe left until aligned with bridge
+        drivetrain.strafe(-8, 0.5);
         runtime.reset();
-        sleep(500);
-
-        // Strafe till the robot reaches the 3rd block
-        driveTrain.strafe(-72, 0.2);
-        runtime.reset();
-        sleep(500);
-
-        // Drive forward toward the block
-        driveTrain.drive(23, 0.2);
-        runtime.reset();
-        sleep(500);
-
-        // Put intake down to hold the block
-        intake.functionIntake(0.2, Intake.POSTION.DOWN);
-        runtime.reset();
-        sleep(500);
-
-        // Drive Back
-        driveTrain.drive(-23, 0.2);
-        runtime.reset();
-        sleep(500);
-
-        // Strafe right till the robot reaches the building site
-        driveTrain.strafe(60, 0.2);
-        runtime.reset();
-        sleep(500);
-
-        // Put intake up to release the block
-        intake.functionIntake(0.2, Intake.POSTION.UP);
-        runtime.reset();
-        sleep(500);
-
-        // Strafe right till the robot gos under the alliance bridge (red one)
-        driveTrain.strafe(-12, 0.2);
-        runtime.reset();
-        sleep(500);
+        sleep(100);
 
     }
 }

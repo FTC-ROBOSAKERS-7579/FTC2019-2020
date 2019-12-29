@@ -47,84 +47,38 @@ public class BlueDepot extends LinearOpMode {
         runtime.reset();
 
         // Move forward until close to first block
-        drivetrain.drive(13, 0.5);
+        drivetrain.drive(32, 0.5);
         runtime.reset();
         sleep(100);
 
         // Grab block
         runtime.reset();
-        while(runtime.seconds() < 1)
+        while (runtime.seconds() < 1)
             intake.Intake(0.2);
         runtime.reset();
         intake.Intake(0);
         sleep(100);
 
         // Back up a little
-        drivetrain.drive(-10, 0.5);
+        drivetrain.drive(-24, 0.5);
         runtime.reset();
         sleep(100);
 
         // Strafe left until on building side
-        drivetrain.strafe(-50,0.5);
+        drivetrain.strafe(-32, 0.5);
         runtime.reset();
         sleep(100);
 
         // Drop block
         runtime.reset();
-        while(runtime.seconds() < 1)
+        while (runtime.seconds() < 1)
             intake.Intake(-0.2);
         runtime.reset();
         intake.Intake(0);
         sleep(100);
 
         // Strafe right until aligned with third block
-        drivetrain.strafe(66, 0.5);
-        runtime.reset();
-        sleep(100);
-
-        // Move forward a little
-        drivetrain.drive(10,0.5);
-        runtime.reset();
-        sleep(100);
-
-        // Grab block
-        runtime.reset();
-        while(runtime.seconds() < 1)
-            intake.Intake(0.2);
-        runtime.reset();
-        intake.Intake(0);
-        sleep(100);
-
-        // Back up a little
-        drivetrain.drive(-10,0.2);
-        runtime.reset();
-        sleep(100);
-
-        // Strafe left until aligned with middle of foundation
-        drivetrain.strafe(28,0.2);
-        runtime.reset();
-        sleep(100);
-
-        // Move forward a little
-        drivetrain.drive(-10,0.2);
-        runtime.reset();
-        sleep(100);
-
-        // Drop block
-        runtime.reset();
-        while(runtime.seconds() < 1)
-            intake.Intake(-0.2);
-        runtime.reset();
-        intake.Intake(0);
-        sleep(100);
-
-        // Back up a little
-        drivetrain.drive(-11,0.2);
-        runtime.reset();
-        sleep(100);
-
-        // Strafe right until parked under alliance bridge
-        drivetrain.strafe(-28,0.2);
+        drivetrain.strafe(8, 0.5);
         runtime.reset();
         sleep(100);
 

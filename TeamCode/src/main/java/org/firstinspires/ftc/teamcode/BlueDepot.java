@@ -26,7 +26,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-@Autonomous
+@Autonomous(name = "BlueDepot_DropBlock")
 public class BlueDepot extends LinearOpMode {
 
     AutoDrivetrain drivetrain = new AutoDrivetrain();
@@ -59,13 +59,14 @@ public class BlueDepot extends LinearOpMode {
         intake.Intake(0);
         sleep(100);
 
+
         // Back up a little
         drivetrain.drive(-24, 0.5);
         runtime.reset();
         sleep(100);
 
         // Strafe left until on building side
-        drivetrain.strafe(-32, 0.5);
+        drivetrain.strafe(32, -0.5);
         runtime.reset();
         sleep(100);
 

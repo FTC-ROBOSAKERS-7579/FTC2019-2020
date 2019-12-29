@@ -196,13 +196,13 @@ public class AutoDrivetrain  {
             int POSITION_RIGHT2 = 0;
 
 
-
-            if(FRONT_RIGHT.getPower() > 2.98 && FRONT_RIGHT.getPower() < power){
-                FRONT_RIGHT.setPower(0);
-                FRONT_LEFT.setPower(0);
-                BACK_RIGHT.setPower(0);
-                BACK_LEFT.setPower(0);
-            }
+//
+//            if(FRONT_RIGHT.getPower() > 2.98 && FRONT_RIGHT.getPower() < power){
+//                FRONT_RIGHT.setPower(0);
+//                FRONT_LEFT.setPower(0);
+//                BACK_RIGHT.setPower(0);
+//                BACK_LEFT.setPower(0);
+//            }
 
 
             if (distance > 0 && FRONT_RIGHT.getCurrentPosition() <= distance && FRONT_LEFT.getCurrentPosition() <= distance && BACK_LEFT.getCurrentPosition() <= distance && BACK_RIGHT.getCurrentPosition() <= distance) {
@@ -224,23 +224,20 @@ public class AutoDrivetrain  {
             }
 
 
-//            FRONT_RIGHT.setPower((-power));
-//            FRONT_LEFT.setPower((FRONT_RIGHT.getPower()));
-//            BACK_RIGHT.setPower((FRONT_RIGHT.getPower()));
-//            BACK_LEFT.setPower((FRONT_RIGHT.getPower()));
 
 
-//                 if (distance < 0 && FRONT_RIGHT.getCurrentPosition() >= distance && FRONT_LEFT.getCurrentPosition() >= distance && BACK_LEFT.getCurrentPosition() >= distance && BACK_RIGHT.getCurrentPosition() >= distance) {
-//                    FRONT_RIGHT.setTargetPosition(POSITON_RIGHT + (int) -(distance * COUNT_PER_INCH) + 90);
-//                    FRONT_LEFT.setTargetPosition(POSITION_LEFT + (int) (distance * COUNT_PER_INCH) - 90);
-//                    BACK_RIGHT.setTargetPosition(POSITION_RIGHT2 + (int) (distance * COUNT_PER_INCH) - 90);
-//                    BACK_LEFT.setTargetPosition(POSITION_LEFT2 + (int) -(distance * COUNT_PER_INCH) + 90);
 
-//                    FRONT_RIGHT.setPower((power));
-//                    FRONT_LEFT.setPower((-power));
-//                    BACK_RIGHT.setPower((-power));
-//                    BACK_LEFT.setPower((power));
-//                }
+                 if (distance < 0 && FRONT_RIGHT.getCurrentPosition() >= distance && FRONT_LEFT.getCurrentPosition() >= distance && BACK_LEFT.getCurrentPosition() >= distance && BACK_RIGHT.getCurrentPosition() >= distance) {
+                    FRONT_RIGHT.setTargetPosition(POSITON_RIGHT + (int) -(distance * COUNT_PER_INCH) + 90);
+                    FRONT_LEFT.setTargetPosition(POSITION_LEFT + (int) (distance * COUNT_PER_INCH) - 90);
+                    BACK_RIGHT.setTargetPosition(POSITION_RIGHT2 + (int) (distance * COUNT_PER_INCH) - 90);
+                    BACK_LEFT.setTargetPosition(POSITION_LEFT2 + (int) -(distance * COUNT_PER_INCH) + 90);
+
+                    FRONT_RIGHT.setPower((power)+ 0.07);
+                    FRONT_LEFT.setPower((-power)- 0.04);
+                    BACK_RIGHT.setPower((-power) - 0.05);
+                    BACK_LEFT.setPower((power) + 0.06);
+                }
 
 
                 while ( FRONT_RIGHT.isBusy() && BACK_RIGHT.isBusy() && FRONT_LEFT.isBusy() && BACK_LEFT.isBusy()) {

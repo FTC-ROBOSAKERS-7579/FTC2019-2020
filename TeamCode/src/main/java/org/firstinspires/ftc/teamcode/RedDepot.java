@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-@Autonomous (name = "Red Depot, Parking out")
+@Autonomous(name = "BlueSquare_DropBlock")
 public class RedDepot extends LinearOpMode {
     ElapsedTime runtime = new ElapsedTime();
     AutoDrivetrain drivetrain = new AutoDrivetrain();

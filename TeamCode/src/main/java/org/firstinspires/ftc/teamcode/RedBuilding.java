@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-@Autonomous (name = "Red Building, Parking out")
+@Autonomous(name = "RedBuilding_ParkingInside")
 public class RedBuilding extends LinearOpMode {
     ElapsedTime runtime = new ElapsedTime();
     AutoDrivetrain driveTrain = new AutoDrivetrain();
@@ -32,11 +32,11 @@ public class RedBuilding extends LinearOpMode {
 
 
         // Move forward a little
-        driveTrain.drive(12, 0.5);
+        driveTrain.drive(5, 0.5);
         runtime.reset();
         sleep(500);
 
-        // Strafe left to the middle of the bridge
+        // Strafe left close to the Wall
         driveTrain.strafe(-24, 0.5);
         runtime.reset();
         sleep(500);

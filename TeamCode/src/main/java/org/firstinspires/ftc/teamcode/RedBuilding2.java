@@ -1,17 +1,12 @@
-/*
-Pseudo Code:
- - Move forward a little
- - Strafe right until under alliance bridge
-*/
-
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-@Autonomous (name = "Red Depot, Parking in")
-public class ParkingRight extends LinearOpMode {
+
+@Autonomous(name = "RedBuilding_ParkingOutside")
+public class RedBuilding2 extends LinearOpMode {
     ElapsedTime runtime = new ElapsedTime();
     AutoDrivetrain driveTrain = new AutoDrivetrain();
     Intake intake = new Intake();
@@ -31,20 +26,23 @@ public class ParkingRight extends LinearOpMode {
         telemetry.addData("Status", "Initialized");
         telemetry.update();
 
-        // START AUTO
+        // Start Auto
         waitForStart();
         runtime.reset();
 
-        // Move forward a l ittle
-        driveTrain.drive(12, 0.5);
+
+        // Move forward a little
+        driveTrain.drive(20, 0.5);
         runtime.reset();
         sleep(500);
 
-        // Strafe right to the middle of the bridge
-        driveTrain.strafe(24, 0.5);
+        // Strafe left close to the Wall
+        driveTrain.strafe(24, -0.5);
         runtime.reset();
         sleep(500);
 
     }
-
 }
+
+
+

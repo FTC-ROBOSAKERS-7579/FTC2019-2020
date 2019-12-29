@@ -14,8 +14,8 @@ public class FinalTeleOp extends LinearOpMode {
     Cascade cascade = new Cascade();
     Intake Intake = new Intake();
 
-    double speed1 = 1;
-    double speed2 = 0.3;
+    double speed1 = 0.5;
+    double speed2 = 0.4;
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -34,15 +34,15 @@ public class FinalTeleOp extends LinearOpMode {
         while (opModeIsActive()) {
 
 //            colorSensor.LED(true);
-
-            // DRIVE TRAIN
             driveTrain.arcadeDrive(gamepad1.left_stick_x, gamepad1.left_stick_y, gamepad1.right_stick_x, speed1);
+            // DRIVE TRAIN
             if(gamepad1.left_bumper){
                 speed1 = 0.3;
-            }
+        }
             else if(gamepad1.right_bumper){
-                speed1 = 1;
+                speed1 = 0.7;
             }
+
 
             // INTAKE
             if(gamepad2.a) {

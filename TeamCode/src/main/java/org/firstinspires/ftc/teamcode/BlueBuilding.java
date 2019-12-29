@@ -42,7 +42,7 @@ public class BlueBuilding extends LinearOpMode {
         waitForStart();
         runtime.reset();
 
-        // Move forward a l ittle
+        // Move forward a little
         drivetrain.drive(12, 0.5);
         runtime.reset();
         sleep(500);

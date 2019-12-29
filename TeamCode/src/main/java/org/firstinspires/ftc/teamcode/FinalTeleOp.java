@@ -17,6 +17,9 @@ public class FinalTeleOp extends LinearOpMode {
     double speed1 = 0.5;
     double speed2 = 0.4;
 
+    double casvaule = 0;
+    double casvaule2 = 0;
+
     @Override
     public void runOpMode() throws InterruptedException {
 
@@ -72,6 +75,10 @@ public class FinalTeleOp extends LinearOpMode {
             else if(gamepad2.right_bumper) {
                 speed2 = 0.5;
             }
+
+            telemetry.addData("CAS1: ", casvaule += cascade.getCPOSTION());
+            telemetry.addData("CAS2: ", casvaule2 += cascade.getCPOSTION2());
+            telemetry.update();
         }
     }
 }

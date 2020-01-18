@@ -43,51 +43,101 @@ public class Auto_RedDepot extends LinearOpMode {
         runtime.reset();
 
         // Move forward to brick
-
+        drivetrain.drive(11, 0.2);
+        runtime.reset();
+        sleep(500);
 
         // Grab brick
+        intake.open();
+        runtime.reset();
+        sleep(500);
 
+        drivetrain.drive(1, 0.2);
+        runtime.reset();
+        sleep(500);
+
+        intake.grab();
+        runtime.reset();
+        sleep(500);
 
         // Back up a little
-
+        drivetrain.drive(-12, 0.2);
+        runtime.reset();
+        sleep(500);
 
         // Strafe right until aligned with middle of foundation
-
+        drivetrain.strafe(72, 0.2);
+        runtime.reset();
+        sleep(500);
 
         // Move forward a little
-
+        drivetrain.drive(12, 0.2);
+        runtime.reset();
+        sleep(500);
 
         // Drop brick
-
+        intake.open();
+        runtime.reset();
+        sleep(500);
 
         // Back up a little
-
+        drivetrain.drive(-12, 0.2);
+        runtime.reset();
+        sleep(500);
 
         // Strafe left until aligned with third brick
-
+        drivetrain.strafe(-96, 0.2);
+        runtime.reset();
+        sleep(500);
 
         // Move forward a little
-
+        drivetrain.drive(11, 0.2);
+        runtime.reset();
+        sleep(500);
 
         // Grab brick
+        intake.open();
+        runtime.reset();
+        sleep(500);
 
+        drivetrain.drive(1, 0.2);
+        runtime.reset();
+        sleep(500);
+
+        intake.grab();
+        runtime.reset();
+        sleep(500);
 
         // Back up a little
-
+        drivetrain.drive(-12, 0.2);
+        runtime.reset();
+        sleep(500);
 
         // Strafe right until aligned with right part of foundation
-
+        drivetrain.strafe(96, 0.2);
+        runtime.reset();
+        sleep(500);
 
         // Move forward a little
-
+        drivetrain.drive(11, 0.2);
+        runtime.reset();
+        sleep(500);
 
         // Drop block
-
+        intake.open();
+        runtime.reset();
+        sleep(500);
 
         // Back up a little
-
+        drivetrain.drive(-11, 0.2);
+        runtime.reset();
+        sleep(500);
 
         // Strafe left until under bridge
+        drivetrain.strafe(-48, 0.2);
+        runtime.reset();
+        sleep(500);
+
 
 
     }

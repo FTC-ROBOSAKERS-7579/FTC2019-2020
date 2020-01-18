@@ -29,11 +29,14 @@ public class Auto_LeftWall extends LinearOpMode {
         runtime.reset();
 
         // Move forward a bit
-
+        drivetrain.drive(2, 0.5);
+        runtime.reset();
+        sleep(500);
 
         // Strafe left a bit
-
-
+        drivetrain.strafe(10, 0.5);
+        runtime.reset();
+        sleep(500);
     }
 
 }

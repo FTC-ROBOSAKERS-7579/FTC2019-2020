@@ -88,9 +88,7 @@ public class AutoDrivetrain  {
 
         }
 
-        while ( FRONT_RIGHT.isBusy() && BACK_RIGHT.isBusy() && FRONT_LEFT.isBusy() && BACK_LEFT.isBusy()) {
-
-        }
+        while ( FRONT_RIGHT.isBusy() && BACK_RIGHT.isBusy() && FRONT_LEFT.isBusy() && BACK_LEFT.isBusy()){}
 
         FRONT_RIGHT.setPower(0);
         FRONT_LEFT.setPower(0);
@@ -229,9 +227,7 @@ public class AutoDrivetrain  {
         }
 
 
-        while ( FRONT_RIGHT.isBusy() && BACK_RIGHT.isBusy() && FRONT_LEFT.isBusy() && BACK_LEFT.isBusy()) {
-
-        }
+        while ( FRONT_RIGHT.isBusy() && BACK_RIGHT.isBusy() && FRONT_LEFT.isBusy() && BACK_LEFT.isBusy()){}
 
         FRONT_RIGHT.setPower(0);
         FRONT_LEFT.setPower(0);

@@ -34,7 +34,7 @@ public class Auto_LeftWall extends LinearOpMode {
         sleep(500);
 
         // Strafe left a bit
-        drivetrain.strafe(10, 0.5);
+        drivetrain.strafe(-10, 0.5);
         runtime.reset();
         sleep(500);
     }

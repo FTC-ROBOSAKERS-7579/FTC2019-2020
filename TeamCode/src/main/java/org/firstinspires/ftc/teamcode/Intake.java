@@ -1,47 +1,34 @@
 package org.firstinspires.ftc.teamcode;
-import com.qualcomm.robotcore.hardware.DcMotor;
+
+import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class Intake {
 
-    DcMotor Intake;
-
-    int INTAKE_POSTION = 0;
-
-
-    public enum POSTION{
-        UP,DOWN
-    }
+    Servo Intake;
 
     public void init(HardwareMap hardwareMap) {
-        Intake = hardwareMap.dcMotor.get("INTAKE_1");
+
+        Intake = hardwareMap.servo.get("INTAKE");
 
     }
 
-    public void autoinit(HardwareMap hardwareMap){
-        Intake = hardwareMap.dcMotor.get("INTAKE_1");
+    public void grab() {
 
-        Intake.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        Intake.setPosition(0);
+
     }
 
-    public void Intake(double power) {
-        Intake.setPower(power);
+    public void open() {
+
+        Intake.setPosition(0.25);
+
     }
 
-    public void functionIntake(double power, POSTION postion){
-        Intake.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-     switch (POSTION.UP){
-         case UP:
-             Intake.setTargetPosition(5500);
-             Intake.setPower(power);
-             break;
-         case DOWN:
-             Intake.setTargetPosition(0);
-             Intake.setPower(-power);
-             break;
-         default:
-             Intake.setPower(0);
-             break;
-     }
+    public void close() {
+
+        Intake.setPosition(0.5);
+
     }
+
 }

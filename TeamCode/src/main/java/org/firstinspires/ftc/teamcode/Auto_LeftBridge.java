@@ -19,7 +19,7 @@ public class Auto_LeftBridge extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         drivetrain.init(hardwareMap);
-        intake.autoinit(hardwareMap);
+        intake.init(hardwareMap);
         cascade.init(hardwareMap);
 
         telemetry.addData("Status", "Initialized");

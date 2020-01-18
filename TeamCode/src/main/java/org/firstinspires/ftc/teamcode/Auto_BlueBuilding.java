@@ -35,7 +35,7 @@ public class Auto_BlueBuilding extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         drivetrain.init(hardwareMap);
-        intake.autoinit(hardwareMap);
+        intake.init(hardwareMap);
         cascade.init(hardwareMap);
 
         telemetry.addData("Status", "Initialized");
@@ -45,22 +45,22 @@ public class Auto_BlueBuilding extends LinearOpMode {
         runtime.reset();
 
         // Move forward a little
-
+        drivetrain.drive(10, 0.5);
 
         // Strafe right until aligned with first block
-
+        drivetrain.strafe(48, 0.5);
 
         // Move forward to brick
-
+        drivetrain.drive(24, 0.5);
 
         // Grab brick
-
+        intake.grab();
 
         // Back up a little
-
+        drivetrain.drive(-10, 0.5);
 
         // Strafe left until aligned with middle of foundation
-
+        
 
         // Move forward a little
 

@@ -29,10 +29,14 @@ public class Auto_LeftBridge extends LinearOpMode {
         runtime.reset();
 
         // Move forward until close to neutral bridge
-
+        drivetrain.drive(24, 0.5);
+        runtime.reset();
+        sleep(500);
 
         // Strafe left a bit
-
+        drivetrain.strafe(10, 0.5);
+        runtime.reset();
+        sleep(500);
 
     }
 

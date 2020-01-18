@@ -33,46 +33,39 @@ public class FinalTeleOp extends LinearOpMode {
 
         while (opModeIsActive()) {
 
-//            colorSensor.LED(true);
+//          // DRIVE TRAIN
             driveTrain.arcadeDrive(gamepad1.left_stick_x, gamepad1.left_stick_y, gamepad1.right_stick_x, speed1);
-            // DRIVE TRAIN
-            if(gamepad1.left_bumper){
+
+            if(gamepad1.left_bumper)
                 speed1 = 0.3;
-        }
-            else if(gamepad1.right_bumper){
+            else if(gamepad1.right_bumper)
                 speed1 = 0.7;
-            }
 
 
             // INTAKE
-            if(gamepad2.a) {
-                Intake.Intake(0.4);
-            }
-            else if (gamepad2.y) {
-                Intake.Intake(-0.4);
-            }else{
-                Intake.Intake(0);
-            }
-
+            if(gamepad2.a)
+                Intake.grab();
+            else if(gamepad2.y)
+                Intake.open();
+            else if(gamepad2.right_trigger >= 1)
+                Intake.close();
 
 
             // CASCADE
-            if(gamepad2.dpad_up) {
+            if(gamepad2.dpad_up)
                 cascade.teleOpCascade(speed2);
-            }
-            else if(gamepad2.dpad_down) {
+            else if(gamepad2.dpad_down)
                 cascade.teleOpCascade(-speed2);
-            }
-            else {
+            else
                 cascade.teleOpCascade(0);
-            }
-            if(gamepad2.left_bumper) {
+
+            if(gamepad2.left_bumper)
                 speed2 = 0.3;
-            }
-            else if(gamepad2.right_bumper) {
+            else if(gamepad2.right_bumper)
                 speed2 = 0.5;
-            }
 
         }
+
     }
+    
 }

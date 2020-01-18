@@ -143,5 +143,3 @@ public class Auto_RedDepot extends LinearOpMode {
     }
 
 }
-
-

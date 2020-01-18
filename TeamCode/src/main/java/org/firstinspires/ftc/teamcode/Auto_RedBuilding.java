@@ -154,5 +154,3 @@ public class Auto_RedBuilding extends LinearOpMode {
     }
 
 }
-
-

@@ -137,5 +137,3 @@ public class Auto_BlueBuilding extends LinearOpMode {
     }
 
 }
-
-

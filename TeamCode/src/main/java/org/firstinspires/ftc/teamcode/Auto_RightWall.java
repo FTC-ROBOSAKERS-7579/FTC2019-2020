@@ -1,6 +1,6 @@
 /*
 - Move forward a bit
-- Strafe left a bit
+- Strafe right a bit
 */
 
 package org.firstinspires.ftc.teamcode;
@@ -10,7 +10,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 @Autonomous
-public class Auto_LeftWall extends LinearOpMode {
+public class Auto_RightWall extends LinearOpMode {
     AutoDrivetrain drivetrain = new AutoDrivetrain();
     Intake intake = new Intake();
     Cascade cascade = new Cascade();
@@ -31,7 +31,7 @@ public class Auto_LeftWall extends LinearOpMode {
         // Move forward a bit
 
 
-        // Strafe left a bit
+        // Strafe right a bit
 
 
     }

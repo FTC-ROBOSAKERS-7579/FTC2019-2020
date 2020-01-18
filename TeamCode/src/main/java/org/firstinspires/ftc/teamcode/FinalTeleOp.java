@@ -23,7 +23,6 @@ public class FinalTeleOp extends LinearOpMode {
         driveTrain.init(hardwareMap);
         cascade.init(hardwareMap);
         Intake.init(hardwareMap);
-//        colorSensor.init(hardwareMap);
 
         telemetry.addData("Status", "Initialized");
         telemetry.update();
@@ -67,5 +66,5 @@ public class FinalTeleOp extends LinearOpMode {
         }
 
     }
-    
+
 }

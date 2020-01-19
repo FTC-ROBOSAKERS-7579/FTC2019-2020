@@ -1,3 +1,6 @@
+
+
+
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.ColorSensor;
@@ -14,7 +17,7 @@ public class FinalTeleOp extends LinearOpMode {
     Cascade cascade = new Cascade();
     Intake Intake = new Intake();
 
-    double speed1 = 0.5;
+    double speed1 = 0.7;
     double speed2 = 0.4;
 
     @Override
@@ -23,6 +26,7 @@ public class FinalTeleOp extends LinearOpMode {
         driveTrain.init(hardwareMap);
         cascade.init(hardwareMap);
         Intake.init(hardwareMap);
+//        colorSensor.init(hardwareMap);
 
         telemetry.addData("Status", "Initialized");
         telemetry.update();
@@ -32,39 +36,46 @@ public class FinalTeleOp extends LinearOpMode {
 
         while (opModeIsActive()) {
 
-//          // DRIVE TRAIN
+//            colorSensor.LED(true);
             driveTrain.arcadeDrive(gamepad1.left_stick_x, gamepad1.left_stick_y, gamepad1.right_stick_x, speed1);
-
-            if(gamepad1.left_bumper)
-                speed1 = 0.3;
-            else if(gamepad1.right_bumper)
-                speed1 = 0.7;
+            // DRIVE TRAIN
+            if(gamepad1.left_bumper){
+                speed1 = 0.6;
+            }
+            else if(gamepad1.right_bumper){
+                speed1 = 0.8;
+            }
 
 
             // INTAKE
-            if(gamepad2.a)
+            if(gamepad2.a) {
                 Intake.grab();
-            else if(gamepad2.y)
-                Intake.open();
-            else if(gamepad2.right_trigger >= 1)
+            }
+            else if (gamepad2.y) {
                 Intake.close();
+            }else{
+
+            }
+
 
 
             // CASCADE
-            if(gamepad2.dpad_up)
+            if(gamepad2.dpad_up) {
                 cascade.teleOpCascade(speed2);
-            else if(gamepad2.dpad_down)
+            }
+            else if(gamepad2.dpad_down) {
                 cascade.teleOpCascade(-speed2);
-            else
+            }
+            else {
                 cascade.teleOpCascade(0);
-
-            if(gamepad2.left_bumper)
+            }
+            if(gamepad2.left_bumper) {
                 speed2 = 0.3;
-            else if(gamepad2.right_bumper)
+            }
+            else if(gamepad2.right_bumper) {
                 speed2 = 0.5;
+            }
 
         }
-
     }
-
 }

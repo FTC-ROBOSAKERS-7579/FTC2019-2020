@@ -17,7 +17,7 @@ public class FinalTeleOp extends LinearOpMode {
     Cascade cascade = new Cascade();
     Intake Intake = new Intake();
 
-    double speed1 = 0.7;
+    double speed1 = 0.4;
     double speed2 = 0.4;
 
     @Override
@@ -40,10 +40,10 @@ public class FinalTeleOp extends LinearOpMode {
             driveTrain.arcadeDrive(gamepad1.left_stick_x, gamepad1.left_stick_y, gamepad1.right_stick_x, speed1);
             // DRIVE TRAIN
             if(gamepad1.left_bumper){
-                speed1 = 0.6;
+                speed1 = 0.3;
             }
             else if(gamepad1.right_bumper){
-                speed1 = 0.8;
+                speed1 = 0.5;
             }
 
 
@@ -75,6 +75,13 @@ public class FinalTeleOp extends LinearOpMode {
             else if(gamepad2.right_bumper) {
                 speed2 = 0.5;
             }
+
+
+            telemetry.addData("FL:", driveTrain.frontLeft.getPower());
+            telemetry.addData("FR:", driveTrain.frontRight.getPower());
+            telemetry.addData("BR:",driveTrain.backRight.getPower());
+            telemetry.addData("BL:",driveTrain.backLeft.getPower());
+            telemetry.update();
 
         }
     }

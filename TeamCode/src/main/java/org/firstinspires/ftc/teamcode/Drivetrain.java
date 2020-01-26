@@ -44,10 +44,19 @@ public class Drivetrain {
     */
 
     public void arcadeDrive(double linear, double rotation, double strafe, double speed){
-        frontLeft.setPower((linear - rotation + strafe) * speed/ 3.0);
-        frontRight.setPower((-linear - rotation - strafe) * speed / 3.4);
-        backLeft.setPower((linear - rotation - strafe) * speed / 2.8);
-        backRight.setPower((-linear - rotation + strafe) * speed / 2.8);
+//        frontLeft.setPower((linear - rotation + strafe) * speed/ 3.0);
+//        frontRight.setPower((-linear - rotation - strafe) * speed / 3.4);
+//        backLeft.setPower((linear - rotation - strafe) * speed / 2.8);
+//        backRight.setPower((-linear - rotation + strafe) * speed / 2.8);
+
+        frontLeft.setPower((linear - rotation + strafe) * speed );
+        frontRight.setPower((-linear - rotation - strafe) * speed * 0.5);
+        backLeft.setPower((linear - rotation - strafe) * speed );
+        backRight.setPower((-linear - rotation + strafe) * speed * 0.5);
+
+        if(rotation < 0 || rotation > 0){
+
+        }
     }
 
     public double currentCount(){

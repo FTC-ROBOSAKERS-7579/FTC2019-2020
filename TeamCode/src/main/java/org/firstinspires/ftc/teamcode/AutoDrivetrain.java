@@ -24,6 +24,8 @@ public class AutoDrivetrain  {
     DcMotor BACK_LEFT;
     DcMotor BACK_RIGHT;
 
+
+
     int POSITON_RIGHT = 0;
     int POSITION_LEFT = 0;
 
@@ -134,20 +136,20 @@ public class AutoDrivetrain  {
     }
 
 
-    public double getAngle(double targetAngle) {
+    public double getAngle() {
 
-//        double deltaAngle = getFinalAngle() - angle;
-//
-//        if(deltaAngle <= -180) {
-//            deltaAngle += 360;
-//        } else if (deltaAngle >= 180) {
-//            deltaAngle -= 360;
-//        }
-//
-//        finalAngle += deltaAngle;
+        double deltaAngle = getFinalAngle() - angle;
+
+        if(deltaAngle <= -180) {
+            deltaAngle += 360;
+        } else if (deltaAngle >= 180) {
+            deltaAngle -= 360;
+        }
+
+        finalAngle += deltaAngle;
         double angleError = 0;
 
-        angleError = (targetAngle - getFinalAngle());
+//        angleError = (targetAngle - finalAngle);
 
         angleError -= (360 *Math.floor(0.5+((angleError / 360.0))));
 
@@ -158,7 +160,7 @@ public class AutoDrivetrain  {
 
 
     public double getFinalAngle(){
-        angles = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYZ, AngleUnit.DEGREES);
+        angles = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
         return (angles.firstAngle + 360) % 360;
     }
 
@@ -166,23 +168,27 @@ public class AutoDrivetrain  {
 
     public void turn(int angle, double power) {
 
-
-        if (angle >= -180) {
+        if (angle > 0) {
+            while(getAngle() == angle){
+            }
             FRONT_RIGHT.setPower(power);
             FRONT_LEFT.setPower(-power);
             BACK_RIGHT.setPower(power);
             BACK_LEFT.setPower(-power);
-        } else if (angle <= 180) {
+        } else if (angle < 0) {
+            while(getAngle() == angle){
+            }
             FRONT_RIGHT.setPower(-power);
             FRONT_LEFT.setPower(power);
             BACK_RIGHT.setPower(-power);
             BACK_LEFT.setPower(power);
         }
-        FRONT_RIGHT.setPower(0);
-        FRONT_LEFT.setPower(0);
-        BACK_RIGHT.setPower(0);
-        BACK_LEFT.setPower(0);
-
+        else {
+            FRONT_RIGHT.setPower(0);
+            FRONT_LEFT.setPower(0);
+            BACK_RIGHT.setPower(0);
+            BACK_LEFT.setPower(0);
+        }
         resetAngle();
     }
 

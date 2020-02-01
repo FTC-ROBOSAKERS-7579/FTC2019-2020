@@ -5,24 +5,27 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class Cascade {
+
     DcMotor Cascade1;
     DcMotor Cascade2;
 
     int CPOSTION = 0;
     int CPOSTION2 = 0;
 
-
     double MOTOR_COUNT = 1120.0;
-    double HEIGHT = 20.75;
+    double HEIGHT = 21.50;
     double COUNT_PER_INCH = MOTOR_COUNT / HEIGHT;
 
     public void init(HardwareMap hardwareMap) {
+
         Cascade1 = hardwareMap.dcMotor.get("CAS1");
         Cascade2 = hardwareMap.dcMotor.get("CAS2");
         Cascade2.setDirection(DcMotorSimple.Direction.REVERSE);
-        }
 
-        public void autoinit(HardwareMap hardwareMap){
+    }
+
+    public void autoinit(HardwareMap hardwareMap){
+
             Cascade1 = hardwareMap.dcMotor.get("CAS1");
             Cascade2 = hardwareMap.dcMotor.get("CAS2");
 
@@ -31,11 +34,14 @@ public class Cascade {
 
             Cascade1.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             Cascade2.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
         }
 
         public void teleOpCascade(double power){
+
             Cascade1.setPower(power);
             Cascade2.setPower(power);
+
         }
 
         public void autoCascade(int distance, double power){
@@ -50,30 +56,28 @@ public class Cascade {
             Cascade2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
             if(Cascade1.getCurrentPosition() <= distance && Cascade2.getCurrentPosition() <= distance){
-                Cascade1.setPower(power * 0.015 / 20.75);
-                Cascade2.setPower(power * 0.015 / 20.75);
+
+                Cascade1.setPower(power - 0.015);
+                Cascade2.setPower(power - 0.015);
             }
 
 
-            while(Cascade1.isBusy() && Cascade2.isBusy()){
-            }
-            Cascade1.setPower(0);
-            Cascade2.setPower(0);
 
+            while(Cascade1.isBusy() && Cascade2.isBusy()){}
+
+            Cascade1.getZeroPowerBehavior();
+            Cascade2.getZeroPowerBehavior();
 
             Cascade1.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             Cascade2.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        }
-
-        public int getCPOSTION(){
-            return Cascade1.getCurrentPosition();
-        }
-        public int getCPOSTION2(){
-            return Cascade2.getCurrentPosition();
-        }
-
-
 
     }
 
+    public int getCPOSTION(){
+            return Cascade1.getCurrentPosition();
+        }
+    public int getCPOSTION2(){
+            return Cascade2.getCurrentPosition();
+        }
 
+}

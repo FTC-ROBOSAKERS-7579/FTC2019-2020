@@ -1,31 +1,48 @@
-package org.firstinspires.ftc.teamcode;
+/*
+Auto for:
+ - Blue side
+ - Depot side
+ - Parking near the wall
+ - Teammate has not moved the foundation
+Pseudo Code:
+ - Move forward until close to first block
+ - Strafe right until aligned with the first skyblock
+ - Grab block
+ - Back up a little
+ - Strafe left until aligned with middle of foundation
+ - Move forward a little
+ - Drop block
+ - Back up a little
+ - If the first skyblock was the third block, strafe right until aligned with first block
+ - If not, strafe right until aligned with the block, 3 blocks past the first skyblock
+ - Move forward a little
+ - Grab block
+ - Back up a little
+ - Strafe left until aligned with middle of foundation
+ - Move forward a little
+ - Drop block
+ - Back up until close to wall
+ - Strafe right until parked under alliance bridge
+*/
 
+package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 @Autonomous
 public class TestAuto extends LinearOpMode {
-    AutoDrivetrain driveTrain = new AutoDrivetrain();
-    TestCascade cascade = new TestCascade();
-    //    TestColorSensor colorSensor = new TestColorSensor();
+    AutoDrivetrain drivetrain = new AutoDrivetrain();
     Intake intake = new Intake();
+    Cascade cascade = new Cascade();
     ElapsedTime runtime = new ElapsedTime();
-    Cascade enCas = new Cascade();
-
-    int cas1 = 0;
-    int cas2 = 0;
-
 
     @Override
     public void runOpMode() throws InterruptedException {
-        driveTrain.init(hardwareMap);
+        drivetrain.init(hardwareMap);
+        intake.init(hardwareMap);
         cascade.init(hardwareMap);
-//        colorSensor.init(hardwareMap);
-        enCas.autoinit(hardwareMap);
-
 
         telemetry.addData("Status", "Initialized");
         telemetry.update();
@@ -33,44 +50,15 @@ public class TestAuto extends LinearOpMode {
         waitForStart();
         runtime.reset();
 
-//            driveTrain.drive(5, 0.5);
-//            sleep(500);
-//            runtime.reset();
-//
-//            driveTrain.strafe(5,0.2);
-//            sleep(500);
-//            runtime.reset();
-//
-//            driveTrain.drive(-5, 0.5);
-//            sleep(500);
-//            runtime.reset();
-//
-//            driveTrain.strafe(-5,0.2);
-//            sleep(500);
-//            runtime.reset();
+        cascade.autoCascade(30,0.2);
+        runtime.reset();
+        sleep(500);
 
-
-
-//                if(runtime.seconds() >= 3){
-//                    cascade.casPow(0);
-//               }
-//                cascade.casPow(0.1);
-
-//            enCas.autoCascade(5,0.2);
-//            runtime.reset();
-//            sleep(100);
-
-            if(getRuntime() <= 3){
-                intake.Intake(0.2);
-            }
-            runtime.reset();
-            sleep(100);
-
-            telemetry.addData("CAS1: " , cas1 += enCas.getCPOSTION());
-            telemetry.addData("CAS2: " , cas2 += enCas.getCPOSTION2());
-              telemetry.update();
+        intake.grab();
+        runtime.reset();
+        sleep(500);
 
     }
-}
 
+}
 

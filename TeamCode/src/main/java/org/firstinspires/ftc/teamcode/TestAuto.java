@@ -55,21 +55,15 @@ public class TestAuto extends LinearOpMode {
         waitForStart();
         runtime.reset();
 
-        drivetrain.turn(90,0.3);
+        cascade.autoCascade(30,0.2);
         runtime.reset();
-        sleep(100);
+        sleep(500);
+
+        intake.close();
+        runtime.reset();
+        sleep(500);
 
 
-        p += drivetrain.FRONT_RIGHT.getPower();
-        p2 += drivetrain.FRONT_LEFT.getPower();
-        p3 += drivetrain.BACK_LEFT.getPower();
-        p4 += drivetrain.BACK_RIGHT.getPower();
-
-        telemetry.addData("FR", p);
-        telemetry.addData("FL", p2 );
-        telemetry.addData("BL", p3 );
-        telemetry.addData("BR", p4 );
-        telemetry.update();
 
 
     }

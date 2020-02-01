@@ -44,6 +44,12 @@ public class Auto_RedBuilding extends LinearOpMode {
         waitForStart();
         runtime.reset();
 
+
+
+            cascade.autoCascade(5,0.2);
+            runtime.reset();
+            sleep(500);
+
         // Move forward a little
         drivetrain.drive(12, 0.2);
         runtime.reset();

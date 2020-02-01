@@ -20,6 +20,9 @@ public class FinalTeleOp extends LinearOpMode {
     double speed1 = 0.4;
     double speed2 = 0.4;
 
+    int casvaule = 0;
+    int casvaule2 = 0;
+
     @Override
     public void runOpMode() throws InterruptedException {
 
@@ -60,13 +63,24 @@ public class FinalTeleOp extends LinearOpMode {
             // CASCADE
             if(gamepad2.dpad_up) {
                 cascade.teleOpCascade(speed2);
+                telemetry.addData("CAS1: " , casvaule += cascade.getCPOSTION());
+                telemetry.addData("CAS2: " , casvaule2 += cascade.getCPOSTION2());
+                telemetry.update();
             }
             else if(gamepad2.dpad_down) {
                 cascade.teleOpCascade(-speed2);
+                telemetry.addData("CAS1: " , casvaule -= cascade.getCPOSTION());
+                telemetry.addData("CAS2: " , casvaule2 -= cascade.getCPOSTION2());
+                telemetry.update();
             }
-            else {
+            else if((!gamepad2.dpad_up && !gamepad2.dpad_down) || casvaule < 0) {
                 cascade.teleOpCascade(0);
             }
+
+            if(casvaule < 0){
+                cascade.teleOpCascade(0);
+            }
+
             if(gamepad2.left_bumper) {
                 speed2 = 0.3;
             }
@@ -74,12 +88,6 @@ public class FinalTeleOp extends LinearOpMode {
                 speed2 = 0.5;
             }
 
-
-            telemetry.addData("FL:", driveTrain.frontLeft.getPower());
-            telemetry.addData("FR:", driveTrain.frontRight.getPower());
-            telemetry.addData("BR:",driveTrain.backRight.getPower());
-            telemetry.addData("BL:",driveTrain.backLeft.getPower());
-            telemetry.update();
 
         }
     }

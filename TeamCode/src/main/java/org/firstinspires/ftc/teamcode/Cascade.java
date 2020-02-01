@@ -20,7 +20,7 @@ public class Cascade {
 
         Cascade1 = hardwareMap.dcMotor.get("CAS1");
         Cascade2 = hardwareMap.dcMotor.get("CAS2");
-        Cascade2.setDirection(DcMotorSimple.Direction.REVERSE);
+
 
     }
 
@@ -38,6 +38,11 @@ public class Cascade {
         }
 
         public void teleOpCascade(double power){
+            if(getCPOSTION() < 0){
+                Cascade1.setPower(0);
+                Cascade2.setPower(0);
+            }
+
 
             Cascade1.setPower(power);
             Cascade2.setPower(power);
@@ -65,8 +70,8 @@ public class Cascade {
 
             while(Cascade1.isBusy() && Cascade2.isBusy()){}
 
-            Cascade1.getZeroPowerBehavior();
-            Cascade2.getZeroPowerBehavior();
+            Cascade1.setPower(0);
+            Cascade2.setPower(0);
 
             Cascade1.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             Cascade2.setMode(DcMotor.RunMode.RUN_USING_ENCODER);

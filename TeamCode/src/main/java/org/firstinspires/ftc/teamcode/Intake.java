@@ -49,7 +49,8 @@ public class Intake {
 
     public void close() {
 
-        Intake.setPosition(0.5);
+        Intake.setPosition(0.25);
+        Intake2.setPosition(-0.25);
 
     }
 

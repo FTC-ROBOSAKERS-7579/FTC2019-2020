@@ -7,7 +7,6 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 public class Drivetrain {
 
-
     double count = 0;
 
     ElapsedTime runtime = new ElapsedTime();
@@ -17,46 +16,28 @@ public class Drivetrain {
     DcMotor backLeft;
     DcMotor backRight;
 
-
     private double S_R = 0.5;
 
     public void init(HardwareMap hardwareMap){
+
         frontLeft = hardwareMap.dcMotor.get("FL");
         frontRight = hardwareMap.dcMotor.get("FR");
         backLeft = hardwareMap.dcMotor.get("BL");
         backRight = hardwareMap.dcMotor.get("BR");
 
         frontLeft.setDirection(DcMotor.Direction.REVERSE);
-
-
         backLeft.setDirection(DcMotor.Direction.REVERSE);
 
-
-
     }
 
-   /* public void tankDrive(double right, double left){
-        frontLeft.setPower((left) * S_R);
-        frontRight.setPower((right) * S_R);
-        backLeft.setPower((left) * S_R);
-        backRight.setPower((right) * S_R);
-    }
-    */
 
     public void arcadeDrive(double linear, double rotation, double strafe, double speed){
-//        frontLeft.setPower((linear - rotation + strafe) * speed/ 3.0);
-//        frontRight.setPower((-linear - rotation - strafe) * speed / 3.4);
-//        backLeft.setPower((linear - rotation - strafe) * speed / 2.8);
-//        backRight.setPower((-linear - rotation + strafe) * speed / 2.8);
 
         frontLeft.setPower((linear - rotation + strafe) * speed );
         frontRight.setPower((-linear - rotation - strafe) * speed * 0.5);
         backLeft.setPower((linear - rotation - strafe) * speed );
         backRight.setPower((-linear - rotation + strafe) * speed * 0.5);
 
-        if(rotation < 0 || rotation > 0){
-
-        }
     }
 
     public double currentCount(){
@@ -68,4 +49,5 @@ public class Drivetrain {
         backRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         frontRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
     }
+
 }

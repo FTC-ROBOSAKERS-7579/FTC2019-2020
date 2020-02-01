@@ -225,21 +225,26 @@ public class AutoDrivetrain  {
             BACK_LEFT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
 
-            FRONT_RIGHT.setPower((-power) -0.07);
+            FRONT_RIGHT.setPower((-power) - 0.07);
             FRONT_LEFT.setPower((power) + 0.04);
             BACK_RIGHT.setPower((power) + 0.05);
-            BACK_LEFT.setPower((-power)-0.06);
+            BACK_LEFT.setPower((-power) - 0.06);
         }
 
 
 
 
 
-        if (distance < 0 && FRONT_RIGHT.getCurrentPosition() >= distance && FRONT_LEFT.getCurrentPosition() >= distance && BACK_LEFT.getCurrentPosition() >= distance && BACK_RIGHT.getCurrentPosition() >= distance) {
+        else if (distance < 0 && FRONT_RIGHT.getCurrentPosition() >= distance && FRONT_LEFT.getCurrentPosition() >= distance && BACK_LEFT.getCurrentPosition() >= distance && BACK_RIGHT.getCurrentPosition() >= distance) {
             FRONT_RIGHT.setTargetPosition(POSITON_RIGHT + (int) -(distance * COUNT_PER_INCH) + 90);
             FRONT_LEFT.setTargetPosition(POSITION_LEFT + (int) (distance * COUNT_PER_INCH) - 90);
             BACK_RIGHT.setTargetPosition(POSITION_RIGHT2 + (int) (distance * COUNT_PER_INCH) - 90);
             BACK_LEFT.setTargetPosition(POSITION_LEFT2 + (int) -(distance * COUNT_PER_INCH) + 90);
+
+            FRONT_RIGHT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            FRONT_LEFT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            BACK_RIGHT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            BACK_LEFT.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
             FRONT_RIGHT.setPower((power)+ 0.07);
             FRONT_LEFT.setPower((-power)- 0.04);

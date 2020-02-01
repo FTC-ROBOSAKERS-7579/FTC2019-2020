@@ -1,22 +1,36 @@
 /*
+Auto for:
+- Blue
+- Building
+
+Pseudo Code:
 - Move forward a little
 - Strafe right until aligned with first block
-- Move forward to brick
-- Grab brick
+- Move forward until near the first block
+- Grab block
+- Raise cascade a little
 - Back up a little
-- Strafe left until aligned with middle of foundation
-- Move forward a little
-- Drop brick
-- Back up a little
-- Strafe right until aligned with third brick
-- Move forward a little
-- Grab brick
-- Back up a little
-- Strafe left until aligned with right part of foundation
+- Strafe left until aligned with left part of foundation
 - Move forward a little
 - Drop block
 - Back up a little
-- Strafe right until under bridge
+- Strafe right until aligned with third block
+- Lower cascade a little
+- Move forward a little
+- Grab block
+- Raise cascade a little
+- Back up a little
+- Strafe left until aligned with middle part of foundation
+- Move forward a little
+- Drop block
+- Back up a little
+- Strafe right until aligned with fifth block
+- Lower cascade a little
+- Move forward a little
+- Grab block
+- Raise cascade a little
+- Back up a little
+- Strafe left until aligned with right part of foundation
 */
 
 package org.firstinspires.ftc.teamcode;
@@ -26,7 +40,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 @Autonomous
-public class Auto_BlueBuilding extends LinearOpMode {
+public class Auto2 extends LinearOpMode {
     AutoDrivetrain drivetrain = new AutoDrivetrain();
     Intake intake = new Intake();
     Cascade cascade = new Cascade();
@@ -50,67 +64,30 @@ public class Auto_BlueBuilding extends LinearOpMode {
         sleep(500);
 
         // Strafe right until aligned with first block
-        drivetrain.strafe(48, 0.5);
+        drivetrain.strafe(56, 0.5);
         runtime.reset();
         sleep(500);
 
-        // Move forward to brick
-        drivetrain.drive(24, 0.5);
+        // Move forward until near the first block
+        drivetrain.drive(22, 0.5);
         runtime.reset();
         sleep(500);
 
-        // Grab brick
+        // Grab block
         intake.grab();
         runtime.reset();
         sleep(500);
 
-        // Back up a little
-        drivetrain.drive(-10, 0.5);
-        runtime.reset();
-        sleep(500);
+        // Raise cascade a little
 
-        // Strafe left until aligned with middle of foundation
-        drivetrain.strafe(-72, 0.5);
-        runtime.reset();
-        sleep(500);
-
-        // Move forward a little
-        drivetrain.drive(10, 0.5);
-        runtime.reset();
-        sleep(500);
-
-        // Drop brick
-        intake.open();
-        runtime.reset();
-        sleep(500);
 
         // Back up a little
         drivetrain.drive(-10, 0.5);
         runtime.reset();
         sleep(500);
 
-        // Strafe right until aligned with third brick
-        drivetrain.strafe(88, 0.5);
-        runtime.reset();
-        sleep(500);
-
-        // Move forward a little
-        drivetrain.drive(10, 0.5);
-        runtime.reset();
-        sleep(500);
-
-        // Grab brick
-        intake.grab();
-        runtime.reset();
-        sleep(500);
-
-        // Back up a little
-        drivetrain.drive(-10, 0.5);
-        runtime.reset();
-        sleep(500);
-
-        // Strafe left until aligned with right part of foundation
-        drivetrain.strafe(-72, 0.5);
+        // Strafe left until aligned with left part of foundation
+        drivetrain.strafe(-78, 0.5);
         runtime.reset();
         sleep(500);
 
@@ -129,8 +106,98 @@ public class Auto_BlueBuilding extends LinearOpMode {
         runtime.reset();
         sleep(500);
 
-        // Strafe right until under bridge
-        drivetrain.strafe(24, 0.5);
+        // Strafe right until aligned with third block
+        drivetrain.strafe(94, 0.5);
+        runtime.reset();
+        sleep(500);
+
+        // Lower cascade a little
+
+
+        // Move forward a little
+        drivetrain.drive(10, 0.5);
+        runtime.reset();
+        sleep(500);
+
+        // Grab block
+        intake.grab();
+        runtime.reset();
+        sleep(500);
+
+        // Raise cascade a little
+
+
+        // Back up a little
+        drivetrain.drive(-10, 0.5);
+        runtime.reset();
+        sleep(500);
+
+        // Strafe left until aligned with middle part of foundation
+        drivetrain.strafe(-78, 0.5);
+        runtime.reset();
+        sleep(500);
+
+        // Move forward a little
+        drivetrain.drive(10, 0.5);
+        runtime.reset();
+        sleep(500);
+
+        // Drop block
+        intake.open();
+        runtime.reset();
+        sleep(500);
+
+        // Back up a little
+        drivetrain.drive(-10, 0.5);
+        runtime.reset();
+        sleep(500);
+
+        // Strafe right until aligned with fifth block
+        drivetrain.strafe(94, 0.5);
+        runtime.reset();
+        sleep(500);
+
+        // Lower cascade a little
+
+
+        // Move forward a little
+        drivetrain.drive(10, 0.5);
+
+        // Grab block
+        intake.grab();
+        runtime.reset();
+        sleep(500);
+
+        // Raise cascade a little
+
+
+        // Back up a little
+        drivetrain.drive(-10, 0.5);
+        runtime.reset();
+        sleep(500);
+
+        // Strafe left until aligned with right part of foundation
+        drivetrain.strafe(-78, 0.5);
+        runtime.reset();
+        sleep(500);
+
+        // Move forward a little
+        drivetrain.drive(10, 0.5);
+        runtime.reset();
+        sleep(500);
+
+        // Drop block
+        intake.open();
+        runtime.reset();
+        sleep(500);
+
+        // Back up a little
+        drivetrain.drive(-10, 0.5);
+        runtime.reset();
+        sleep(500);
+
+        // Strafe right until aligned with alliance bridge
+        drivetrain.strafe(42, 0.5);
         runtime.reset();
         sleep(500);
 

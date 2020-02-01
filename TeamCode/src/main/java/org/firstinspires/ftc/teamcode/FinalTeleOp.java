@@ -15,7 +15,7 @@ public class FinalTeleOp extends LinearOpMode {
     ElapsedTime runtime = new ElapsedTime();
     Drivetrain driveTrain = new Drivetrain();
     Cascade cascade = new Cascade();
-    Intake Intake = new Intake();
+    Intake intake = new Intake();
 
     double speed1 = 0.4;
     double speed2 = 0.4;
@@ -25,8 +25,7 @@ public class FinalTeleOp extends LinearOpMode {
 
         driveTrain.init(hardwareMap);
         cascade.init(hardwareMap);
-        Intake.init(hardwareMap);
-//        colorSensor.init(hardwareMap);
+        intake.init(hardwareMap);
 
         telemetry.addData("Status", "Initialized");
         telemetry.update();
@@ -36,7 +35,6 @@ public class FinalTeleOp extends LinearOpMode {
 
         while (opModeIsActive()) {
 
-//            colorSensor.LED(true);
             driveTrain.arcadeDrive(gamepad1.left_stick_x, gamepad1.left_stick_y, gamepad1.right_stick_x, speed1);
             // DRIVE TRAIN
             if(gamepad1.left_bumper){
@@ -49,10 +47,10 @@ public class FinalTeleOp extends LinearOpMode {
 
             // INTAKE
             if(gamepad2.a) {
-                Intake.teleGrab(-0.25,0.25);
+                intake.grab();
             }
             else if (gamepad2.y) {
-                Intake.teleClose(0.25, -0.25);
+                intake.open();
             }
 
 
@@ -73,14 +71,6 @@ public class FinalTeleOp extends LinearOpMode {
             else if(gamepad2.right_bumper) {
                 speed2 = 0.5;
             }
-
-
-            telemetry.addData("FL:", driveTrain.frontLeft.getPower());
-            telemetry.addData("FR:", driveTrain.frontRight.getPower());
-            telemetry.addData("BR:",driveTrain.backRight.getPower());
-            telemetry.addData("BL:",driveTrain.backLeft.getPower());
-            telemetry.update();
-
         }
     }
 }

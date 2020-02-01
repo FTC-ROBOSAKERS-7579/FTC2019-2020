@@ -38,11 +38,6 @@ public class TestAuto extends LinearOpMode {
     Cascade cascade = new Cascade();
     ElapsedTime runtime = new ElapsedTime();
 
-
-    double p = 0;
-    double p2 = 0;
-    double p3 = 0;
-    double p4 = 0;
     @Override
     public void runOpMode() throws InterruptedException {
         drivetrain.init(hardwareMap);
@@ -55,21 +50,9 @@ public class TestAuto extends LinearOpMode {
         waitForStart();
         runtime.reset();
 
-        drivetrain.turn(90,0.3);
+        drivetrain.strafe(-10, 0.5);
         runtime.reset();
-        sleep(100);
 
-
-        p += drivetrain.FRONT_RIGHT.getPower();
-        p2 += drivetrain.FRONT_LEFT.getPower();
-        p3 += drivetrain.BACK_LEFT.getPower();
-        p4 += drivetrain.BACK_RIGHT.getPower();
-
-        telemetry.addData("FR", p);
-        telemetry.addData("FL", p2 );
-        telemetry.addData("BL", p3 );
-        telemetry.addData("BR", p4 );
-        telemetry.update();
 
 
     }

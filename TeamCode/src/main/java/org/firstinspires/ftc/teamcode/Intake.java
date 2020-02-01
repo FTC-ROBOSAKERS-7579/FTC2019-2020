@@ -32,4 +32,9 @@ public class Intake {
 
     }
 
+    public void zero() {
+
+        Intake.setPosition(0);
+        Intake2.setPosition(0);
+    }
 }

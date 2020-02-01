@@ -50,10 +50,13 @@ public class TestAuto extends LinearOpMode {
         waitForStart();
         runtime.reset();
 
-        drivetrain.strafe(-10, 0.5);
+        cascade.autoCascade(30,0.2);
         runtime.reset();
+        sleep(500);
 
-
+        intake.grab();
+        runtime.reset();
+        sleep(500);
 
     }
 

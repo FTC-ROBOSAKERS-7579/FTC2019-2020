@@ -49,10 +49,10 @@ public class Teleop extends LinearOpMode {
 
             // INTAKE
             if(gamepad2.a) {
-                Intake.teleGrab(-0.25,0.25);
+                Intake.grab();
             }
             else if (gamepad2.y) {
-                Intake.teleClose(0.25, -0.25);
+                Intake.open();
             }
 
 

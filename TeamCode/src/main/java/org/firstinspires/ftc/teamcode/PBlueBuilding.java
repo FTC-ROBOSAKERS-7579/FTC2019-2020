@@ -1,15 +1,17 @@
 /*
 - Move forward until close to neutral bridge
-- Strafe left a bit
+- Strafe right a bit
 */
-package org.firstinspires.ftc.teamcode;
+
+
+        package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-@Autonomous(name = "RedDepot_Outside")
-public class PRedDepot extends LinearOpMode {
+@Autonomous(name = "BlueBuilding_Outside")
+public class PBlueBuilding extends LinearOpMode {
     AutoDrivetrain drivetrain = new AutoDrivetrain();
     Intake intake = new Intake();
     Cascade cascade = new Cascade();
@@ -32,11 +34,13 @@ public class PRedDepot extends LinearOpMode {
         runtime.reset();
         sleep(500);
 
-        // Strafe left a bit
-        drivetrain.strafe(-10, 0.5);
+        // Strafe right a bit
+        drivetrain.strafe(10, 0.5);
         runtime.reset();
         sleep(500);
 
     }
 
 }
+
+

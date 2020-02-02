@@ -26,7 +26,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 @Autonomous(name = "BlueBuilding")
-public class AutoBlueBuilding extends LinearOpMode {
+public class BlueBuilding extends LinearOpMode {
     AutoDrivetrain drivetrain = new AutoDrivetrain();
     Intake intake = new Intake();
     Cascade cascade = new Cascade();

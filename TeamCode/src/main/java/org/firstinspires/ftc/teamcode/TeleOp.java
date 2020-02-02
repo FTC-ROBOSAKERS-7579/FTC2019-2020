@@ -1,14 +1,10 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.hardware.ColorSensor;
+
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-
-@TeleOp
-public class Teleop extends LinearOpMode {
+public class TeleOp extends LinearOpMode {
     ElapsedTime runtime = new ElapsedTime();
     DriveTrain driveTrain = new DriveTrain();
     Cascade cascade = new Cascade();
@@ -26,7 +22,6 @@ public class Teleop extends LinearOpMode {
         driveTrain.init(hardwareMap);
         cascade.init(hardwareMap);
         Intake.init(hardwareMap);
-//        colorSensor.init(hardwareMap);
 
         telemetry.addData("Status", "Initialized");
         telemetry.update();
@@ -70,9 +65,7 @@ public class Teleop extends LinearOpMode {
                 telemetry.addData("CAS2: " , casvaule2 -= cascade.getCPOSTION2());
                 telemetry.update();
             }
-            else if((!gamepad2.dpad_up && !gamepad2.dpad_down) || casvaule < 0) {
-                cascade.teleOpCascade(0);
-            }
+
 
             if(casvaule < 0){
                 cascade.teleOpCascade(0);
